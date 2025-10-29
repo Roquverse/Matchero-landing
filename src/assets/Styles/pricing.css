@@ -1,0 +1,196 @@
+/* Pricing Page Styles */
+.pricing-page {
+  background-color: var(--green-20); /* Light green background */
+  min-height: 100vh;
+}
+
+/* Pricing Form Section */
+.pricing-form-section {
+  background: white;
+  border-radius: 16px;
+  /* padding: 30px; */
+  width: 80%;
+  height: 30vh;
+}
+
+.pricing-form-container {
+  max-width: 40%; /* 60% smaller than original */
+  margin: 0 auto;
+}
+
+.pricing-form-card {
+  background: white;
+  border-radius: 16px;
+  padding: 48px;
+  width: 100%;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 4px 52px 0 rgba(17, 24, 39, 0.1);
+  border-radius: 40px;
+}
+
+.pricing-title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.pricing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  color: #111827;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.privacy-notice {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.privacy-link {
+  color: #22c55e;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.privacy-link:hover {
+  color: #16a34a;
+}
+
+.pricing-button {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.pricing-form-container {
+  position: absolute;
+  top: 15vh;
+  right: 10vh;
+  width: 50%;
+  height: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .pricing-form-container {
+    max-width: 100%; /* Slightly larger on tablet */
+  }
+  .pricing-form-section {
+    width: 100%;
+    height: 55vh;
+  }
+  .pricing-form-container {
+    position: relative;
+    top: -20vh;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-form-container {
+    max-width: 90%; /* Nearly full width on mobile */
+  }
+
+  .pricing-form-card {
+    padding: 24px;
+  }
+
+  .pricing-title {
+    font-size: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .privacy-notice {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-form-card {
+    padding: 20px;
+  }
+
+  .pricing-title {
+    font-size: 22px;
+  }
+  .pricing-form-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    /* margin-top: -10vh; */
+  }
+  .pricing-form-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -25vh;
+    right: 2.7vh;
+  }
+}

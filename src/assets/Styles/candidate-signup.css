@@ -1,0 +1,167 @@
+/* Candidate Signup Page Styles */
+.candidate-signup-section {
+  background-color: #f0f9ff;
+  padding: 60px 0;
+  min-height: 80vh;
+}
+
+.signup-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.signup-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.signup-title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.login-prompt {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 32px 0;
+}
+
+.login-link {
+  color: #3a6202;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.login-link:hover {
+  color: #2d4a02;
+  text-decoration: underline;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-input {
+  width: 100%;
+}
+
+.privacy-notice {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 8px 0 0 0;
+}
+
+.privacy-link {
+  color: #3a6202;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.privacy-link:hover {
+  color: #2d4a02;
+}
+
+.signup-button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.faq-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .signup-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 32px;
+  }
+
+  .signup-form-card {
+    padding: 32px;
+  }
+
+  .signup-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .candidate-signup-section {
+    padding: 40px 0;
+  }
+
+  .signup-container {
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .signup-form-card {
+    padding: 24px;
+  }
+
+  .signup-title {
+    font-size: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .login-prompt {
+    font-size: 15px;
+  }
+
+  .privacy-notice {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-form-card {
+    padding: 20px;
+  }
+
+  .signup-title {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,28 @@
+/* Footer Styles */
+.footer {
+  background-color: var(--green-20);
+  padding: 64px 64px;
+  width: 100%;
+}
+
+.footer-logo {
+  width: 220px;
+  object-fit: contain;
+}
+.bg-white {
+  background-color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 48px 16px;
+  }
+}
+
+/* Small mobile footer styles */
+@media (max-width: 480px) {
+  .footer {
+    padding: 32px 16px;
+  }
+}

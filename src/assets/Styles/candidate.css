@@ -1,0 +1,143 @@
+.bottom-vector-candidate {
+  position: absolute;
+  top: 45vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.page-bottom-section {
+  position: absolute;
+  top: 75vh;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: transparent;
+}
+.page-bottom-section p {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  width: 758px;
+}
+/* Floating Button */
+.floating-button-container {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.floating-button {
+  background: white;
+  color: #1e293b;
+  border: 2px solid #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.floating-button:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+.bottom-vector-2 {
+  /* position: absolute;
+  top: 180vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; */
+  margin-top: -300px;
+}
+.how-it-works {
+  background-color: var(--cyan-20);
+  margin-top: "-150px";
+  gap: "100px";
+  width: 100%;
+}
+.htw-image-container {
+  width: 100%;
+  height: 595px;
+}
+.gap32 {
+  gap: 32px;
+}
+.htw-image {
+  border-radius: 48px;
+  border: 2px solid #ffffff;
+}
+.htw-heading {
+  color: var(--Type-Primary, #020617);
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+.htw-step-heading {
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+.htw-step-desc {
+  color: var(--Type-Secondary, #475569);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+}
+candidate-sections .top-section {
+  height: 60vh;
+}
+.candidate-sections .candidate-headshots {
+  width: 20px;
+  height: 20px;
+  margin-top: -200px;
+}
+@media screen and (max-width: 480px) {
+  .bottom-vector-candidate {
+    top: 52vh;
+  }
+  /* .page-bottom-section {
+    top: 70vh;
+  } */
+  .page-bottom-section p {
+    width: 100%;
+    font-size: 24px;
+  }
+  .htw-image {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+  .htw-text {
+    margin-top: -30vh;
+  }
+  .how-it-works {
+    margin-top: -50px;
+  }
+  .job-card-container {
+    height: 500px;
+  }
+  .candidate-map-container {
+    height: 260vh;
+  }
+}
