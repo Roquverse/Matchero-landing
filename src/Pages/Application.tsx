@@ -3,10 +3,6 @@ import JobListing from "../Components/JobListing";
 import "../assets/Styles/application.css";
 
 const Application = () => {
-  const handleButtonClick = () => {
-    console.log("Start a Matchero profile clicked");
-  };
-
   return (
     <div>
       <JobHero
@@ -15,8 +11,6 @@ const Application = () => {
         description="Start a Matchero profile to unlock matches like these"
         image="/job-hero.png"
         imageAlt="Professional man looking up thoughtfully"
-        buttonText="Start a Matchero profile"
-        onButtonClick={handleButtonClick}
         breadcrumb={{
           items: [
             { text: "Home", link: "/" },

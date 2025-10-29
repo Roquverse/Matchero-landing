@@ -8,8 +8,6 @@ interface JobHeroProps {
   description?: string;
   image?: string;
   imageAlt?: string;
-  buttonText?: string;
-  onButtonClick?: () => void;
   className?: string;
   breadcrumb?: {
     items: Array<{
@@ -39,8 +37,6 @@ const JobHero = ({
   description,
   image = "/job-hero.png",
   imageAlt = "Job hero image",
-  buttonText = "Get started",
-  onButtonClick,
   className = "",
   breadcrumb,
   showSearchBar = false,
