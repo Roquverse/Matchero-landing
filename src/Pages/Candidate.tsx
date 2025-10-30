@@ -4,6 +4,7 @@ import InterviewDashboard from "../Components/InterviewDashboard";
 import HowItWorks from "../Components/HowItworks";
 import OnboardingSection from "../Components/OnboardingSection";
 import CandidateMap from "../Components/CandidateMap";
+import JobListing from "../Components/JobListing";
 import "../assets/Styles/candidate.css";
 import Button from "../Components/Button";
 
@@ -90,6 +91,11 @@ const Candidate = () => {
 
       {/* Candidate Map Section */}
       <CandidateMap />
+
+      <JobListing maxCards={3} />
+      {/* <div className="candidate-map-job-listing-section">
+        <JobListing maxCards={3} />
+      </div> */}
     </div>
   );
 };

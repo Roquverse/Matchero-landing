@@ -103,13 +103,25 @@
   line-height: 24px;
   letter-spacing: -0.32px;
 }
-candidate-sections .top-section {
+.candidate-sections .top-section {
   height: 60vh;
 }
 .candidate-sections .candidate-headshots {
   width: 20px;
   height: 20px;
   margin-top: -200px;
+}
+.candidate-map-job-listing-section {
+  height: 100vh;
+  background-color: var(--cyan-20);
+}
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 @media screen and (max-width: 480px) {
   .bottom-vector-candidate {
@@ -134,10 +146,38 @@ candidate-sections .top-section {
   .how-it-works {
     margin-top: -50px;
   }
-  .job-card-container {
+  /* .job-card-container {
     height: 500px;
   }
   .candidate-map-container {
-    height: 260vh;
+    height: 80vh;
+  } */
+  .candidate-map-job-listing-section {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .bottom-vector-candidate {
+    top: 53vh;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .candidate-map-job-listing-section {
+    height: 65vh;
+  }
+}
+@media screen and (max-width: 375px) {
+  .bottom-vector-candidate {
+    top: 76vh;
+  }
+  .page-bottom-section {
+    top: 90vh;
+  }
+  .how-text {
+    padding-top: 100px;
+  }
+  .htw-grid {
+    gap: 5px;
   }
 }

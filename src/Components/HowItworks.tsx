@@ -5,7 +5,7 @@ const HowItWorks = () => {
   return (
     <div className="how-it-works py-20">
       <div className="w-full px-4 md:px-16">
-        <div className="grid lg:grid-cols-2 items-center gap32">
+        <div className="grid lg:grid-cols-2 items-center gap32 htw-grid">
           {/* Left Column - Image */}
           <div className="flex justify-center lg:justify-start">
             <div className="relative">

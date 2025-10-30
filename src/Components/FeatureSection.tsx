@@ -12,7 +12,7 @@ interface FeatureSectionProps {
 const FeatureSection = ({ cards }: FeatureSectionProps) => {
   return (
     <section className="bg-green-20 py-10 pb-32 md:pb-10 relative features-section">
-      <div className="w-full px-16">
+      <div className="w-full px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cards.map((feature, index) => (
             <FeatureCard

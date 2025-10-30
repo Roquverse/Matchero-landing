@@ -1,0 +1,98 @@
+/* Application-specific Job Listing Styles */
+.application-job-listing-section {
+  background-color: transparent;
+  padding: 64px 0;
+  position: relative;
+  z-index: 10;
+  margin-top: -150px;
+  height: 50vh;
+}
+
+.application-job-listing-container {
+  width: 100%;
+  padding: 0 64px;
+  box-sizing: border-box;
+  height: 50vh;
+}
+
+.application-job-listing-container h2 {
+  color: var(--Type-Primary, #020617);
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.application-jobs-title {
+  font-family: "DM Sans";
+  font-size: 28px;
+  font-weight: 700;
+  color: #020617;
+  margin: 0;
+}
+
+.application-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.application-jobs-view-all {
+  margin-top: 8px;
+}
+
+.application-view-all-button {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  color: #1e293b;
+  border: 2px solid #1e293b;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.application-view-all-button:hover {
+  background: #1e293b;
+  color: white;
+}
+
+.bottom-vector-application {
+  position: absolute;
+  top: 170vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .application-job-listing-container {
+    padding: 0 16px;
+  }
+  .application-jobs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .application-job-listing-container {
+    padding: 0 16px;
+  }
+  .application-jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .application-job-listing-section {
+    padding: 48px 0 88px 0; /* ensure space above footer */
+  }
+}

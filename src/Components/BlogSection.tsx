@@ -25,7 +25,7 @@ const BlogSection = ({
   const displayCards = maxCards ? cards.slice(0, maxCards) : cards;
   return (
     <section className={`py-16 bg-white ${className}`}>
-      <div className="w-full px-16">
+      <div className="w-full px-4 md:px-16">
         {/* Section Title */}
         <h2 className="sub-title2">{title}</h2>
 

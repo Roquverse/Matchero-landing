@@ -7,7 +7,7 @@
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  height: 105vh;
+  height: 95vh;
 }
 
 .job-hero-content {
@@ -25,7 +25,7 @@
   gap: 64px;
   flex: 1 0 0;
   width: 461px;
-  margin-top: -37vh;
+  margin-top: -25vh;
   justify-content: space-between;
   align-items: flex-start;
 }
@@ -266,7 +266,7 @@
 }
 
 .job-hero-image img {
-  width: 85%;
+  width: 80%;
   height: 100%;
   object-fit: cover;
   object-position: center;

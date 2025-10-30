@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import "../assets/Styles/candidate-map.css";
-import JobListing from "./JobListing";
 
 const CandidateMap = () => {
   const navigate = useNavigate();
@@ -11,20 +10,15 @@ const CandidateMap = () => {
   };
 
   return (
-    <div className="candidate-map-container relative">
-      <section className="candidate-map-section">
-        <div className="map-container">
-          {/* World Map Background */}
-          <div className="world-map">
-            <img
-              src="/Candidate map.svg"
-              alt="World Map"
-              className="map-image"
-            />
-          </div>
+    <section className="candidate-map-section">
+      <div className="map-container">
+        {/* World Map Background */}
+        <div className="world-map">
+          <img src="/Candidate map.svg" alt="World Map" className="map-image" />
+        </div>
 
-          {/* Profile Pictures Scattered Across Map */}
-
+        {/* Profile Pictures Scattered Across Map */}
+        <div className="profile-pictures-container">
           {/* North America East Coast - with speech bubble */}
           <div className="absolute north-america">
             <div className="relative candidate-map-profile">
@@ -120,34 +114,32 @@ const CandidateMap = () => {
               />
             </div>
           </div>
+        </div>
 
-          {/* Right Side Content - Multi-Language Access */}
-          <div className="absolute right-content">
-            <div className="content-block">
-              <h1 className="htw-heading">Multi-Language Access</h1>
-              <h3 className="map-content-subtitle">
-                Designed for global talent — English, French, and Spanish
-                supported at launch.
-              </h3>
-              <p className="htw-step-desc">
-                Tell us what you value—team culture, location, tech stack.
-              </p>
-              <Button
-                variant="filled"
-                color="white"
-                size="lg"
-                onClick={handleJoinClick}
-                className="content-button"
-              >
-                Join free. Start matching.
-              </Button>
-            </div>
+        {/* Right Side Content - Multi-Language Access */}
+        <div className="absolute right-content">
+          <div className="content-block">
+            <h1 className="htw-heading">Multi-Language Access</h1>
+            <h3 className="map-content-subtitle">
+              Designed for global talent — English, French, and Spanish
+              supported at launch.
+            </h3>
+            <p className="htw-step-desc">
+              Tell us what you value—team culture, location, tech stack.
+            </p>
+            <Button
+              variant="filled"
+              color="white"
+              size="lg"
+              onClick={handleJoinClick}
+              className="content-button"
+            >
+              Join free. Start matching.
+            </Button>
           </div>
         </div>
-      </section>
-      {/* Job Listing Section - Limited to 3 cards */}
-      <JobListing maxCards={3} />
-    </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
-import "../assets/Styles/job-listing.css";
 import JobCard from "./JobCard";
+import "../assets/Styles/application-job-listing.css";
 
-interface JobListingProps {
+interface ApplicationJobListingProps {
   maxCards?: number;
   className?: string;
 }
 
-const JobListing = ({ maxCards, className }: JobListingProps = {}) => {
+const ApplicationJobListing = ({
+  maxCards,
+  className,
+}: ApplicationJobListingProps = {}) => {
   const jobCards = [
     {
       company: "Palmpay",
@@ -75,87 +77,18 @@ const JobListing = ({ maxCards, className }: JobListingProps = {}) => {
       logoBackgroundColor: "#e5f5f9",
       jobId: 6,
     },
-    {
-      company: "Palmpay",
-      logo: "/palmpay.png",
-      title: "Data Scientist",
-      location: "Lagos, Nigeria",
-      isRemote: true,
-      image: "/blog1.png",
-      imageAlt: "Palmpay Team",
-      logoBackgroundColor: "#e5f5f9",
-      jobId: 7,
-    },
-    {
-      company: "ZOPA",
-      logo: "/zopa.png",
-      title: "DevOps Engineer",
-      location: "London, UK",
-      isRemote: true,
-      image: "/blog2.png",
-      imageAlt: "ZOPA Team",
-      logoBackgroundColor: "#e5f5f9",
-      jobId: 8,
-    },
-    {
-      company: "Palmpay",
-      logo: "/palmpay.png",
-      title: "Mobile Developer",
-      location: "Lagos, Nigeria",
-      isRemote: false,
-      image: "/blog1.png",
-      imageAlt: "Palmpay Team",
-      logoBackgroundColor: "#e5f5f9",
-      jobId: 9,
-    },
-    {
-      company: "ZOPA",
-      logo: "/zopa.png",
-      title: "Full Stack Developer",
-      location: "London, UK",
-      isRemote: true,
-      image: "/blog2.png",
-      imageAlt: "ZOPA Team",
-      logoBackgroundColor: "#e5f5f9",
-      jobId: 10,
-    },
-    {
-      company: "Palmpay",
-      logo: "/palmpay.png",
-      title: "QA Engineer",
-      location: "Lagos, Nigeria",
-      isRemote: true,
-      image: "/blog1.png",
-      imageAlt: "Palmpay Team",
-      logoBackgroundColor: "#e5f5f9",
-      jobId: 11,
-    },
-    {
-      company: "ZOPA",
-      logo: "/zopa.png",
-      title: "Technical Writer",
-      location: "London, UK",
-      isRemote: true,
-      image: "/blog2.png",
-      imageAlt: "ZOPA Team",
-      logoBackgroundColor: "#e5f5f9",
-      jobId: 12,
-    },
   ];
 
-  // Limit cards if maxCards is specified
   const displayCards = maxCards ? jobCards.slice(0, maxCards) : jobCards;
 
   return (
-    <section className={`py-16 job-listing-section ${className || ""}`}>
-      <div className="w-full job-listing-container">
-        {/* Heading */}
-        <div className="mb-12">
-          <h2 className="htw-heading">Explore open roles</h2>
+    <section className={`application-job-listing-section ${className || ""}`}>
+      <div className="application-job-listing-container">
+        <div className="mb-10">
+          <h2 className="application-jobs-title">Explore open roles</h2>
         </div>
 
-        {/* Job Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="application-jobs-grid">
           {displayCards.map((job, index) => (
             <JobCard
               key={index}
@@ -172,15 +105,14 @@ const JobListing = ({ maxCards, className }: JobListingProps = {}) => {
           ))}
         </div>
 
-        {/* View All Button */}
-        <div>
-          <Link to="/application" className="view-all-button">
+        <div className="application-jobs-view-all">
+          <a href="/application" className="application-view-all-button">
             View all open roles →
-          </Link>
+          </a>
         </div>
       </div>
     </section>
   );
 };
 
-export default JobListing;
+export default ApplicationJobListing;

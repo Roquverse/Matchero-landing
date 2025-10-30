@@ -52,3 +52,16 @@
     height: 45vh;
   }
 }
+@media screen and (max-width: 420px) {
+  .interview-dashboard-section {
+    height: 50vh;
+  }
+  .dashboard-image-container {
+    margin-top: -50px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .interview-dashboard-section {
+    height: 65vh;
+  }
+}
