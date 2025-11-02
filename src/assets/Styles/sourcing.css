@@ -1,0 +1,838 @@
+.sourcing-top-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.sourcing-top-section h2 {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  padding-bottom: 18px;
+}
+
+.sourcing-top-section p {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL/Regular */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.48px;
+  width: 712px;
+  margin: 0 auto;
+}
+
+/* Sourcing Page Styles */
+.sourcing-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: block;
+  position: relative;
+}
+
+/* Sections */
+.sourcing-section {
+  padding: 80px 0;
+  width: 100%;
+}
+
+.sourcing-section-alt {
+  background-color: transparent;
+}
+
+.sourcing-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 64px;
+  box-sizing: border-box;
+}
+
+/* Content Grid */
+.sourcing-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sourcing-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sourcing-section-title {
+  color: var(--Type-Primary, #020617);
+
+  /* Text XL/SemiBold */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+
+.sourcing-section-title em {
+  font-style: italic;
+}
+
+.sourcing-title-center {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.sourcing-section-description {
+  color: var(--Type-Primary, #020617);
+
+  /* Text XL/Regular */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+
+.sourcing-description-center {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Image Wrapper */
+.sourcing-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.sourcing-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Feature List in Text Content */
+.sourcing-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sourcing-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sourcing-check-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--green-800);
+  flex-shrink: 0;
+}
+
+.sourcing-feature-item span {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--Type-Primary, #020617);
+}
+
+/* How it works Section */
+.sourcing-how-it-works {
+  background-color: white;
+  margin-top: -100px;
+}
+.sourcing-how-it-works h2 {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+/* .sourcing-how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+} */
+
+.sourcing-how-it-works-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sourcing-how-it-works-title {
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.sourcing-how-it-works-description {
+  color: var(--Type-Secondary, #475569);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Feature Cards */
+.sourcing-features {
+  background-color: var(--green-20);
+}
+
+.sourcing-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 0 64px;
+}
+
+.sourcing-feature-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.sourcing-feature-card-image {
+  width: 100%;
+  height: 200px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sourcing-feature-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sourcing-feature-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sourcing-feature-title {
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  margin-bottom: 16px;
+}
+
+.sourcing-feature-description {
+  color: var(--Type-Secondary, #475569);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+}
+
+/* Feature List Section */
+.sourcing-feature-list-section {
+  background-color: white;
+  margin-top: -100px;
+}
+
+.sourcing-feature-list-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.sourcing-feature-list-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+}
+
+.sourcing-check-icon-large {
+  width: 24px;
+  height: 24px;
+  color: var(--green-800);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.sourcing-feature-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.sourcing-feature-list-title {
+  color: var(--Type-Primary, #020617);
+
+  /* Text XL/SemiBold */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+
+.sourcing-feature-list-description {
+  color: var(--Type-Secondary, #475569);
+
+  /* Text base/SemiBold */
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.32px;
+}
+
+/* What's Next Section */
+.sourcing-whats-next {
+  background-color: white;
+  text-align: center;
+  margin-top: -50px;
+}
+
+.sourcing-whats-next-title {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  margin-bottom: 24px;
+}
+.sourcing-whats-next-text {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL/Regular */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.48px;
+  width: 712px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+
+.sourcing-whats-next-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* Wave Transition */
+.sourcing-wave-transition {
+  transform: scaleY(-1) scaleX(-1);
+  position: absolute;
+  top: 340vh;
+  left: 0;
+  z-index: 0;
+}
+
+/* People Section */
+.sourcing-people-section {
+  background-color: #d9f99d;
+  padding: 80px 0;
+  width: 100%;
+  height: 450px;
+}
+
+.sourcing-people-grid {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+}
+
+.sourcing-person {
+  width: 22vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sourcing-person img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  margin-top: -80px;
+}
+
+/* Mobile Slider */
+.sourcing-people-slider-container {
+  display: none;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.sourcing-people-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.sourcing-person-slide {
+  min-width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 20px;
+}
+
+.sourcing-person-slide img {
+  width: auto;
+  max-width: 250px;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: -80px;
+}
+
+/* Slider Dots */
+.sourcing-slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.sourcing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.sourcing-dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.sourcing-dot.active {
+  background-color: rgba(255, 255, 255, 1);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Responsive for People Section */
+@media screen and (max-width: 1024px) {
+  .sourcing-people-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sourcing-people-section {
+    padding: 64px 0;
+  }
+
+  .sourcing-people-desktop {
+    display: none !important;
+  }
+
+  .sourcing-people-slider-container {
+    display: block;
+  }
+
+  .sourcing-people-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .sourcing-person {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sourcing-people-section {
+    padding: 48px 0;
+    height: auto;
+  }
+
+  .sourcing-people-desktop {
+    display: none !important;
+  }
+
+  .sourcing-people-slider-container {
+    display: block;
+  }
+
+  .sourcing-person-slide {
+    padding: 0 12px;
+  }
+
+  .sourcing-person-slide img {
+    max-width: 180px;
+    max-height: 300px;
+  }
+}
+
+/* Integrations */
+.sourcing-integrations {
+  background-color: #ffffff;
+}
+
+/* Mobile Integration Slider */
+.sourcing-integrations-slider-container {
+  display: none;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.sourcing-integrations-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.sourcing-integration-slide {
+  min-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sourcing-integration-slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.sourcing-integration-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.sourcing-integration-dot:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sourcing-integration-dot.active {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .sourcing-integrations-slider-container {
+    display: block;
+  }
+}
+
+.sourcing-integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.sourcing-integration-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sourcing-integration-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.sourcing-integration-logo:hover {
+  opacity: 1;
+}
+
+.sourcing-integration-subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: var(--Type-Secondary, #475569);
+  text-align: center;
+  margin: 0;
+}
+
+.sourcing-integration-description {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--Type-Secondary, #475569);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bottom-sourcing-hero {
+  transform: scaleX(-1);
+  position: absolute;
+  top: 40vh;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.bottom-vector-sourcing-smart {
+  transform: scaleX(-1);
+  position: absolute;
+  bottom: 210vh;
+  left: 0;
+  z-index: 0;
+}
+
+.bottom-vector-sourcing-works {
+  transform: scaleX(-1);
+  position: absolute;
+  bottom: 180vh;
+  left: 0;
+  z-index: 0;
+}
+
+.bottom-vector-sourcing-features {
+  transform: scaleX(-1);
+  position: absolute;
+  bottom: 130vh;
+  left: 0;
+  z-index: 0;
+}
+
+.bottom-vector-sourcing-list {
+  transform: scaleX(-1);
+  position: absolute;
+  bottom: 80vh;
+  left: 0;
+  z-index: 0;
+}
+.sourcing-workflow-integration-section {
+  padding: 50px 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .sourcing-container {
+    padding: 0 32px;
+  }
+
+  .sourcing-content-grid {
+    gap: 48px;
+  }
+
+  .sourcing-section-title {
+    font-size: 40px;
+  }
+
+  .sourcing-how-it-works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sourcing-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sourcing-feature-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sourcing-integrations-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sourcing-section {
+    padding: 64px 0;
+  }
+
+  .sourcing-container {
+    padding: 0 16px;
+  }
+
+  .sourcing-content-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sourcing-image-wrapper {
+    order: -1;
+  }
+
+  .sourcing-section-title {
+    font-size: 32px;
+  }
+
+  .sourcing-description-center {
+    margin-bottom: 32px;
+  }
+
+  .sourcing-how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sourcing-features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sourcing-feature-list-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sourcing-integrations-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .sourcing-top-section p {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sourcing-section {
+    padding: 48px 0;
+  }
+
+  .sourcing-section-title {
+    font-size: 28px;
+  }
+
+  .sourcing-integrations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sourcing-whats-next-text {
+    font-size: 20px;
+    padding: 0 16px;
+  }
+  .recruiter-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .recruiter-hero-left {
+    width: 100%;
+  }
+  .bottom-sourcing-hero {
+    top: 84vh;
+  }
+  .sourcing-features-grid {
+    width: 100%;
+  }
+  .sourcing-wave-transition {
+    top: 515vh;
+  }
+  .sourcing-feature-list-section {
+    margin-top: 0;
+  }
+  .sourcing-how-it-works {
+    margin-top: 0;
+  }
+  .sourcing-whats-next-text {
+    width: 100%;
+  }
+  .sourcing-person-slide {
+    padding: 0 16px;
+  }
+
+  .sourcing-person-slide img {
+    width: 100%;
+    margin-top: 0;
+    padding: 0;
+  }
+  .sourcing-people-slider-container {
+    height: 250px;
+  }
+}

@@ -1,0 +1,27 @@
+/* Blog Page Styles */
+.blog-section {
+  background-color: #ffffff;
+  position: relative;
+}
+
+.bottom-vector-blog {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+.bottom-vector-blog-bottom {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: -1px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .bottom-vector-blog,
+  .bottom-vector-blog-bottom {
+    height: auto;
+  }
+}

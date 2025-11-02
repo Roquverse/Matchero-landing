@@ -1,0 +1,460 @@
+import { useState, useEffect, useRef } from "react";
+import RecruiterHero from "../Components/RecruiterHero";
+import Button from "../Components/Button";
+import SourcingAccordion from "../Components/SourcingAccordion";
+import "../assets/Styles/sourcing.css";
+
+const Sourcing = () => {
+  const handleButtonClick = () => {
+    console.log("Request demo clicked");
+  };
+
+  const handleVideoClick = () => {
+    console.log("Watch video clicked");
+  };
+
+  const accordionItems = [
+    {
+      title: "Centralised candidate pool",
+      content:
+        "All your candidates — from job boards, referrals, and direct applications — flow into one organised dashboard. Easily search, tag, and revisit profiles without switching between tools or spreadsheets.",
+    },
+    {
+      title: "Verified skills and experience",
+      content:
+        "Candidates are pre-vetted with verified skills and relevant experience, ensuring you only see qualified applicants who match your requirements.",
+    },
+    {
+      title: "AI-assisted filtering",
+      content:
+        "Smart algorithms help you find the right candidates faster by automatically filtering and ranking applicants based on skills, experience, and role fit.",
+    },
+  ];
+
+  const featureCards = [
+    {
+      title: "Post your role",
+      description:
+        "Share openings across your branded career page and best job boards in one click.",
+      image: "/sourcing-feature-1.png",
+    },
+    {
+      title: "Match automatically",
+      description:
+        "Our matching engine suggests candidates based on skills, role fit, and experience.",
+      image: "/sourcing-feature-2.png",
+    },
+    {
+      title: "Reach out instantly",
+      description:
+        "View full candidate profiles and message directly within your ATS.",
+      image: "/sourcing-feature-3.png",
+    },
+  ];
+
+  const featureList = [
+    {
+      title: "One-click job posting",
+      description: "Publish jobs to your career page and leading job boards.",
+    },
+    {
+      title: "Source tracking",
+      description:
+        "See where hires come from (referrals, job boards, or direct).",
+    },
+    {
+      title: "Candidate matching",
+      description:
+        "Attract and rank applicants by fit, experience, and qualifications.",
+    },
+    {
+      title: "Talent pool search",
+      description:
+        "Save promising candidates and re-engage them for future roles.",
+    },
+  ];
+
+  const integrations = [
+    {
+      name: "ORACLE",
+      color: "text-red-600",
+      image: "/partner/Oracle_logo 1.svg",
+    },
+    {
+      name: "LinkedIn",
+      color: "text-blue-600",
+      image: "/partner/LinkedIn_2021 1.svg",
+    },
+    {
+      name: "workday.",
+      color: "text-gray-700",
+      image: "/partner/Workday_Logo_0 1.svg",
+    },
+    {
+      name: "matchero",
+      color: "text-green-600",
+      subtitle: "ATS, Hiring & Onboarding",
+      image: "/logo.svg",
+    },
+    {
+      name: "Google Drive",
+      color: "text-blue-500",
+      image: "/partner/Google.png",
+    },
+    {
+      name: "bo",
+      color: "text-green-600",
+      image: "/partner/338d20c8723f9c93bca1046de48ea40f1e6450be.png",
+    },
+  ];
+
+  const people = [
+    {
+      src: "/jobseeker.png",
+      alt: "Woman with curly hair and glasses",
+    },
+    {
+      src: "/job-hero.png",
+      alt: "Man with glasses and crossed arms",
+    },
+    {
+      src: "/hero-home.png",
+      alt: "Woman with short curly hair",
+    },
+    {
+      src: "/sourcing-people.png",
+      alt: "Man with yellow t-shirt",
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const [currentIntegrationSlide, setCurrentIntegrationSlide] = useState(0);
+  const integrationSliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % people.length);
+    }, 3000); // Auto-slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [people.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIntegrationSlide((prev) => (prev + 1) % integrations.length);
+    }, 3000); // Auto-slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [integrations.length]);
+
+  return (
+    <div className="sourcing-page">
+      {/* Hero Section */}
+      <RecruiterHero
+        backgroundColor="bg-green-20"
+        title="Find and engage top talent — <b>faster.</b>"
+        description="Build stronger teams with access to vetted candidates and smarter sourcing tools designed for a growing workforce."
+        image="/sourcing.png"
+        imageAlt="Sourcing hero image"
+        buttonText="Request demo"
+        secondaryButtonText="See how Matchero works"
+        privacyText={`By clicking "request demo", you agree to the use of your data in accordance with Matchero's Privacy Notice, including for marketing purposes.`}
+        hideInput={true}
+        hideVideoLink={true}
+        onButtonClick={handleButtonClick}
+        onSecondaryButtonClick={handleVideoClick}
+        breadcrumb={{
+          items: [
+            { text: "Home", link: "/" },
+            { text: "For recruiters", link: "/recruiters" },
+            { text: "Sourcing" },
+          ],
+        }}
+      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="bottom-sourcing-hero"
+      >
+        <path
+          fill="#ffffff"
+          fillOpacity="1"
+          d="M1440,288L1360,256C1280,224,1120,160,960,122.7C800,85,640,75,480,58.7C320,43,160,21,80,10.7L0,0L0,320L80,320C160,320,320,320,480,320C640,320,800,320,960,320C1120,320,1280,320,1360,320L1440,320Z"
+        ></path>
+      </svg>
+      <section className="py-16 bg-white sourcing-top-section">
+        <div className="w-full px-4 md:px-16 text-center">
+          <h2 className="sourcing-section-title">
+            Stop sifting through endless CVs.
+          </h2>
+          <p className="sourcing-section-description">
+            Recruiters spend hours sorting unqualified applications.{" "}
+            <b>Matchero</b> automates early-stage sourcing so you can focus on
+            the right talent from day one.
+          </p>
+        </div>
+      </section>
+
+      {/* Everything to source smarter section */}
+      <section className="sourcing-section sourcing-section-alt">
+        <div className="sourcing-container">
+          <div className="sourcing-content-grid">
+            <div className="sourcing-image-wrapper">
+              <img
+                src="/source-smarter.png"
+                alt="Woman working on laptop"
+                className="sourcing-image"
+              />
+            </div>
+            <div className="sourcing-text-content">
+              <h2 className="sourcing-section-title">
+                Everything to source smarter — built-in.
+              </h2>
+              <p className="sourcing-section-description">
+                Simplicity and intelligence to help recruiters find qualified
+                candidates faster, with less manual work.
+              </p>
+              <SourcingAccordion items={accordionItems} defaultOpenIndex={0} />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="bottom-vector-sourcing-smart"
+      >
+        <path
+          fill="#d9f99d"
+          fillOpacity="1"
+          d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        ></path>
+      </svg> */}
+
+      {/* How it works section */}
+      <section className="sourcing-section sourcing-how-it-works">
+        <div className="sourcing-container">
+          <h2 className="sourcing-section-title sourcing-title-center">
+            How it works
+          </h2>
+        </div>
+        <div className="sourcing-features-grid">
+          {featureCards.map((card, index) => (
+            <div key={index} className="sourcing-feature-card">
+              <div className="sourcing-feature-card-image">
+                <img src={card.image} alt={`${card.title} image`} />
+              </div>
+              <div className="sourcing-feature-card-content">
+                <h3 className="sourcing-feature-title">{card.title}</h3>
+                <p className="sourcing-feature-description">
+                  {card.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Feature List Section */}
+      <section className="sourcing-section sourcing-feature-list-section">
+        <div className="sourcing-container">
+          <div className="sourcing-feature-list-grid">
+            {featureList.map((feature, index) => (
+              <div key={index} className="sourcing-feature-list-item">
+                <svg
+                  className="sourcing-check-icon-large"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 6L9 17L4 12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <div className="sourcing-feature-list-content">
+                  <h4 className="sourcing-feature-list-title">
+                    {feature.title}
+                  </h4>
+                  <p className="sourcing-feature-list-description">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What's next section */}
+      <section className="sourcing-section sourcing-whats-next">
+        <div className="sourcing-container">
+          <h2 className="sourcing-whats-next-title">
+            What's next for sourcing?
+          </h2>
+          <p className="sourcing-whats-next-text">
+            We're building integrations with <b>regional job boards</b> and{" "}
+            <b>referral platforms</b> — so your reach expands automatically.
+          </p>
+          <div className="sourcing-whats-next-button">
+            <Button
+              variant="filled"
+              color="green"
+              size="md"
+              onClick={handleButtonClick}
+            >
+              Join the beta for early access
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Wave Transition */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="sourcing-wave-transition"
+      >
+        <path
+          fill="#ffffff"
+          fillOpacity="1"
+          d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        ></path>
+      </svg>
+
+      {/* People Section */}
+      <section className="sourcing-people-section">
+        <div className="sourcing-container">
+          {/* Desktop Grid */}
+          <div className="sourcing-people-grid sourcing-people-desktop">
+            {people.map((person, index) => (
+              <div key={index} className="sourcing-person">
+                <img src={person.src} alt={person.alt} />
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Slider */}
+          <div className="sourcing-people-slider-container">
+            <div
+              ref={sliderRef}
+              className="sourcing-people-slider"
+              style={{
+                transform: `translateX(-${currentSlide * 100}%)`,
+              }}
+            >
+              {people.map((person, index) => (
+                <div key={index} className="sourcing-person-slide">
+                  <img src={person.src} alt={person.alt} />
+                </div>
+              ))}
+            </div>
+
+            <div className="sourcing-slider-dots">
+              {people.map((_, index) => (
+                <button
+                  key={index}
+                  className={`sourcing-dot ${
+                    currentSlide === index ? "active" : ""
+                  }`}
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Workflow Integration Section */}
+      <div className="text-center sourcing-workflow-integration-section">
+        <h2 className="sub-title">
+          Matchero fits into <em>your</em> workflow
+        </h2>
+        <p className="text-xl text-gray-600 mb-12 sub-title-description2">
+          not the other way around
+        </p>
+
+        {/* Integration Logos */}
+        <div className="w-full mb-12">
+          {/* Desktop Grid - Spread across full width */}
+          <div className="hidden md:flex justify-between items-center w-full">
+            {integrations.map((integration, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center flex-1 integration-logo-container"
+              >
+                <img
+                  src={integration.image}
+                  alt={`${integration.name} logo`}
+                  className="integration-logo"
+                />
+                {integration.subtitle && (
+                  <div className="text-sm text-gray-500 mt-2 text-center integration-subtitle">
+                    {integration.subtitle}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Slider */}
+          <div className="md:hidden sourcing-integrations-slider-container">
+            <div
+              ref={integrationSliderRef}
+              className="sourcing-integrations-slider"
+              style={{
+                transform: `translateX(-${currentIntegrationSlide * 100}%)`,
+              }}
+            >
+              {integrations.map((integration, index) => (
+                <div key={index} className="sourcing-integration-slide">
+                  <img
+                    src={integration.image}
+                    alt={`${integration.name} logo`}
+                    className="h-16 w-auto object-contain integration-logo"
+                  />
+                  {integration.subtitle && (
+                    <div className="text-sm text-gray-500 mt-2 text-center integration-subtitle">
+                      {integration.subtitle}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Integration Slider Dots */}
+            <div className="sourcing-integration-slider-dots">
+              {integrations.map((_, index) => (
+                <button
+                  key={index}
+                  className={`sourcing-integration-dot ${
+                    currentIntegrationSlide === index ? "active" : ""
+                  }`}
+                  onClick={() => setCurrentIntegrationSlide(index)}
+                  aria-label={`Go to integration ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Our platform connects effortlessly with the tools you already use,
+          from job boards and CRMs to communication platforms and HR software.
+          As your team grows, Matchero grows with you.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Sourcing;

@@ -6,6 +6,9 @@ import CandidateSignup from "./Pages/CandidateSignup";
 import Pricing from "./Pages/Pricing";
 import Application from "./Pages/Application";
 import JobDetail from "./Pages/JobDetail";
+import Blog from "./Pages/Blog";
+import DecisionMaking from "./Pages/DecisionMaking";
+import Sourcing from "./Pages/Sourcing";
 
 function App() {
   return (
@@ -18,6 +21,12 @@ function App() {
         <Route path="/application" element={<Application />} />
         <Route path="/job/:jobId" element={<JobDetail />} />
         <Route path="/job-details/:jobId" element={<JobDetail />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route
+          path="/recruiters/decision-making"
+          element={<DecisionMaking />}
+        />
+        <Route path="/recruiters/sourcing" element={<Sourcing />} />
       </Routes>
     </Layout>
   );

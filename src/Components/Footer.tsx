@@ -5,8 +5,10 @@ import "../assets/Styles/footer.css";
 const Footer = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const logoSrc = isHomePage ? "/logo.svg" : "/blue-logo.svg";
-  const footerBackground = isHomePage ? "bg-cyan-20" : "bg-white";
+  const isRecruiterPage = location.pathname.startsWith("/recruiters/");
+  const shouldUseGreenFooter = isHomePage || isRecruiterPage;
+  const logoSrc = shouldUseGreenFooter ? "/logo.svg" : "/blue-logo.svg";
+  const footerBackground = shouldUseGreenFooter ? "bg-cyan-20" : "bg-white";
 
   return (
     <footer className={`py-16 footer ${footerBackground}`}>
@@ -90,20 +92,20 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
-                  >
-                    Sourcing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/recruiters/decision-making"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Decision-Making
-                  </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/recruiters/sourcing"
+                    className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
+                  >
+                    Sourcing
+                  </Link>
                 </li>
                 <li>
                   <a

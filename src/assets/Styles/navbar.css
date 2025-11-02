@@ -3,6 +3,54 @@
   padding: 10px 64px;
 }
 
+/* Dropdown Menu Styles */
+.navbar .dropdown-menu {
+  animation: fadeInDown 0.2s ease-out;
+}
+
+.dropdown-menu-item {
+  color: var(--Type-Primary, #020617);
+
+  /* Text sm/Semi bold */
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.28px;
+}
+.coming-soon-badge {
+  color: var(--Type-Primary, #020617);
+
+  /* Text xs/Semi Bold */
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: -0.24px;
+}
+.badge {
+  background: var(--Tek-forward-40, #9be2ee);
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Coming Soon Badge */
+.coming-soon-badge {
+  font-size: 10px;
+  line-height: 1.2;
+  padding: 4px 8px;
+}
+
 /* Mobile navbar styles */
 @media (max-width: 920px) {
   .navbar {

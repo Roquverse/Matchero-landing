@@ -1,0 +1,126 @@
+/* Blog Listing Styles */
+.blog-listing-section {
+  background-color: #ffffff;
+  padding: 64px 0;
+  width: 100%;
+}
+
+.blog-listing-container {
+  width: 100%;
+  padding: 0 64px;
+  box-sizing: border-box;
+}
+
+/* Category Filters */
+.blog-category-filters {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.blog-category-btn {
+  background: transparent;
+  border: none;
+  color: var(--Type-Secondary, #475569);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.blog-category-btn:hover {
+  color: var(--deep-tek-100);
+}
+
+.blog-category-btn.active {
+  color: var(--Type-Primary, #020617);
+  font-weight: 600;
+}
+
+.blog-category-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--Type-Primary, #020617);
+}
+
+/* Blog Cards Grid */
+.blog-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+/* Load More Button */
+.blog-load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .blog-listing-container {
+    padding: 0 32px;
+  }
+
+  .blog-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blog-listing-section {
+    padding: 48px 0;
+  }
+
+  .blog-listing-container {
+    padding: 0 16px;
+  }
+
+  .blog-category-filters {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .blog-category-btn {
+    font-size: 14px;
+  }
+
+  .blog-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .blog-load-more {
+    margin-top: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-listing-section {
+    padding: 32px 0;
+  }
+
+  .blog-category-filters {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .blog-cards-grid {
+    gap: 20px;
+  }
+}
