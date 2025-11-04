@@ -82,7 +82,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative ms-4 hero-image-container">
+          <div className="relative ms-4">
             <img className="hero-image" src="hero-home.png" alt="Hero Image" />
           </div>
         </div>

@@ -6,14 +6,6 @@ import BlogSection from "../Components/BlogSection";
 import "../assets/Styles/home.css";
 
 const Home = () => {
-  const handleButtonClick = () => {
-    console.log("Request demo clicked");
-  };
-
-  const handleVideoClick = () => {
-    console.log("Watch video clicked");
-  };
-
   const handleMainVideoClick = () => {
     console.log("Main video clicked");
   };

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import PageHero from "../Components/PageHero";
 import InterviewDashboard from "../Components/InterviewDashboard";
 import HowItWorks from "../Components/HowItworks";
@@ -9,30 +8,13 @@ import "../assets/Styles/candidate.css";
 import Button from "../Components/Button";
 
 const Candidate = () => {
-  const navigate = useNavigate();
-
-  const handleButtonClick = () => {
-    navigate("/candidate/signup");
-  };
-
   const handleShowRolesClick = () => {
     console.log("Show me roles that fit clicked");
   };
 
   return (
     <div>
-      <PageHero
-        backgroundColor="bg-cyan-20"
-        title="Your next role, <em>intelligently matched</em>"
-        description="No endless job listings. No generic suggestions. We bring you roles that align with your skills, values, and ambition."
-        image="/jobseeker.png"
-        imageAlt="Job seeker hero image"
-        buttonText="Join free. Start matching"
-        onButtonClick={handleButtonClick}
-        breadcrumb={{
-          items: [{ text: "Home", link: "/" }, { text: "For jobseekers" }],
-        }}
-      />
+      <PageHero />
 
       {/* Additional content section */}
       <section className="py-16 bg-white page-bottom-section">
