@@ -17,7 +17,7 @@ const VideoSection = ({
   videoAlt = "Video thumbnail showing a professional woman",
   buttonText = "Watch 1 min video",
   onVideoClick,
-  className = "",
+  className = "video-section",
 }: VideoSectionProps) => {
   return (
     <section className={`py-16 bg-white ${className}`}>

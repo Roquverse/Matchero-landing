@@ -34,97 +34,110 @@ const Hero = ({
   className = "",
 }: HeroProps) => {
   return (
-    <section className={`${backgroundColor} hero-section ${className}`}>
-      {/* Left Content Block */}
-      <div className="hero-content">
-        <div className="hero-frame">
-          <h1 dangerouslySetInnerHTML={{ __html: title }} />
+    <div className="hero-container">
+      <section className={`${backgroundColor} hero-section ${className}`}>
+        {/* Left Content Block */}
+        <div className="hero-content">
+          <div className="hero-frame">
+            <h1 dangerouslySetInnerHTML={{ __html: title }} />
 
-          {description && (
-            <p
-              className="hero-description"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
-          )}
-
-          {/* Email Input Group */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Input
-              type="email"
-              placeholder={emailPlaceholder}
-              size="lg"
-              className="flex-1 min-w-80 rounded-xl"
-            />
-            <Button
-              variant="filled"
-              color="green"
-              size="lg"
-              onClick={onButtonClick}
-              icon={
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              }
-              className="px-8 py-4 whitespace-nowrap"
-            >
-              {buttonText}
-            </Button>
-          </div>
-
-          {/* Privacy Notice */}
-          <p className="privacy-notice">
-            {privacyText}{" "}
-            <a
-              href={privacyLink}
-              className="text-green-700 underline hover:text-deep-tek-100"
-            >
-              Privacy Notice
-            </a>
-            , including for marketing purposes.
-          </p>
-
-          {/* Video Link */}
-          <div
-            className="flex items-center text-gray-700 hover:text-deep-tek-100 cursor-pointer"
-            onClick={onVideoClick}
-          >
-            <span className="hero-video">{videoText}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M5 3L19 12L5 21V3Z"
-                stroke="#020617"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            {description && (
+              <p
+                className="hero-description"
+                dangerouslySetInnerHTML={{ __html: description }}
               />
-            </svg>
+            )}
+
+            {/* Email Input Group */}
+            <div className="hero-input-group flex flex-col sm:flex-row gap-4">
+              <Input
+                type="email"
+                placeholder={emailPlaceholder}
+                size="lg"
+                className="hero-input flex-1 min-w-80 rounded-xl"
+              />
+              <Button
+                variant="filled"
+                color="green"
+                size="lg"
+                onClick={onButtonClick}
+                icon={
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                }
+                className="hero-button px-8 py-4 whitespace-nowrap"
+              >
+                {buttonText}
+              </Button>
+            </div>
+
+            {/* Privacy Notice */}
+            <p className="privacy-notice">
+              {privacyText}{" "}
+              <a
+                href={privacyLink}
+                className="text-green-700 underline hover:text-deep-tek-100"
+              >
+                Privacy Notice
+              </a>
+              , including for marketing purposes.
+            </p>
+
+            {/* Video Link */}
+            <div
+              className="flex items-center text-gray-700 hover:text-deep-tek-100 cursor-pointer"
+              onClick={onVideoClick}
+            >
+              <span className="hero-video">{videoText}</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M5 3L19 12L5 21V3Z"
+                  stroke="#020617"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Right Image Collage */}
-      <div className="hero-image-container">
-        {/* Main Image */}
-        <div className="hero-image">
-          <img src={image} alt={imageAlt} />
+        {/* Right Image Collage */}
+        <div className="hero-image-container">
+          {/* Main Image */}
+          <div className="hero-image">
+            <img src={image} alt={imageAlt} />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="vector-home"
+      >
+        <path
+          fill="#ffffff"
+          fill-opacity="1"
+          d="M1440,288L1360,256C1280,224,1120,160,960,122.7C800,85,640,75,480,58.7C320,43,160,21,80,10.7L0,0L0,320L80,320C160,320,320,320,480,320C640,320,800,320,960,320C1120,320,1280,320,1360,320L1440,320Z"
+        ></path>
+      </svg>
+    </div>
   );
 };
 

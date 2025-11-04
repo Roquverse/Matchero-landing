@@ -147,7 +147,7 @@ const JobListing = ({ maxCards, className }: JobListingProps = {}) => {
   const displayCards = maxCards ? jobCards.slice(0, maxCards) : jobCards;
 
   return (
-    <section className={`py-16 job-listing-section ${className || ""}`}>
+    <section className={`py-16 ${className || ""}`}>
       <div className="w-full job-listing-container">
         {/* Heading */}
         <div className="mb-12">

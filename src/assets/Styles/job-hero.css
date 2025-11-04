@@ -1,13 +1,16 @@
 /* Job Hero Styles - Based on PageHero but independent */
+.job-hero-container {
+  position: relative;
+  height: 100vh;
+}
 .job-hero-section {
   display: flex;
-  padding: 100px 64px;
+  padding: 0 64px;
   align-items: center;
   gap: 32px;
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  height: 95vh;
 }
 
 .job-hero-content {
@@ -15,7 +18,7 @@
   width: 45%;
   align-items: center;
   gap: 32px;
-  margin-top: -30vh;
+  margin-top: -25vh;
 }
 
 .job-hero-frame {
@@ -262,14 +265,21 @@
   width: 90%;
   object-fit: cover;
   object-position: center;
-  margin-top: -10px;
+  margin-top: 0;
 }
 
 .job-hero-image img {
-  width: 80%;
+  width: 70%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+.vector-job-hero {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  /* top: 100vh; */
 }
 
 /* Mobile padding for main job-hero section */
@@ -382,7 +392,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 16px;
     flex: 1 0 0;
     margin-top: 5vh;
   }
@@ -394,6 +404,9 @@
 
 /* Small mobile styles */
 @media screen and (max-width: 480px) {
+  /* .job-hero-container {
+    height: 100vh;
+  } */
   .job-hero-content {
     display: flex;
     width: 100%;
@@ -402,7 +415,7 @@
   }
 
   .job-hero-section {
-    height: 97vh;
+    height: 100vh;
   }
 
   .job-hero-frame h1 {
@@ -414,7 +427,7 @@
     letter-spacing: -0.96px;
   }
 
-  .job-hero-frame p {
+  .job-hero-title p {
     width: 70%;
   }
 
@@ -426,28 +439,53 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.48px;
+    width: 100%;
   }
 
   .job-hero-frame {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 16px;
     flex: 1 0 0;
     width: 100%;
     margin-top: 20vh;
   }
   .input-job-hero {
-    width: 67%;
+    width: 100%;
+    margin-top: 12px;
   }
   .job-hero-breadcrumb {
     font-size: 10px;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+  }
+  .job-hero-title h1 {
+    width: 100%;
+  }
+  .job-hero-title p {
+    width: 65%;
+  }
+  .job-hero-title {
+    margin-bottom: 0;
+  }
+  .job-hero-description {
+    margin-bottom: 0;
   }
   .job-hero-image-container {
-    width: 100%;
+    width: 100vw;
+    margin-top: -5vh;
   }
   .job-hero-image img {
     width: 100%;
+    overflow: hidden;
+  }
+  .input-job-hero {
+    width: 60%;
+  }
+  .application-jobs-section {
+    height: 100%;
   }
 }
 
@@ -484,10 +522,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 12px;
     flex: 1 0 0;
     width: 90vw;
-    margin-top: 50px;
+    margin-top: 30px;
+  }
+  .job-hero-breadcrumb {
+    margin-bottom: 4px;
+  }
+  .input-job-hero {
+    margin-top: 8px;
   }
 
   .job-hero-image-container {

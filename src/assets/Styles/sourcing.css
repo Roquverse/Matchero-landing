@@ -547,7 +547,7 @@
 
 /* Mobile Integration Slider */
 .sourcing-integrations-slider-container {
-  display: none;
+  display: block;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -599,11 +599,7 @@
   border-radius: 4px;
 }
 
-@media screen and (max-width: 768px) {
-  .sourcing-integrations-slider-container {
-    display: block;
-  }
-}
+/* Slider is now visible on all screens */
 
 .sourcing-integrations-grid {
   display: grid;

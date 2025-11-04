@@ -1,9 +1,18 @@
 /* Job Listing Styles */
+.candidate-job-listing-section {
+  /* margin-top: -100px; */
+  background-color: var(--cyan-20);
+  padding: 80px 0;
+  margin-top: -100px;
+  height: 100vh;
+  z-index: 10;
+  position: relative;
+}
 .job-listing-section {
   background-color: var(--cyan-20);
   padding: 80px 0;
   margin-top: -100px;
-  height: 120vh;
+  height: auto;
   z-index: 10;
   position: relative;
 }
@@ -17,7 +26,7 @@
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -183,7 +192,7 @@
 
 @media screen and (max-width: 1024px) {
   .job-listing-section {
-    height: 60vh;
+    height: 50vh;
     bottom: 0;
     position: relative;
     background-color: var(--cyan-20);
@@ -202,6 +211,12 @@
 }
 /* Responsive Design */
 @media (max-width: 768px) {
+  .job-listing-section {
+    height: 80vh;
+    bottom: 0;
+    position: relative;
+    background-color: var(--cyan-20);
+  }
   .job-listing-section {
     padding: 60px 0;
   }
@@ -242,7 +257,7 @@
 
 @media screen and (max-width: 480px) {
   .job-listing-section {
-    height: 210vh;
+    height: 200vh;
     background-color: var(--cyan-20);
   }
 
@@ -253,16 +268,13 @@
     font-size: 11px;
     width: 104px;
   }
+
+  .candidate-job-listing-section {
+    height: 205vh;
+  }
 }
 
 @media screen and (max-width: 420px) {
-  .job-listing-section {
-    height: auto; /* allow natural flow below 420px */
-  }
-  .job-listing-container {
-    height: auto;
-  }
-
   .job-listing-section.open-roles {
     margin-top: 0;
     padding-bottom: 112px; /* extra space for very small screens */
@@ -272,6 +284,9 @@
     padding: 8px 10px;
     font-size: 11px;
     width: 104px;
+  }
+  .candidate-job-listing-section {
+    height: 225vh;
   }
 }
 @media screen and (max-width: 375px) {

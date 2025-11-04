@@ -85,7 +85,6 @@
   flex-direction: column;
   gap: 24px;
   flex: 1 0 0;
-  width: 561px;
 }
 
 .recruiter-hero-title {
@@ -299,6 +298,11 @@
 }
 
 @media screen and (max-width: 480px) {
+  .recruiter-hero-section {
+    height: 100vh !important;
+    min-height: 100vh;
+  }
+
   .recruiter-hero-container {
     padding-top: 16px;
   }

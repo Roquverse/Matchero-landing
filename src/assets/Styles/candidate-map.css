@@ -217,7 +217,8 @@
   }
 
   .right-content {
-    position: static;
+    /* position: static; */
+    top: 25vh;
     margin-top: 32px;
     display: flex;
     justify-content: center;
@@ -291,7 +292,7 @@
 }
 @media screen and (max-width: 480px) {
   .candidate-map-section {
-    height: 70vh;
+    height: 80vh;
   }
   .map-container {
     height: 60vh;
@@ -338,6 +339,9 @@
   .west-africa-profile-2 {
     top: 35%;
     left: 47%;
+  }
+  .right-content {
+    top: 35vh;
   }
 }
 @media screen and (max-width: 420px) {

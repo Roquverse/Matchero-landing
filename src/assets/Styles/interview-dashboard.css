@@ -1,10 +1,11 @@
 /* Interview Dashboard Styles */
+.interview-dashboard-container {
+  position: relative;
+  height: 100vh;
+}
 .interview-dashboard-section {
   background-color: transparent;
   padding: 80px 0;
-  position: relative;
-  z-index: 1;
-  margin-top: 50px;
 }
 
 .dashboard-container {
@@ -21,6 +22,7 @@
   width: 100%;
   position: relative;
   margin-top: -32px;
+  z-index: 1;
 }
 
 .dashboard-image {
@@ -29,8 +31,17 @@
   height: auto;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+  position: relative;
 }
 
+.vector-interview-dashboard {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* z-index: 1; */
+  /* top: 100vh; */
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .dashboard-container {
@@ -48,20 +59,30 @@
 }
 
 @media screen and (max-width: 480px) {
-  .interview-dashboard-section {
-    height: 45vh;
+  .dashboard-image-container {
+    /* height: 15vh; */
+    margin-top: -100px;
+    background-color: white;
+  }
+  .interview-dashboard-container {
+    height: 25vh;
+    position: relative;
+  }
+  .vector-interview-dashboard {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* z-index: -1; */
   }
 }
 @media screen and (max-width: 420px) {
   .interview-dashboard-section {
-    height: 50vh;
+    height: 35vh;
   }
   .dashboard-image-container {
-    margin-top: -50px;
+    margin-top: -20px;
   }
-}
-@media screen and (max-width: 375px) {
-  .interview-dashboard-section {
-    height: 65vh;
+  .dashboard-image-container img {
+    margin-top: -60px;
   }
 }

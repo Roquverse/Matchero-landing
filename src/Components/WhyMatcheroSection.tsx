@@ -1,3 +1,5 @@
+import IntegrationLogos from "./IntegrationLogos";
+
 interface WhyMatcheroSectionProps {
   className?: string;
 }
@@ -50,7 +52,7 @@ const WhyMatcheroSection = ({ className = "" }: WhyMatcheroSectionProps) => {
     {
       name: "matchero",
       color: "text-green-600",
-      subtitle: "ATS, Hiring & Onboarding",
+      subtitle: "Hiring & Onboarding",
       image: "/logo.svg",
     },
     {
@@ -116,54 +118,7 @@ const WhyMatcheroSection = ({ className = "" }: WhyMatcheroSectionProps) => {
           </p>
 
           {/* Integration Logos */}
-          <div className="w-full mb-12">
-            {/* Desktop Grid - Spread across full width */}
-            <div className="hidden md:flex justify-between items-center w-full">
-              {integrations.map((integration, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center flex-1 integration-logo-container"
-                >
-                  <img
-                    src={integration.image}
-                    alt={`${integration.name} logo`}
-                    className="h-16 w-auto object-contain integration-logo"
-                  />
-                  {integration.subtitle && (
-                    <div className="text-sm text-gray-500 mt-2 text-center integration-subtitle">
-                      {integration.subtitle}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile Slider */}
-            <div className="md:hidden overflow-x-auto">
-              <div
-                className="flex space-x-8 pb-4"
-                style={{ width: `${integrations.length * 120}px` }}
-              >
-                {integrations.map((integration, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 flex flex-col items-center w-24"
-                  >
-                    <img
-                      src={integration.image}
-                      alt={`${integration.name} logo`}
-                      className="w-full h-auto max-h-12 object-contain integration-logo"
-                    />
-                    {integration.subtitle && (
-                      <div className="text-xs text-gray-500 mt-1 text-center">
-                        {integration.subtitle}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <IntegrationLogos integrations={integrations} />
 
           {/* Description */}
           <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">

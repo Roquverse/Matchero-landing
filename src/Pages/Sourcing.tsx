@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import RecruiterHero from "../Components/RecruiterHero";
 import Button from "../Components/Button";
 import SourcingAccordion from "../Components/SourcingAccordion";
+import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/sourcing.css";
 
 const Sourcing = () => {
@@ -130,9 +131,6 @@ const Sourcing = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const [currentIntegrationSlide, setCurrentIntegrationSlide] = useState(0);
-  const integrationSliderRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % people.length);
@@ -140,14 +138,6 @@ const Sourcing = () => {
 
     return () => clearInterval(interval);
   }, [people.length]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIntegrationSlide((prev) => (prev + 1) % integrations.length);
-    }, 3000); // Auto-slide every 3 seconds
-
-    return () => clearInterval(interval);
-  }, [integrations.length]);
 
   return (
     <div className="sourcing-page">
@@ -383,68 +373,7 @@ const Sourcing = () => {
         </p>
 
         {/* Integration Logos */}
-        <div className="w-full mb-12">
-          {/* Desktop Grid - Spread across full width */}
-          <div className="hidden md:flex justify-between items-center w-full">
-            {integrations.map((integration, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center flex-1 integration-logo-container"
-              >
-                <img
-                  src={integration.image}
-                  alt={`${integration.name} logo`}
-                  className="integration-logo"
-                />
-                {integration.subtitle && (
-                  <div className="text-sm text-gray-500 mt-2 text-center integration-subtitle">
-                    {integration.subtitle}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Slider */}
-          <div className="md:hidden sourcing-integrations-slider-container">
-            <div
-              ref={integrationSliderRef}
-              className="sourcing-integrations-slider"
-              style={{
-                transform: `translateX(-${currentIntegrationSlide * 100}%)`,
-              }}
-            >
-              {integrations.map((integration, index) => (
-                <div key={index} className="sourcing-integration-slide">
-                  <img
-                    src={integration.image}
-                    alt={`${integration.name} logo`}
-                    className="h-16 w-auto object-contain integration-logo"
-                  />
-                  {integration.subtitle && (
-                    <div className="text-sm text-gray-500 mt-2 text-center integration-subtitle">
-                      {integration.subtitle}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Integration Slider Dots */}
-            <div className="sourcing-integration-slider-dots">
-              {integrations.map((_, index) => (
-                <button
-                  key={index}
-                  className={`sourcing-integration-dot ${
-                    currentIntegrationSlide === index ? "active" : ""
-                  }`}
-                  onClick={() => setCurrentIntegrationSlide(index)}
-                  aria-label={`Go to integration ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+        <IntegrationLogos integrations={integrations} />
 
         {/* Description */}
         <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
