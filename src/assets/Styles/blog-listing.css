@@ -1,12 +1,13 @@
 /* Blog Listing Styles */
 .blog-listing-section {
-  background-color: #ffffff;
+  background-color: var(--green-20, #d9f99d);
   padding: 64px 0;
   width: 100%;
 }
 
 .blog-listing-container {
-  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 64px;
   box-sizing: border-box;
 }
@@ -14,7 +15,7 @@
 /* Category Filters */
 .blog-category-filters {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   margin-bottom: 48px;
   flex-wrap: wrap;
 }
@@ -29,9 +30,12 @@
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
-  padding: 0;
-  position: relative;
-  transition: color 0.2s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
 }
 
 .blog-category-btn:hover {
@@ -39,18 +43,25 @@
 }
 
 .blog-category-btn.active {
-  color: var(--Type-Primary, #020617);
+  background-color: var(--green-20, #d9f99d);
+  color: var(--green-100, #3a6202);
   font-weight: 600;
 }
 
-.blog-category-btn.active::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--Type-Primary, #020617);
+.blog-category-count {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--Type-Secondary, #475569);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.blog-category-btn.active .blog-category-count {
+  background-color: var(--green-100, #3a6202);
+  color: white;
 }
 
 /* Blog Cards Grid */
@@ -69,6 +80,17 @@
   margin-top: 48px;
 }
 
+.blog-load-more button {
+  border-color: var(--green-100, #3a6202);
+  color: var(--green-100, #3a6202);
+  background-color: white;
+}
+
+.blog-load-more button:hover {
+  background-color: var(--green-20, #d9f99d);
+  border-color: var(--green-100, #3a6202);
+}
+
 /* Responsive */
 @media screen and (max-width: 1024px) {
   .blog-listing-container {
@@ -78,6 +100,12 @@
   .blog-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blog-listing-container {
+    padding: 0 16px;
   }
 }
 

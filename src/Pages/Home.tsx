@@ -86,15 +86,7 @@ const Home = () => {
 
   return (
     <div>
-      <Hero
-        backgroundColor="bg-green-20"
-        title="<em>Smarter</em> Hiring, h<b>uman touch,</b> real results"
-        description="<b>Matchero</b> helps businesses hire faster and fairer with an all-in-one ATS, AI video interviews, and seamless onboarding."
-        image="/hero-home.png"
-        imageAlt="Happy professional woman"
-        onButtonClick={handleButtonClick}
-        onVideoClick={handleVideoClick}
-      />
+      <Hero />
 
       {/* Bottom Section */}
       <section className="py-16 bg-white bottom-section">

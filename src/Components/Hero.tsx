@@ -2,65 +2,43 @@ import Button from "./Button";
 import Input from "./Input";
 import "../assets/Styles/hero.css";
 
-interface HeroProps {
-  backgroundColor?: string;
-  title: string;
-  description?: string;
-  image?: string;
-  imageAlt?: string;
-  emailPlaceholder?: string;
-  buttonText?: string;
-  privacyText?: string;
-  privacyLink?: string;
-  videoText?: string;
-  onButtonClick?: () => void;
-  onVideoClick?: () => void;
-  className?: string;
-}
+const Hero = () => {
+  const handleButtonClick = () => {
+    console.log("Request demo clicked");
+  };
 
-const Hero = ({
-  backgroundColor = "bg-green-20",
-  title,
-  description,
-  image = "/hero-home.png",
-  imageAlt = "Happy professional woman",
-  emailPlaceholder = "Enter your email address",
-  buttonText = "Request demo",
-  privacyText = 'By clicking "request demo", you agree to the use of your data in accordance with Matchero\'s',
-  privacyLink = "#",
-  videoText = "Watch 1 min video",
-  onButtonClick,
-  onVideoClick,
-  className = "",
-}: HeroProps) => {
+  const handleVideoClick = () => {
+    console.log("Watch video clicked");
+  };
+
   return (
     <div className="hero-container">
-      <section className={`${backgroundColor} hero-section ${className}`}>
-        {/* Left Content Block */}
-        <div className="hero-content">
-          <div className="hero-frame">
-            <h1 dangerouslySetInnerHTML={{ __html: title }} />
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
+          <div className="hero-content">
+            <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
+              <b>
+                <em>Smarter</em>
+              </b>{" "}
+              Hiring, <b>human touch</b>, real results
+            </h1>
+            <p className="hero-content-description">
+              Matchero helps businesses hire faster and fairer with an
+              all-in-one ATS, AI video interviews, and seamless onboarding.
+            </p>
 
-            {description && (
-              <p
-                className="hero-description"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            )}
-
-            {/* Email Input Group */}
-            <div className="hero-input-group flex flex-col sm:flex-row gap-4">
+            <div className="hero-input-group flex flex-col sm:flex-row gap-4 mt-7">
               <Input
                 type="email"
-                placeholder={emailPlaceholder}
-                size="lg"
-                className="hero-input flex-1 min-w-80 rounded-xl"
+                placeholder="Enter your email address"
+                className="hero-input"
               />
               <Button
                 variant="filled"
                 color="green"
-                size="lg"
-                onClick={onButtonClick}
+                size="md"
+                onClick={handleButtonClick}
+                className="hero-button"
                 icon={
                   <svg
                     className="w-4 h-4"
@@ -76,56 +54,39 @@ const Hero = ({
                     />
                   </svg>
                 }
-                className="hero-button px-8 py-4 whitespace-nowrap"
               >
-                {buttonText}
+                Request demo
               </Button>
             </div>
 
-            {/* Privacy Notice */}
-            <p className="privacy-notice">
-              {privacyText}{" "}
+            <p className="hero-privacy-text mt-4 text-sm text-gray-600">
+              By clicking "request demo", you agree to the use of your data in
+              accordance with Matchero's{" "}
               <a
-                href={privacyLink}
-                className="text-green-700 underline hover:text-deep-tek-100"
+                href="#"
+                className="hero-privacy-link text-green-600 hover:underline"
               >
                 Privacy Notice
               </a>
               , including for marketing purposes.
             </p>
 
-            {/* Video Link */}
             <div
-              className="flex items-center text-gray-700 hover:text-deep-tek-100 cursor-pointer"
-              onClick={onVideoClick}
+              className="hero-video-link mt-4 flex items-center gap-2 text-gray-700 hover:text-green-600 cursor-pointer"
+              onClick={handleVideoClick}
             >
-              <span className="hero-video">{videoText}</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M5 3L19 12L5 21V3Z"
-                  stroke="#020617"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <span>Watch 1 min video</span>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
               </svg>
             </div>
           </div>
-        </div>
 
-        {/* Right Image Collage */}
-        <div className="hero-image-container">
-          {/* Main Image */}
-          <div className="hero-image">
-            <img src={image} alt={imageAlt} />
+          <div className="relative ms-4 hero-image-container">
+            <img className="hero-image" src="hero-home.png" alt="Hero Image" />
           </div>
         </div>
-      </section>
+      </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
@@ -133,7 +94,7 @@ const Hero = ({
       >
         <path
           fill="#ffffff"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M1440,288L1360,256C1280,224,1120,160,960,122.7C800,85,640,75,480,58.7C320,43,160,21,80,10.7L0,0L0,320L80,320C160,320,320,320,480,320C640,320,800,320,960,320C1120,320,1280,320,1360,320L1440,320Z"
         ></path>
       </svg>

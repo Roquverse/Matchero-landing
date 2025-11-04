@@ -79,23 +79,11 @@ const JobDetail = () => {
         breadcrumb={{
           items: [
             { text: "Home", link: "/" },
-            { text: "Jobseekers", link: "/candidate" },
             { text: "Jobs", link: "/application" },
             { text: jobData.title },
           ],
         }}
       />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="bottom-vector-job-detail"
-      >
-        <path
-          fill="#ffffff"
-          fill-opacity="1"
-          d="M1440,288L1360,256C1280,224,1120,160,960,122.7C800,85,640,75,480,58.7C320,43,160,21,80,10.7L0,0L0,320L80,320C160,320,320,320,480,320C640,320,800,320,960,320C1120,320,1280,320,1360,320L1440,320Z"
-        ></path>
-      </svg>
 
       <div className="job-detail-content">
         <div className="job-detail-main">

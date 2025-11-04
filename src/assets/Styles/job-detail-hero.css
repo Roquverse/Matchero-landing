@@ -1,4 +1,14 @@
 /* Job Detail Hero Styles */
+.job-detail-hero-container {
+  height: 100vh;
+  position: relative;
+}
+.vector-job-detail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 .job-detail-hero-section {
   width: 100%;
   padding: 0 64px;
@@ -322,5 +332,15 @@
   }
   .job-detail-bottom-apply {
     margin-top: -10vh;
+  }
+  .job-detail-hero-container {
+    height: 70vh;
+    position: relative;
+  }
+  .vector-job-detail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
 }

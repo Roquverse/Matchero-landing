@@ -14,117 +14,141 @@ const BlogListing = ({ className = "" }: BlogListingProps) => {
 
   const blogCards: BlogCardProps[] = [
     {
-      title: "5 Ways AI Is Transforming Recruitment in Africa",
+      title: "HR trends and what they mean: The Expectation Gap",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img1.png",
       imageAlt: "Professional man with glasses smiling",
+      category: "Innovation",
+      date: "12.10.2025",
       linkHref: "/blog/ai-recruitment-africa",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Why Startups Need Smarter Hiring Tools to Scale Fast",
+      title: "The Power of Personio: What happens when HR gets the r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img2.png",
       imageAlt: "Young professional with laptop in modern office",
+      category: "Strategy",
+      date: "12.10.2025",
       linkHref: "/blog/startup-hiring-tools",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Why Job Seekers Should Care About AI Interviews",
+      title: "Break guilt is the new burnout: Time for a cultural r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img3.png",
       imageAlt: "Professional man in video call interview",
+      category: "Candidate Experience",
+      date: "12.10.2025",
       linkHref: "/blog/ai-interviews-job-seekers",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "The Future of Remote Work in African Tech",
+      title: "HR trends and what they mean: The Expectation Gap",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img1.png",
       imageAlt: "Remote work setup",
+      category: "Insights",
+      date: "12.10.2025",
       linkHref: "/blog/remote-work-africa",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Building Diverse Teams: Best Practices for 2024",
+      title: "The Power of Personio: What happens when HR gets the r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img2.png",
       imageAlt: "Diverse team collaboration",
+      category: "Culture",
+      date: "12.10.2025",
       linkHref: "/blog/diverse-teams-2024",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "How to Ace Your Next Video Interview",
+      title: "Break guilt is the new burnout: Time for a cultural r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img3.png",
       imageAlt: "Video interview preparation",
+      category: "Innovation",
+      date: "12.10.2025",
       linkHref: "/blog/video-interview-tips",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Top Skills in Demand Across African Tech Companies",
+      title: "HR trends and what they mean: The Expectation Gap",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img1.png",
       imageAlt: "Tech skills visualization",
+      category: "Strategy",
+      date: "12.10.2025",
       linkHref: "/blog/tech-skills-africa",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Startup Funding Trends and Their Impact on Hiring",
+      title: "The Power of Personio: What happens when HR gets the r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img2.png",
       imageAlt: "Funding trends chart",
+      category: "Candidate Experience",
+      date: "12.10.2025",
       linkHref: "/blog/funding-hiring-trends",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Candidate Experience: What Makes a Great Interview Process",
+      title: "Break guilt is the new burnout: Time for a cultural r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img3.png",
       imageAlt: "Interview process flow",
+      category: "Insights",
+      date: "12.10.2025",
       linkHref: "/blog/candidate-experience",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Leveraging Social Media for Modern Recruitment",
+      title: "HR trends and what they mean: The Expectation Gap",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img1.png",
       imageAlt: "Social media recruitment",
+      category: "Culture",
+      date: "12.10.2025",
       linkHref: "/blog/social-media-recruitment",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "The Role of Data Analytics in HR Decision Making",
+      title: "The Power of Personio: What happens when HR gets the r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img2.png",
       imageAlt: "HR analytics dashboard",
+      category: "Innovation",
+      date: "12.10.2025",
       linkHref: "/blog/hr-analytics",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
     {
-      title: "Creating an Inclusive Workplace Culture",
+      title: "Break guilt is the new burnout: Time for a cultural r...",
       excerpt:
-        "consectetur adipiscing elit. Quisque tristique quam nec felis tincidunt tristique. Sed conse...",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis purus quis eleifend efficitur. Vivam...",
       image: "/blog/img3.png",
       imageAlt: "Inclusive workplace",
+      category: "Strategy",
+      date: "12.10.2025",
       linkHref: "/blog/inclusive-culture",
-      linkText: "Read article",
+      linkText: "Read the article",
     },
   ];
 
   const categories = [
-    { name: "All", count: blogCards.length },
+    { name: "All", count: 32 },
     { name: "Category 2", count: 3 },
     { name: "Category 3", count: 3 },
     { name: "Category 4", count: 3 },
@@ -150,7 +174,8 @@ const BlogListing = ({ className = "" }: BlogListingProps) => {
               }`}
               onClick={() => setSelectedCategory(category.name)}
             >
-              {category.name} {category.count}
+              <span>{category.name}</span>
+              <span className="blog-category-count">{category.count}</span>
             </button>
           ))}
         </div>
@@ -164,6 +189,8 @@ const BlogListing = ({ className = "" }: BlogListingProps) => {
               excerpt={card.excerpt}
               image={card.image}
               imageAlt={card.imageAlt}
+              category={card.category}
+              date={card.date}
               linkHref={card.linkHref}
               linkText={card.linkText}
             />
@@ -175,7 +202,7 @@ const BlogListing = ({ className = "" }: BlogListingProps) => {
           <div className="blog-load-more">
             <Button
               variant="outlined"
-              color="gray"
+              color="green"
               size="md"
               onClick={handleLoadMore}
               icon={
@@ -193,7 +220,7 @@ const BlogListing = ({ className = "" }: BlogListingProps) => {
                   />
                 </svg>
               }
-              className="border-gray-300 text-gray-700 hover:bg-gray-50"
+              className="blog-load-more-btn"
             >
               Load more
             </Button>

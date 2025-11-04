@@ -22,6 +22,16 @@
 @media (max-width: 480px) {
   .application-jobs-section {
     padding: 32px 16px;
-    height: 710vh;
+    height: 410vh;
+    position: relative;
+  }
+  .bottom-vector-application {
+    display: none;
+    /* z-index: 1; */
+  }
+}
+@media (max-width: 420px) {
+  .application-jobs-section {
+    height: 440vh;
   }
 }

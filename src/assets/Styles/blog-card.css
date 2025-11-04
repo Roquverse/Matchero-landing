@@ -1,0 +1,111 @@
+/* Blog Card Styles */
+.blog-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-category-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--Type-Secondary, #475569);
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.blog-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blog-card-date {
+  font-family: "DM Sans";
+  font-size: 14px;
+  color: var(--Type-Secondary, #475569);
+  margin-bottom: 8px;
+}
+
+.blog-card-title {
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--Type-Primary, #020617);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.blog-card-excerpt {
+  font-family: "DM Sans";
+  font-size: 14px;
+  color: var(--Type-Secondary, #475569);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.blog-card-link {
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-100, #3a6202);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+  margin-top: auto;
+}
+
+.blog-card-link:hover {
+  color: var(--green-80, #84cc16);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .blog-card-image {
+    height: 180px;
+  }
+
+  .blog-card-content {
+    padding: 20px;
+  }
+
+  .blog-card-title {
+    font-size: 16px;
+  }
+
+  .blog-card-excerpt {
+    font-size: 13px;
+  }
+}

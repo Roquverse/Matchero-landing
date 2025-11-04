@@ -1,5 +1,5 @@
 .bottom-section {
-  margin-top: -50vh;
+  margin-top: -65vh;
   z-index: 1;
   position: relative;
   background-color: transparent;
@@ -141,7 +141,12 @@
   letter-spacing: -0.32px;
   width: 758px;
 }
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (max-height: 1366px) {
+  .bottom-section {
+    top: 23vh;
+  }
+}
+@media (max-width: 1024px) and (max-height: 600px) {
   .bottom-section {
     top: 23vh;
   }
@@ -160,6 +165,15 @@
     top: 52vh;
   }
 }
+@media screen and (max-width: 850px) {
+  .bottom-section {
+    top: 35vh;
+  }
+  .bottom-section p {
+    width: 50vw;
+    font-size: 20px;
+  }
+}
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
@@ -175,7 +189,7 @@
     top: 50vh;
   }
   .bottom-section {
-    top: 27vh;
+    top: 30vh;
   }
   .bottom-section p {
     width: 50vw;
@@ -217,9 +231,6 @@
   }
 }
 @media (max-width: 480px) {
-  .bottom-vector-home {
-    top: 55vh;
-  }
   .bottom-section p {
     width: 70vw;
     font-size: 24px;
@@ -240,6 +251,10 @@
   }
   .leading-relaxed {
     width: 100%;
+  }
+  .bottom-section {
+    position: relative;
+    top: 40vh;
   }
 }
 /* @media screen and (max-width: 400px) {
@@ -297,5 +312,10 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.72px;
+  }
+}
+@media screen and (max-width: 1024px) and (max-height: 1366px) {
+  .bottom-section {
+    top: 35vh;
   }
 }
