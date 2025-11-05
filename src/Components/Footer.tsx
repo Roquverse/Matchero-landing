@@ -108,20 +108,20 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/recruiters/candidate-experience"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Candidate Experience
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/recruiters/onboarding"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Onboarding
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a

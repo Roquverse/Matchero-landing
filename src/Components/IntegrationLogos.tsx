@@ -30,7 +30,30 @@ const IntegrationLogos = ({
 
   return (
     <div className={`w-full mb-12 ${className}`}>
-      {/* Auto-slider for all screens */}
+      {/* Desktop Grid - Show all logos */}
+      <div className="integration-logos-desktop-grid">
+        {integrations.map((integration, index) => (
+          <div
+            key={index}
+            className={`integration-logo-item ${
+              currentIntegrationSlide === index ? "active" : ""
+            }`}
+          >
+            <img
+              src={integration.image}
+              alt={`${integration.name} logo`}
+              className="integration-logo-img"
+            />
+            {integration.subtitle && (
+              <div className="integration-logo-subtitle">
+                {integration.subtitle}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile Slider - Show one at a time */}
       <div className="sourcing-integrations-slider-container">
         <div
           ref={integrationSliderRef}

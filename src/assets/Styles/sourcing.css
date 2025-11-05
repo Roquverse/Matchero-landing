@@ -545,9 +545,56 @@
   background-color: #ffffff;
 }
 
+/* Desktop Integration Grid - Show all logos */
+.integration-logos-desktop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+  padding: 0 20px;
+  margin-bottom: 24px;
+}
+
+.integration-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.5s ease-in-out;
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+.integration-logo-item.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.integration-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.integration-logo-item:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.integration-logo-subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: var(--Type-Secondary, #475569);
+  text-align: center;
+  margin: 0;
+}
+
 /* Mobile Integration Slider */
 .sourcing-integrations-slider-container {
-  display: block;
+  display: none;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -725,6 +772,16 @@
 @media screen and (max-width: 768px) {
   .sourcing-section {
     padding: 64px 0;
+  }
+
+  /* Hide desktop grid on mobile */
+  .integration-logos-desktop-grid {
+    display: none;
+  }
+
+  /* Show mobile slider on mobile */
+  .sourcing-integrations-slider-container {
+    display: block;
   }
 
   .sourcing-container {

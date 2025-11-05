@@ -49,7 +49,7 @@ const DecisionMaking = () => {
     {
       name: "matchero",
       color: "text-green-600",
-      subtitle: "ATS, Hiring & Onboarding",
+      subtitle: "Hiring & Onboarding",
       image: "/logo.svg",
     },
     {
