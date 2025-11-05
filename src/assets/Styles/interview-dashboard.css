@@ -77,12 +77,26 @@
 }
 @media screen and (max-width: 420px) {
   .interview-dashboard-section {
-    height: 35vh;
+    height: 30vh;
   }
   .dashboard-image-container {
     margin-top: -20px;
   }
   .dashboard-image-container img {
-    margin-top: -60px;
+    margin-top: -80px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .interview-dashboard-container {
+    height: 35vh;
+  }
+  .interview-dashboard-section {
+    height: 30vh;
+  }
+  .dashboard-image-container {
+    margin-top: -20px;
+  }
+  .dashboard-image-container img {
+    margin-top: 0;
   }
 }

@@ -53,7 +53,7 @@ const BlogCard = ({
         </h3>
 
         {/* Excerpt */}
-        <p className="text-gray-600 text-sm mb-4 leading-relaxed blog-card-excerpt">
+        <p className="text-gray-600 text-sm mb-4 blog-card-excerpt">
           {excerpt}
         </p>
 

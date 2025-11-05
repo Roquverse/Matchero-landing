@@ -50,41 +50,59 @@
 }
 
 .blog-card-date {
+  overflow: hidden;
+  color: var(--Type-Secondary, #475569);
+  text-overflow: ellipsis;
+
+  /* Text sm/Regular */
   font-family: "DM Sans";
   font-size: 14px;
-  color: var(--Type-Secondary, #475569);
-  margin-bottom: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.28px;
 }
 
 .blog-card-title {
-  font-family: "DM Sans";
-  font-size: 18px;
-  font-weight: 700;
+  overflow: hidden;
   color: var(--Type-Primary, #020617);
-  line-height: 1.4;
-  margin-bottom: 12px;
+  text-overflow: ellipsis;
+
+  /* Text XL/SemiBold */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
 }
 
 .blog-card-excerpt {
+  overflow: hidden;
+  color: var(--Type-Secondary, #475569);
+  text-overflow: ellipsis;
+
+  /* Text sm/Regular */
   font-family: "DM Sans";
   font-size: 14px;
-  color: var(--Type-Secondary, #475569);
-  line-height: 1.6;
-  margin-bottom: 16px;
-  flex: 1;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.28px;
+  width: 100%;
 }
 
 .blog-card-link {
+  color: var(--Succesful-match-100, #3a6202);
+  text-align: center;
+
+  /* Text base/Semi Bold */
   font-family: "DM Sans";
-  font-size: 14px;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 600;
-  color: var(--green-100, #3a6202);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: color 0.2s ease;
-  margin-top: auto;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.32px;
 }
 
 .blog-card-link:hover {

@@ -1,14 +1,6 @@
-/* .bottom-vector-candidate {
-  position: absolute;
-  top: 45vh;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-} */
 .page-bottom-section {
   position: absolute;
-  top: 55vh;
+  top: 70vh;
   left: 0;
   width: 100%;
   z-index: 1;
@@ -173,13 +165,22 @@
 }
 
 @media screen and (max-width: 420px) {
-  .bottom-vector-candidate {
-    top: 53vh;
+  .page-bottom-section {
+    position: absolute;
+    top: 85vh;
+  }
+  .candidate-job-listing-section {
+    height: 210vh;
   }
 }
 @media screen and (max-width: 1024px) {
   .candidate-map-job-listing-section {
     height: 65vh;
+  }
+}
+@media screen and (max-width: 400px) {
+  .candidate-job-listing-section {
+    height: 225vh;
   }
 }
 @media screen and (max-width: 375px) {
@@ -197,6 +198,9 @@
   }
   .page-bottom-section {
     position: absolute;
-    top: -40vh;
+    top: 135vh;
+  }
+  .candidate-job-listing-section {
+    height: 285vh;
   }
 }

@@ -7,6 +7,7 @@ import Pricing from "./Pages/Pricing";
 import Application from "./Pages/Application";
 import JobDetail from "./Pages/JobDetail";
 import Blog from "./Pages/Blog";
+import BlogDetail from "./Pages/BlogDetail";
 import DecisionMaking from "./Pages/DecisionMaking";
 import Sourcing from "./Pages/Sourcing";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/job/:jobId" element={<JobDetail />} />
         <Route path="/job-details/:jobId" element={<JobDetail />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route
           path="/recruiters/decision-making"
           element={<DecisionMaking />}

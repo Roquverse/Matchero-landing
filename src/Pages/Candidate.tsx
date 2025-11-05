@@ -14,7 +14,11 @@ const Candidate = () => {
 
   return (
     <div>
-      <PageHero />
+      <PageHero
+        breadcrumb={{
+          items: [{ text: "Home", link: "/" }, { text: "For jobseekers" }],
+        }}
+      />
 
       {/* Additional content section */}
       <section className="py-16 bg-white page-bottom-section">
