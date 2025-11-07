@@ -8,10 +8,12 @@ import Application from "./Pages/Application";
 import JobDetail from "./Pages/JobDetail";
 import Blog from "./Pages/Blog";
 import BlogDetail from "./Pages/BlogDetail";
+import Recruiter from "./Pages/Recruiter";
 import DecisionMaking from "./Pages/DecisionMaking";
 import Sourcing from "./Pages/Sourcing";
 import CandidateExperience from "./Pages/CandidateExperience";
 import Onboarding from "./Pages/Onboarding";
+import Integration from "./Pages/Integration";
 
 function App() {
   return (
@@ -30,12 +32,14 @@ function App() {
           path="/recruiters/decision-making"
           element={<DecisionMaking />}
         />
+        <Route path="/recruiters" element={<Recruiter />} />
         <Route path="/recruiters/sourcing" element={<Sourcing />} />
         <Route
           path="/recruiters/candidate-experience"
           element={<CandidateExperience />}
         />
         <Route path="/recruiters/onboarding" element={<Onboarding />} />
+        <Route path="/recruiters/integrations" element={<Integration />} />
       </Routes>
     </Layout>
   );

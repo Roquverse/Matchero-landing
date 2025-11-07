@@ -33,23 +33,27 @@ const Header = () => {
   };
 
   const isHomePage = location.pathname === "/";
-  const isRecruiterPage = location.pathname.startsWith("/recruiters/");
+  const isRecruiterPage =
+    location.pathname === "/recruiters" ||
+    location.pathname.startsWith("/recruiters/");
   const shouldUseGreenLogo = isHomePage || isRecruiterPage;
   const logoSrc = shouldUseGreenLogo ? "/logo.svg" : "/blue-logo.svg";
 
   const navigationItems = [
     { name: "Matchero", path: "/" },
-    { name: "For recruiters", path: "/recruiters", hasDropdown: true },
+    { name: "Solutions", path: "/recruiters", hasDropdown: true },
     { name: "For jobseekers", path: "/candidate" },
-    { name: "Product", path: "/product" },
     { name: "Blog", path: "/blog" },
   ];
 
   const recruitersMenuItems = [
     { name: "Decision making", path: "/recruiters/decision-making" },
     { name: "Sourcing", path: "/recruiters/sourcing" },
-    { name: "Candidate experience", path: "/recruiters/candidate-experience" },
-    { name: "Onboarding", path: "/recruiters/onboarding" },
+    {
+      name: "Candidate experience",
+      path: "/recruiters/candidate-experience",
+    },
+    { name: "Smart onboarding", path: "/recruiters/onboarding" },
     { name: "Integrations", path: "/recruiters/integrations" },
     {
       name: "AI Interviewer",
@@ -110,7 +114,21 @@ const Header = () => {
 
                     {/* Dropdown Menu */}
                     {isRecruitersDropdownOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 dropdown-menu">
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-3 z-50 dropdown-menu">
+                        <div className="px-4 pb-2">
+                          <Link
+                            to="/recruiters"
+                            className="block"
+                            onClick={() => setIsRecruitersDropdownOpen(false)}
+                          >
+                            <p className="text-xs font-semibold text-gray-900 uppercase tracking-wide">
+                              Solution for recruiters
+                            </p>
+                            <p className="text-xs text-gray-500 mt-1">
+                              Explore tools that make hiring faster
+                            </p>
+                          </Link>
+                        </div>
                         {recruitersMenuItems.map((menuItem) =>
                           menuItem.comingSoon ? (
                             <div
@@ -198,7 +216,7 @@ const Header = () => {
                   </svg>
                 }
               >
-                Log in
+                Sign up
               </Button>
             </div>
           </div>
@@ -282,6 +300,23 @@ const Header = () => {
                     {/* Mobile Dropdown Menu */}
                     {isRecruitersDropdownOpen && (
                       <div className="pl-4 mt-2 space-y-1">
+                        <div className="px-4 pb-2">
+                          <Link
+                            to="/recruiters"
+                            className="block"
+                            onClick={() => {
+                              setIsRecruitersDropdownOpen(false);
+                              setIsMobileMenuOpen(false);
+                            }}
+                          >
+                            <p className="text-xs font-semibold text-gray-900 uppercase tracking-wide">
+                              Solution for recruiters
+                            </p>
+                            <p className="text-xs text-gray-500 mt-1">
+                              Explore tools that make hiring faster
+                            </p>
+                          </Link>
+                        </div>
                         {recruitersMenuItems.map((menuItem) =>
                           menuItem.comingSoon ? (
                             <div
@@ -374,7 +409,7 @@ const Header = () => {
                     }
                     className="flex-1"
                   >
-                    Log in
+                    Sign up
                   </Button>
                 </div>
               </div>

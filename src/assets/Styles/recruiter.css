@@ -1,0 +1,295 @@
+.recruiter-page {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.recruiter-section {
+  width: 100%;
+  padding: 80px 0;
+}
+
+.recruiter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  box-sizing: border-box;
+}
+
+.recruiter-problem-section {
+  text-align: center;
+}
+
+.recruiter-section-title {
+  color: var(--Type-Primary, #020617);
+  font-family: "Source Serif 4", serif;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  margin-bottom: 18px;
+}
+
+.recruiter-section-description {
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.recruiter-solutions-section {
+  background-color: #f8fafc;
+}
+
+.recruiter-solution {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.recruiter-solution:last-child {
+  margin-bottom: 0;
+}
+
+.recruiter-solution.reverse {
+  direction: rtl;
+}
+
+.recruiter-solution.reverse .recruiter-solution-text {
+  direction: ltr;
+}
+
+.recruiter-solution.reverse .recruiter-solution-image {
+  direction: ltr;
+}
+
+.recruiter-solution-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recruiter-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: #d9f99d;
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.recruiter-solution-title {
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+.recruiter-solution-description {
+  color: var(--Type-Secondary, #475569);
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.recruiter-solution-button {
+  width: fit-content;
+}
+
+.recruiter-solution-image {
+  position: relative;
+}
+
+.recruiter-image-frame {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1);
+  overflow: hidden;
+}
+
+.recruiter-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.recruiter-ecosystem-section {
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.recruiter-ecosystem-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.recruiter-integrations {
+  width: 100%;
+}
+
+.recruiter-capabilities-section {
+  background-color: #f1f5f9;
+}
+
+.recruiter-capability-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.recruiter-capability-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+}
+
+.recruiter-capability-title {
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.48px;
+  margin: 0;
+}
+
+.recruiter-capability-description {
+  color: var(--Type-Secondary, #475569);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.recruiter-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5f5);
+  border-radius: 12px;
+}
+
+.recruiter-capability-button {
+  width: fit-content;
+  padding-left: 0;
+}
+
+.recruiter-final-cta {
+  background-color: #d9f99d;
+}
+
+.recruiter-final-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: center;
+}
+
+.recruiter-final-title {
+  color: var(--Type-Primary, #020617);
+  font-family: "Source Serif 4", serif;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  margin-bottom: 16px;
+}
+
+.recruiter-final-description {
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.recruiter-final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.recruiter-final-button {
+  display: inline-flex;
+}
+
+@media (max-width: 1024px) {
+  .recruiter-container {
+    padding: 0 32px;
+  }
+
+  .recruiter-solution {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .recruiter-solution.reverse {
+    direction: ltr;
+  }
+
+  .recruiter-image-frame {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .recruiter-capability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recruiter-final-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .recruiter-final-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .recruiter-section {
+    padding: 56px 0;
+  }
+
+  .recruiter-container {
+    padding: 0 20px;
+  }
+
+  .recruiter-section-title,
+  .recruiter-final-title {
+    font-size: 28px;
+    letter-spacing: -0.56px;
+  }
+
+  .recruiter-section-description,
+  .recruiter-final-description {
+    font-size: 18px;
+  }
+
+  .recruiter-solution-title {
+    font-size: 26px;
+  }
+
+  .recruiter-solution-description {
+    font-size: 16px;
+  }
+
+  .recruiter-placeholder {
+    height: 160px;
+  }
+}
