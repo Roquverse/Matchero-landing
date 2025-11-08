@@ -40,7 +40,6 @@ const Header = () => {
   const logoSrc = shouldUseGreenLogo ? "/logo.svg" : "/blue-logo.svg";
 
   const navigationItems = [
-    { name: "Matchero", path: "/" },
     { name: "Solutions", path: "/recruiters", hasDropdown: true },
     { name: "For jobseekers", path: "/candidate" },
     { name: "Blog", path: "/blog" },

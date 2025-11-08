@@ -2,95 +2,160 @@ import Button from "./Button";
 import Input from "./Input";
 import "../assets/Styles/hero.css";
 
-const Hero = () => {
-  const handleButtonClick = () => {
-    console.log("Request demo clicked");
-  };
+interface HeroProps {
+  backgroundColor?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  emailPlaceholder?: string;
+  buttonText?: string;
+  secondaryButtonText?: string;
+  privacyText?: string;
+  privacyLink?: string;
+  videoText?: string;
+  hideInput?: boolean;
+  hideVideoLink?: boolean;
+  onButtonClick?: () => void;
+  onSecondaryButtonClick?: () => void;
+  onVideoClick?: () => void;
+  className?: string;
+}
 
-  const handleVideoClick = () => {
-    console.log("Watch video clicked");
-  };
-
+const Hero = ({
+  backgroundColor = "bg-green-20",
+  title = `<b><em>Smarter</em></b> Hiring, <b>human touch</b>, real results`,
+  description = "Matchero helps businesses hire faster and fairer with an all-in-one ATS, AI video interviews, and seamless onboarding.",
+  image = "/hero-home.png",
+  imageAlt = "Home hero image",
+  emailPlaceholder = "Enter your email address",
+  buttonText = "Request demo",
+  secondaryButtonText,
+  privacyText = `By clicking "request demo", you agree to the use of your data in accordance with Matchero's`,
+  privacyLink = "#",
+  videoText = "Watch 1 min video",
+  hideInput = false,
+  hideVideoLink = false,
+  onButtonClick,
+  onSecondaryButtonClick,
+  onVideoClick,
+  className = "",
+}: HeroProps) => {
   return (
-    <div className="hero-container">
-      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
+    <div className="hero-page">
+      <section className={`hero-section ${backgroundColor} ${className}`}>
+        <div className="hero-container">
+          {/* Content Grid */}
           <div className="hero-content">
-            <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-              <b>
-                <em>Smarter</em>
-              </b>{" "}
-              Hiring, <b>human touch</b>, real results
-            </h1>
-            <p className="hero-content-description">
-              Matchero helps businesses hire faster and fairer with an
-              all-in-one ATS, AI video interviews, and seamless onboarding.
-            </p>
-
-            <div className="hero-input-group flex flex-col sm:flex-row gap-4 mt-7">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                className="hero-input"
+            {/* Left Content */}
+            <div className="hero-left">
+              <h1
+                className="hero-title"
+                dangerouslySetInnerHTML={{ __html: title }}
               />
-              <Button
-                variant="filled"
-                color="green"
-                size="md"
-                onClick={handleButtonClick}
-                className="hero-button"
-                icon={
+
+              {description && (
+                <p
+                  className="hero-description"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              )}
+
+              {/* Email Input Group */}
+              <div className="hero-cta">
+                {!hideInput && (
+                  <Input
+                    type="email"
+                    placeholder={emailPlaceholder}
+                    size="lg"
+                    className="hero-input"
+                  />
+                )}
+                <Button
+                  variant="filled"
+                  color="green"
+                  size="lg"
+                  onClick={onButtonClick}
+                  icon={
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  }
+                  className="hero-button"
+                >
+                  {buttonText ?? "Request demo"}
+                </Button>
+                {secondaryButtonText && (
+                  <Button
+                    variant="outlined"
+                    color="white"
+                    size="lg"
+                    onClick={onSecondaryButtonClick}
+                    className="hero-secondary-button"
+                  >
+                    {secondaryButtonText}
+                  </Button>
+                )}
+              </div>
+
+              {/* Privacy Notice */}
+              {privacyText && (
+                <p className="hero-privacy">
+                  {!hideInput ? (
+                    <>
+                      {privacyText}{" "}
+                      <a
+                        href={privacyLink}
+                        className="recruiter-hero-privacy-link"
+                      >
+                        Privacy Notice
+                      </a>
+                      , including for marketing purposes.
+                    </>
+                  ) : (
+                    privacyText
+                  )}
+                </p>
+              )}
+
+              {/* Video Link */}
+              {!hideVideoLink && (
+                <div className="hero-video" onClick={onVideoClick}>
+                  <span>{videoText}</span>
                   <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
+                    className="w-5 h-5"
+                    fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
+                    <path d="M8 5v14l11-7z" />
                   </svg>
-                }
-              >
-                Request demo
-              </Button>
+                </div>
+              )}
             </div>
 
-            <p className="hero-privacy-text mt-4 text-sm text-gray-600">
-              By clicking "request demo", you agree to the use of your data in
-              accordance with Matchero's{" "}
-              <a
-                href="#"
-                className="hero-privacy-link text-green-600 hover:underline"
-              >
-                Privacy Notice
-              </a>
-              , including for marketing purposes.
-            </p>
-
-            <div
-              className="hero-video-link mt-4 flex items-center gap-2 text-gray-700 hover:text-green-600 cursor-pointer"
-              onClick={handleVideoClick}
-            >
-              <span>Watch 1 min video</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+            {/* Right Image */}
+            <div className="hero-right">
+              <div className="hero-image-wrapper">
+                <img src={image} alt={imageAlt} className="hero-image" />
+              </div>
             </div>
-          </div>
-
-          <div className="relative ms-4">
-            <img className="hero-image" src="hero-home.png" alt="Hero Image" />
           </div>
         </div>
-      </div>
+      </section>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="vector-home"
+        className="hero-home-vector"
       >
         <path
           fill="#ffffff"
