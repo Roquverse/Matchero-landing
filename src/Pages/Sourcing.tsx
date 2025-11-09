@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from "react";
 import RecruiterHero from "../Components/RecruiterHero";
 import Button from "../Components/Button";
 import SourcingAccordion from "../Components/SourcingAccordion";
@@ -108,36 +107,6 @@ const Sourcing = () => {
       image: "/partner/338d20c8723f9c93bca1046de48ea40f1e6450be.png",
     },
   ];
-
-  const people = [
-    {
-      src: "/jobseeker.png",
-      alt: "Woman with curly hair and glasses",
-    },
-    {
-      src: "/job-hero.png",
-      alt: "Man with glasses and crossed arms",
-    },
-    {
-      src: "/hero-home.png",
-      alt: "Woman with short curly hair",
-    },
-    {
-      src: "/sourcing-people.png",
-      alt: "Man with yellow t-shirt",
-    },
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % people.length);
-    }, 3000); // Auto-slide every 3 seconds
-
-    return () => clearInterval(interval);
-  }, [people.length]);
 
   return (
     <div className="sourcing-page">

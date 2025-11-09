@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import RecruiterPageHero from "../Components/RecruiterPageHero";
 import Button from "../Components/Button";
-import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/recruiter.css";
 
 const Recruiter = () => {
@@ -93,34 +92,6 @@ const Recruiter = () => {
       buttonLink: "/recruiters/ai-interviewer",
       layout: "reverse",
       comingSoon: true,
-    },
-  ];
-
-  const integrations = [
-    {
-      name: "ORACLE",
-      image: "/partner/Oracle_logo 1.svg",
-    },
-    {
-      name: "LinkedIn",
-      image: "/partner/LinkedIn_2021 1.svg",
-    },
-    {
-      name: "workday.",
-      image: "/partner/Workday_Logo_0 1.svg",
-    },
-    {
-      name: "matchero",
-      subtitle: "ATS, Hiring & Onboarding",
-      image: "/logo.svg",
-    },
-    {
-      name: "Google Drive",
-      image: "/partner/Google.png",
-    },
-    {
-      name: "bo",
-      image: "/partner/338d20c8723f9c93bca1046de48ea40f1e6450be.png",
     },
   ];
 
