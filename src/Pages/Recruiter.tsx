@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import RecruiterHero from "../Components/RecruiterHero";
+import RecruiterPageHero from "../Components/RecruiterPageHero";
 import Button from "../Components/Button";
 import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/recruiter.css";
@@ -56,30 +56,30 @@ const Recruiter = () => {
       image: "/onboarding-hero.png",
       imageAlt: "Onboarding workspace",
     },
-  ];
-
-  const capabilityHighlights = [
     {
       tag: "Integrations",
       title: "Connect Matchero with the tools you already use.",
       description:
-        "Plug into job boards, calendars, and HR systems so data flows automatically into one hiring hub.",
+        "Seamlessly plug into job boards, calendars, and HR systems so data flows automatically and every hiring touchpoint stays in sync.",
       buttonText: "View integrations",
       buttonLink: "/recruiters/integrations",
+      image: "/decision-insight.png",
+      imageAlt: "Integrations dashboard",
     },
     {
-      tag: "Automation",
+      tag: "AI Automation",
       title: "Automate tasks and uncover hidden insights.",
       description:
-        "Trigger next steps, send nudges, and surface recommendations so nothing slips through the cracks.",
+        "Matchero’s AI quietly tackles admin and keeps your team moving—triggering nudges, surfacing insights, and streamlining decision-making.",
       buttonText: "See AI automation",
       buttonLink: "/recruiters/decision-making",
+      layout: "reverse",
     },
     {
       tag: "AI Matching",
       title: "Smarter matches. Stronger shortlists.",
       description:
-        "Pair candidates with roles using skills, experience, and team culture signals for higher-fit pipelines.",
+        "Build higher-fit pipelines with matching that looks beyond keywords—ranking talent with the experience, skills, and team fit you need.",
       buttonText: "AI job matching",
       buttonLink: "/recruiters/ai-job-matching",
       comingSoon: true,
@@ -88,9 +88,10 @@ const Recruiter = () => {
       tag: "AI Interviewer",
       title: "Your intelligent assistant for candidate interviews.",
       description:
-        "Structure conversations, capture transcripts, and flag insights so interviewers can focus on rapport.",
+        "Give interviewers structure, live prompts, and automatic summaries so every conversation feels prepared—and every candidate feels seen.",
       buttonText: "Meet the AI interviewer",
       buttonLink: "/recruiters/ai-interviewer",
+      layout: "reverse",
       comingSoon: true,
     },
   ];
@@ -125,16 +126,17 @@ const Recruiter = () => {
 
   return (
     <div className="recruiter-page">
-      <RecruiterHero
+      <RecruiterPageHero
         backgroundColor="bg-green-20"
-        title="Smarter hiring, powered by human insight and <em>AI efficiency.</em>"
-        description="Matchero helps recruiters and hiring teams make better decisions—from sourcing to onboarding—within a single platform built for Africa's modern workforce."
+        title="<em>Smarter</em> hiring, powered by human insight and <strong>AI efficiency.</strong>"
+        description="Matchero helps recruiters and hiring teams make better decisions—from sourcing to onboarding—with an all-in-one platform built for Africa's modern workforce."
         image="/sourcing-people2.png"
         imageAlt="Recruiter team hero"
         buttonText="Request demo"
-        secondaryButtonText="Explore platform"
+        secondaryButtonText="Explore features"
         privacyText={`By clicking "request demo", you agree to the use of your data in accordance with Matchero's`}
         hideInput
+        hideVideoLink
         onButtonClick={handleRequestDemo}
         onSecondaryButtonClick={handleExplorePlatform}
         breadcrumb={{
@@ -151,6 +153,10 @@ const Recruiter = () => {
             Scattered tools, delayed feedback, and scattered manual tasks slow
             teams down. Matchero brings it all together into a single,
             intelligent system built for modern talent teams.
+          </p>
+          <p className="recruiter-section-description-2">
+            Every stage is designed to help you{" "}
+            <strong>hire faster, fairer, and with more confidence</strong>
           </p>
         </div>
       </section>
@@ -209,109 +215,47 @@ const Recruiter = () => {
         <div className="recruiter-container">
           <div className="recruiter-ecosystem-content">
             <h2 className="recruiter-section-title">
-              One platform. Every stage of hiring.
-            </h2>
-            <p className="recruiter-section-description">
-              Matchero keeps sourcing, interview coordination, and onboarding in
-              sync so teams stay aligned and candidates feel supported.
-            </p>
-            <IntegrationLogos
-              integrations={integrations}
-              className="recruiter-integrations"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="recruiter-section recruiter-capabilities-section">
-        <div className="recruiter-container">
-          <div className="recruiter-capability-grid">
-            {capabilityHighlights.map((highlight) => (
-              <div key={highlight.title} className="recruiter-capability-card">
-                <span className="recruiter-tag">{highlight.tag}</span>
-                <h3 className="recruiter-capability-title">
-                  {highlight.title}
-                </h3>
-                <p className="recruiter-capability-description">
-                  {highlight.description}
-                </p>
-                <div className="recruiter-placeholder" aria-hidden="true"></div>
-                <Button
-                  variant="text"
-                  color="green"
-                  size="md"
-                  onClick={() => navigate(highlight.buttonLink)}
-                  disabled={highlight.comingSoon}
-                  className="recruiter-capability-button"
-                  icon={
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  }
-                >
-                  {highlight.comingSoon ? "Coming soon" : highlight.buttonText}
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="recruiter-section recruiter-final-cta">
-        <div className="recruiter-container recruiter-final-content">
-          <div className="recruiter-final-text">
-            <h2 className="recruiter-final-title">
               Bring every stage of hiring into one connected platform.
             </h2>
-            <p className="recruiter-final-description">
+            <p className="recruiter-section-description">
               Matchero combines people-first design with intelligent automation,
-              helping modern recruiters deliver better hires—faster.
+              helping recruiters deliver better hires—faster.
             </p>
-          </div>
-          <div className="recruiter-final-actions">
-            <Button
-              variant="filled"
-              color="green"
-              size="lg"
-              onClick={handleRequestDemo}
-              className="recruiter-final-button"
-              icon={
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              }
-            >
-              Request demo
-            </Button>
-            <Button
-              variant="outlined"
-              color="gray"
-              size="lg"
-              onClick={handleExplorePlatform}
-              className="recruiter-final-button"
-            >
-              See how Matchero works
-            </Button>
+            <div className="recruiter-final-actions">
+              <Button
+                variant="filled"
+                color="green"
+                size="lg"
+                onClick={handleRequestDemo}
+                className="recruiter-final-button"
+                icon={
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                }
+              >
+                Request demo
+              </Button>
+              <Button
+                variant="outlined"
+                color="gray"
+                size="lg"
+                onClick={handleExplorePlatform}
+                className="recruiter-final-button"
+              >
+                Watch video
+              </Button>
+            </div>
           </div>
         </div>
       </section>

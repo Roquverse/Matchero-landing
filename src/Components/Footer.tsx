@@ -8,7 +8,7 @@ const Footer = () => {
   const isRecruiterPage = location.pathname.startsWith("/recruiters/");
   const shouldUseGreenFooter = isHomePage || isRecruiterPage;
   const logoSrc = shouldUseGreenFooter ? "/logo.svg" : "/blue-logo.svg";
-  const footerBackground = shouldUseGreenFooter ? "bg-cyan-20" : "bg-white";
+  const footerBackground = shouldUseGreenFooter ? "bg-green-20" : "bg-white";
 
   return (
     <footer className={`py-16 footer ${footerBackground}`}>

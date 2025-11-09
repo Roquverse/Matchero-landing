@@ -52,6 +52,7 @@
 
 .decision-making-section-alt {
   background-color: transparent; /* Light green */
+  position: relative;
 }
 
 .decision-making-container {
@@ -85,12 +86,15 @@
 }
 
 .decision-making-section-title {
-  font-family: "Source Serif 4", serif;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 1.2;
   color: var(--Type-Primary, #020617);
-  margin: 0;
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
 }
 
 .decision-making-section-title em {
@@ -336,27 +340,44 @@
 }
 
 .decision-making-process-title {
-  font-family: "DM Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.3;
   color: var(--Type-Primary, #020617);
-  margin: 0;
+  text-align: left;
+
+  /* Text XL/SemiBold */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
 }
 
 .decision-making-process-description {
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
   color: var(--Type-Secondary, #475569);
-  margin: 0;
+
+  /* Text base/SemiBold */
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.32px;
 }
 
 .decision-making-video-link {
+  color: var(--Components-Button-Outline-Dark-Placeholder-Color, #1f2937);
+  text-align: left;
+
+  /* Text Lg/SemiBold */
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.36px;
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--Type-Secondary, #475569);
   cursor: pointer;
   transition: color 0.2s ease;
   margin-top: 8px;
@@ -432,7 +453,7 @@
 .bottom-vector-decision-making {
   transform: scaleX(-1);
   position: absolute;
-  bottom: 210vh;
+  bottom: 0;
   left: 0;
 }
 
@@ -443,7 +464,7 @@
 .bottom-vector-decision-features {
   transform: scaleX(-1) scaleY(-1);
   position: absolute;
-  bottom: 100vh;
+  top: 0;
   left: 0;
 }
 /* Responsive */

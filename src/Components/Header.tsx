@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import "../assets/Styles/navbar.css";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isRecruitersDropdownOpen, setIsRecruitersDropdownOpen] =
     useState(false);
@@ -270,7 +271,7 @@ const Header = () => {
                   <div key={item.name}>
                     <button
                       onClick={() =>
-                        setIsRecruitersDropdownOpen(!isRecruitersDropdownOpen)
+                        setIsRecruitersDropdownOpen((prevState) => !prevState)
                       }
                       className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 ${
                         isActive(item.path)
@@ -300,10 +301,11 @@ const Header = () => {
                     {isRecruitersDropdownOpen && (
                       <div className="pl-4 mt-2 space-y-1">
                         <div className="px-4 pb-2">
-                          <Link
-                            to="/recruiters"
-                            className="block"
+                          <button
+                            type="button"
+                            className="text-left block w-full"
                             onClick={() => {
+                              navigate("/recruiters");
                               setIsRecruitersDropdownOpen(false);
                               setIsMobileMenuOpen(false);
                             }}
@@ -314,7 +316,7 @@ const Header = () => {
                             <p className="text-xs text-gray-500 mt-1">
                               Explore tools that make hiring faster
                             </p>
-                          </Link>
+                          </button>
                         </div>
                         {recruitersMenuItems.map((menuItem) =>
                           menuItem.comingSoon ? (
@@ -330,15 +332,16 @@ const Header = () => {
                               </div>
                             </div>
                           ) : (
-                            <Link
+                            <button
                               key={menuItem.path}
-                              to={menuItem.path}
-                              className={`block px-4 py-2 rounded-lg text-sm transition-colors duration-200 ${
+                              type="button"
+                              className={`w-full text-left block px-4 py-2 rounded-lg text-sm transition-colors duration-200 ${
                                 isActive(menuItem.path)
                                   ? "text-deep-tek-100 bg-deep-tek-20 font-semibold"
                                   : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                               }`}
                               onClick={() => {
+                                navigate(menuItem.path);
                                 setIsRecruitersDropdownOpen(false);
                                 setIsMobileMenuOpen(false);
                               }}
@@ -346,7 +349,7 @@ const Header = () => {
                               <div className="flex items-center justify-between">
                                 <span>{menuItem.name}</span>
                               </div>
-                            </Link>
+                            </button>
                           )
                         )}
                       </div>

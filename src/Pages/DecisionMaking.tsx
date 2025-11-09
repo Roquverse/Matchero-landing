@@ -1,4 +1,4 @@
-import RecruiterHero from "../Components/RecruiterHero";
+import DecisionHero from "../Components/DecisionHero";
 import Button from "../Components/Button";
 import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/decision-making.css";
@@ -67,9 +67,8 @@ const DecisionMaking = () => {
   return (
     <div className="decision-making-page">
       {/* Hero Section */}
-      <RecruiterHero
-        backgroundColor="bg-green-20"
-        title="Faster, fairer decisions with data and AI."
+      <DecisionHero
+        title={`Faster, fairer decisions with <span class="decision-hero-accent">data</span> and <span class="decision-hero-accent">AI</span>.`}
         description="Centralise feedback, scores, and insights so every hiring decision is backed by evidence—not guesswork."
         image="/decision-hero.png"
         imageAlt="Decision making hero image"
@@ -80,24 +79,9 @@ const DecisionMaking = () => {
         onButtonClick={handleButtonClick}
         onVideoClick={handleVideoClick}
         breadcrumb={{
-          items: [
-            { text: "Home", link: "/" },
-            { text: "For recruiters", link: "/recruiters" },
-            { text: "Decision making" },
-          ],
+          items: [{ text: "Home", link: "/" }, { text: "Decision making" }],
         }}
       />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="bottom-decision-making"
-      >
-        <path
-          fill="#ffffff"
-          fill-opacity="1"
-          d="M1440,288L1360,256C1280,224,1120,160,960,122.7C800,85,640,75,480,58.7C320,43,160,21,80,10.7L0,0L0,320L80,320C160,320,320,320,480,320C640,320,800,320,960,320C1120,320,1280,320,1360,320L1440,320Z"
-        ></path>
-      </svg>
       <section className="py-16 bg-white decision-making-top-section">
         <div className="w-full px-4 md:px-16 text-center">
           <h2 className="decision-making-section-title">
@@ -175,18 +159,18 @@ const DecisionMaking = () => {
             </div>
           </div>
         </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="bottom-vector-decision-making"
+        >
+          <path
+            fill="#d9f99d"
+            fill-opacity="1"
+            d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+          ></path>
+        </svg>
       </section>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="bottom-vector-decision-making"
-      >
-        <path
-          fill="#d9f99d"
-          fill-opacity="1"
-          d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-        ></path>
-      </svg>
 
       {/* Feature Cards Section */}
       <section className="decision-making-section decision-making-features">
@@ -213,20 +197,20 @@ const DecisionMaking = () => {
           </div>
         </div>
       </section>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="bottom-vector-decision-features"
-      >
-        <path
-          fill="#d9f99d"
-          fill-opacity="1"
-          d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-        ></path>
-      </svg>
 
       {/* From interview to insight section */}
       <section className="decision-making-section decision-making-section-alt">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="bottom-vector-decision-features"
+        >
+          <path
+            fill="#d9f99d"
+            fill-opacity="1"
+            d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+          ></path>
+        </svg>
         <div className="decision-making-container decision-interview">
           <div className="decision-making-content-grid decision-making-grid-reverse">
             <div className="decision-making-text-content">
@@ -263,6 +247,7 @@ const DecisionMaking = () => {
                 className="decision-making-video-link"
                 onClick={handleVideoClick}
               >
+                <span>Watch 1 min video</span>
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -270,7 +255,6 @@ const DecisionMaking = () => {
                 >
                   <path d="M8 5v14l11-7z" />
                 </svg>
-                <span>Watch 1 min video</span>
               </div>
             </div>
             <div className="decision-making-image-wrapper">

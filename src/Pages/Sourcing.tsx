@@ -200,17 +200,6 @@ const Sourcing = () => {
           </div>
         </div>
       </section>
-      {/* <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="bottom-vector-sourcing-smart"
-      >
-        <path
-          fill="#d9f99d"
-          fillOpacity="1"
-          d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-        ></path>
-      </svg> */}
 
       {/* How it works section */}
       <section className="sourcing-section sourcing-how-it-works">
@@ -295,60 +284,26 @@ const Sourcing = () => {
         </div>
       </section>
 
-      {/* Wave Transition */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="sourcing-wave-transition"
-      >
-        <path
-          fill="#ffffff"
-          fillOpacity="1"
-          d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-        ></path>
-      </svg>
-
       {/* People Section */}
       <section className="sourcing-people-section">
-        <div className="sourcing-container">
-          {/* Desktop Grid */}
-          <div className="sourcing-people-grid sourcing-people-desktop">
-            {people.map((person, index) => (
-              <div key={index} className="sourcing-person">
-                <img src={person.src} alt={person.alt} />
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Slider */}
-          <div className="sourcing-people-slider-container">
-            <div
-              ref={sliderRef}
-              className="sourcing-people-slider"
-              style={{
-                transform: `translateX(-${currentSlide * 100}%)`,
-              }}
-            >
-              {people.map((person, index) => (
-                <div key={index} className="sourcing-person-slide">
-                  <img src={person.src} alt={person.alt} />
-                </div>
-              ))}
-            </div>
-
-            <div className="sourcing-slider-dots">
-              {people.map((_, index) => (
-                <button
-                  key={index}
-                  className={`sourcing-dot ${
-                    currentSlide === index ? "active" : ""
-                  }`}
-                  onClick={() => setCurrentSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
+        {/* Wave Transition */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="sourcing-wave-transition"
+        >
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
+            d="M0,192L120,202.7C240,213,480,235,720,213.3C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+          ></path>
+        </svg>
+        <div className="sourcing-image-wrapper">
+          <img
+            src="/Sourcing_people@2x.png"
+            alt="Sourcing people"
+            className="sourcing-people-image"
+          />
         </div>
       </section>
 

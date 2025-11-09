@@ -1,25 +1,35 @@
 /* Recruiter Hero Section */
 .recruiter-hero-section {
-  width: 100%;
-  min-height: 80vh;
-  height: 65vh;
   position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+  width: 100%;
+  height: 80vh;
   background-color: var(--green-20, #d9f99d);
-  padding: 24px 64px;
+  padding: 0 64px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.bottom-sourcing-hero {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+.recruiter-hero-section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 72px 0 0;
 }
 
 .recruiter-hero-container {
   width: 100%;
-  height: 100%;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
+  /* padding: 72px 0 96px; */
+  padding: 0 64px;
 }
 
 /* Breadcrumb */
@@ -27,13 +37,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-bottom: 32px;
   font-family: "DM Sans", sans-serif;
   font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  letter-spacing: -0.28px;
-  margin-bottom: 24px;
-  z-index: 10;
+  font-weight: 600;
+  color: var(--Type-Secondary, #475569);
 }
 
 .recruiter-hero-breadcrumb svg {
@@ -69,12 +77,12 @@
 /* Content Grid */
 .recruiter-hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: minmax(0, 520px) 1fr;
+  gap: 56px;
   align-items: center;
-  flex: 1;
   width: 100%;
-  min-height: 0;
+  /* max-width: 1420px; */
+  margin: 0 auto;
   position: relative;
   z-index: 2;
 }
@@ -190,44 +198,26 @@
 .recruiter-hero-right {
   position: relative;
   width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: right;
+  justify-content: right;
   z-index: 1;
-}
-
-/* Organic Blob Background */
-.recruiter-hero-blob {
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  background-color: #c8e6c9;
-  border-radius: 50% 40% 60% 30%;
-  transform: rotate(-15deg);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-15deg);
-  z-index: 0;
-  opacity: 0.8;
 }
 
 .recruiter-hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  height: 100%;
+  max-width: 800px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: right;
+  justify-content: right;
   z-index: 2;
 }
 
 .recruiter-hero-image {
   width: 100%;
   height: auto;
-  max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   position: relative;
   z-index: 2;
@@ -235,11 +225,8 @@
 
 /* Responsive */
 @media screen and (max-width: 1024px) {
-  .recruiter-hero-container {
-    padding: 24px 32px 0 32px;
-  }
-
   .recruiter-hero-content {
+    grid-template-columns: minmax(0, 480px) 1fr;
     gap: 48px;
   }
 
@@ -255,27 +242,17 @@
 
 @media screen and (max-width: 768px) {
   .recruiter-hero-section {
-    height: auto;
-    min-height: 65vh;
+    height: 95vh;
+    padding: 0 32px;
   }
 
   .recruiter-hero-container {
-    padding: 24px 16px 32px 16px;
+    padding: 48px 0 72px;
   }
 
   .recruiter-hero-content {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-
-  .recruiter-hero-right {
-    height: 300px;
-    min-height: 300px;
-  }
-
-  .recruiter-hero-blob {
-    width: 100%;
-    height: 100%;
   }
 
   .recruiter-hero-title {
@@ -297,16 +274,22 @@
 }
 
 @media screen and (max-width: 480px) {
-  .recruiter-hero-page {
-    height: 60vh;
-  }
-  .recruiter-hero-section {
-    height: 100vh;
-    min-height: 100vh;
+  .ecruiter-hero-section {
+    height: 95vh;
   }
 
-  .recruiter-hero-container {
-    padding-top: 16px;
+  .recruiter-hero-image {
+    /* margin-top: -10vh; */
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    position: relative;
+    /* margin-top: -10vh; */
+  }
+  .bottom-sourcing-hero {
+    bottom: 0;
   }
 
   .recruiter-hero-breadcrumb {
