@@ -24,7 +24,7 @@ interface HeroProps {
 
 const Hero = ({
   backgroundColor = "bg-green-20",
-  title = `<b><em>Smarter</em></b> Hiring, <b>human touch</b>, real results`,
+  title = `<span class="semibold"><em>Smarter</em></span> Hiring, <span class="semibold">human touch</span>, real results`,
   description = "Matchero helps businesses hire faster and fairer with an all-in-one ATS, AI video interviews, and seamless onboarding.",
   image = "/hero-home.png",
   imageAlt = "Home hero image",

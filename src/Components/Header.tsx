@@ -1,23 +1,31 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
 import "../assets/Styles/navbar.css";
 
 const Header = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isRecruitersDropdownOpen, setIsRecruitersDropdownOpen] =
     useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileDropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      const targetNode = event.target as Node;
+
+      const clickedInsideDesktopDropdown =
+        dropdownRef.current?.contains(targetNode);
+      const clickedInsideMobileDropdown =
+        mobileDropdownRef.current?.contains(targetNode);
+
+      if (clickedInsideDesktopDropdown || clickedInsideMobileDropdown) {
+        return;
+      }
+
+      if (dropdownRef.current || mobileDropdownRef.current) {
         setIsRecruitersDropdownOpen(false);
       }
     };
@@ -55,6 +63,8 @@ const Header = () => {
     },
     { name: "Smart onboarding", path: "/recruiters/onboarding" },
     { name: "Integrations", path: "/recruiters/integrations" },
+  ];
+  const comingSoonItems = [
     {
       name: "AI Interviewer",
       path: "/recruiters/ai-interviewer",
@@ -129,35 +139,49 @@ const Header = () => {
                             </p>
                           </Link>
                         </div>
-                        {recruitersMenuItems.map((menuItem) =>
-                          menuItem.comingSoon ? (
-                            <div
-                              key={menuItem.path}
-                              className="block px-4 py-3 dropdown-menu-item cursor-not-allowed opacity-60 transition-colors duration-200"
-                            >
-                              <div className="flex items-center justify-between">
-                                <span>{menuItem.name}</span>
-                                <span className="px-2 py-0.5 coming-soon-badge text-blue-700 badge rounded-full">
-                                  Coming soon
-                                </span>
-                              </div>
-                            </div>
-                          ) : (
+                        <div className="space-y-1">
+                          {recruitersMenuItems.map((menuItem) => (
                             <Link
                               key={menuItem.path}
                               to={menuItem.path}
-                              className={`block px-4 py-3 dropdown-menu-item hover:bg-gray-50 transition-colors duration-200 ${
+                              className={`w-full text-left block px-4 py-2 rounded-lg text-sm transition-colors duration-200 ${
                                 isActive(menuItem.path)
-                                  ? "bg-deep-tek-20 text-deep-tek-100 font-semibold"
-                                  : ""
+                                  ? "text-deep-tek-100 bg-deep-tek-20 font-semibold"
+                                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                               }`}
-                              onClick={() => setIsRecruitersDropdownOpen(false)}
+                              onClick={() => {
+                                setIsRecruitersDropdownOpen(false);
+                                setIsMobileMenuOpen(false);
+                              }}
                             >
                               <div className="flex items-center justify-between">
                                 <span>{menuItem.name}</span>
                               </div>
                             </Link>
-                          )
+                          ))}
+                        </div>
+
+                        {comingSoonItems.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-gray-100">
+                            <p className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                              Coming soon
+                            </p>
+                            <div className="space-y-1">
+                              {comingSoonItems.map((menuItem) => (
+                                <div
+                                  key={menuItem.path}
+                                  className="block px-4 py-3 dropdown-menu-item cursor-not-allowed opacity-60 transition-colors duration-200"
+                                >
+                                  <div className="flex items-center justify-between">
+                                    <span>{menuItem.name}</span>
+                                    <span className="px-2 py-0.5 coming-soon-badge text-blue-700 badge rounded-full">
+                                      Coming soon
+                                    </span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         )}
                       </div>
                     )}
@@ -299,13 +323,15 @@ const Header = () => {
 
                     {/* Mobile Dropdown Menu */}
                     {isRecruitersDropdownOpen && (
-                      <div className="pl-4 mt-2 space-y-1">
+                      <div
+                        ref={mobileDropdownRef}
+                        className="pl-4 mt-2 space-y-1"
+                      >
                         <div className="px-4 pb-2">
-                          <button
-                            type="button"
+                          <Link
+                            to="/recruiters"
                             className="text-left block w-full"
                             onClick={() => {
-                              navigate("/recruiters");
                               setIsRecruitersDropdownOpen(false);
                               setIsMobileMenuOpen(false);
                             }}
@@ -316,32 +342,19 @@ const Header = () => {
                             <p className="text-xs text-gray-500 mt-1">
                               Explore tools that make hiring faster
                             </p>
-                          </button>
+                          </Link>
                         </div>
-                        {recruitersMenuItems.map((menuItem) =>
-                          menuItem.comingSoon ? (
-                            <div
+                        <div className="space-y-1">
+                          {recruitersMenuItems.map((menuItem) => (
+                            <Link
                               key={menuItem.path}
-                              className="block px-4 py-2 rounded-lg text-sm cursor-not-allowed opacity-60 transition-colors duration-200"
-                            >
-                              <div className="flex items-center justify-between">
-                                <span>{menuItem.name}</span>
-                                <span className="px-2 py-0.5 text-xs font-medium text-blue-700 bg-blue-50 rounded-full">
-                                  Coming soon
-                                </span>
-                              </div>
-                            </div>
-                          ) : (
-                            <button
-                              key={menuItem.path}
-                              type="button"
-                              className={`w-full text-left block px-4 py-2 rounded-lg text-sm transition-colors duration-200 ${
+                              to={menuItem.path}
+                              className={`w-full text-left block px-4 py-3 rounded-lg text-sm dropdown-menu-item transition-colors duration-200 ${
                                 isActive(menuItem.path)
-                                  ? "text-deep-tek-100 bg-deep-tek-20 font-semibold"
-                                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                                  ? "bg-deep-tek-20 text-deep-tek-100 font-semibold"
+                                  : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                               }`}
                               onClick={() => {
-                                navigate(menuItem.path);
                                 setIsRecruitersDropdownOpen(false);
                                 setIsMobileMenuOpen(false);
                               }}
@@ -349,8 +362,25 @@ const Header = () => {
                               <div className="flex items-center justify-between">
                                 <span>{menuItem.name}</span>
                               </div>
-                            </button>
-                          )
+                            </Link>
+                          ))}
+                        </div>
+                        {comingSoonItems.length > 0 && (
+                          <div className="mt-2 pt-2 border-t border-gray-100 space-y-1">
+                            {comingSoonItems.map((menuItem) => (
+                              <div
+                                key={menuItem.path}
+                                className="block px-4 py-2 rounded-lg text-sm cursor-not-allowed opacity-60 transition-colors duration-200"
+                              >
+                                <div className="flex items-center justify-between">
+                                  <span>{menuItem.name}</span>
+                                  <span className="px-2 py-0.5 text-xs font-medium text-blue-700 bg-blue-50 rounded-full">
+                                    Coming soon
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
                         )}
                       </div>
                     )}

@@ -280,15 +280,21 @@
   .recruiter-page-hero-page {
     height: 80vh;
   }
+  .recruiter-page-hero-section {
+    padding: 0 16px;
+  }
+  .recruiter-page-hero-container {
+    gap: 32px;
+  }
   .recruiter-page-hero-title {
     font-size: 42px;
     letter-spacing: -0.84px;
-    width: 60%;
+    width: 100%;
   }
 
   .recruiter-page-hero-description {
     font-size: 18px;
-    width: 60%;
+    width: 100%;
   }
   .recruiter-page-hero-image {
     margin-top: 0;
@@ -321,6 +327,9 @@
 @media (max-width: 480px) {
   .recruiter-page-hero-page {
     height: 90vh;
+  }
+  .recruiter-page-hero-section {
+    padding: 0 16px;
   }
   .recruiter-page-hero-container {
     gap: 24px;
