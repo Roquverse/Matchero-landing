@@ -290,6 +290,11 @@
 }
 
 @media screen and (max-width: 480px) {
+  /* Hero Section */
+  .blog-detail-hero {
+    background-color: var(--green-20, #d9f99d);
+    padding: 16px;
+  }
   .blog-detail-title {
     font-size: 28px;
     line-height: 32px;
@@ -312,5 +317,11 @@
     margin-top: -45vh;
     position: relative;
     z-index: 10;
+  }
+  .blog-detail-read-more-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
   }
 }

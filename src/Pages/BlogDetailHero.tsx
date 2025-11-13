@@ -1,10 +1,37 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface BlogDetailHeroProps {
   title: string;
 }
 
+const truncateWords = (text: string, limit: number) => {
+  const words = text.trim().split(/\s+/);
+  if (words.length <= limit) {
+    return text;
+  }
+
+  return `${words.slice(0, limit).join(" ")}...`;
+};
+
 const BlogDetailHero = ({ title }: BlogDetailHeroProps) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const displayTitle = isMobile ? truncateWords(title, 3) : title;
+
   return (
     <div className="blog-detail-hero-container">
       <section className="blog-detail-hero">
@@ -26,7 +53,7 @@ const BlogDetailHero = ({ title }: BlogDetailHeroProps) => {
               Blog
             </Link>
             <span className="breadcrumb-separator">/</span>
-            <span className="breadcrumb-current">{title}</span>
+            <span className="breadcrumb-current">{displayTitle}</span>
           </div>
         </div>
       </section>

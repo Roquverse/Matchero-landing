@@ -148,7 +148,7 @@
 
 @media screen and (max-width: 480px) {
   .blog-listing-section {
-    padding: 32px 0;
+    padding: 100px 0;
   }
 
   .blog-category-filters {
@@ -158,5 +158,10 @@
 
   .blog-cards-grid {
     gap: 20px;
+  }
+  .blog-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
   }
 }

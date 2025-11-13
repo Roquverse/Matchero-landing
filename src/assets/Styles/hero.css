@@ -264,7 +264,7 @@
 @media screen and (max-width: 480px) {
   .hero-page {
     height: 100vh;
-    padding: 0 16px;
+    padding: 0;
     padding-top: 64px;
     background-image: url("/GreenEllipse.svg");
     background-size: 100%;
@@ -311,7 +311,7 @@
 }
 @media screen and (max-width: 420px) {
   .hero-page {
-    height: 100vh;
+    height: 110vh;
   }
 }
 /* @media screen and (max-width: 380px) {
