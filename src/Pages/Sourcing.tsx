@@ -112,7 +112,7 @@ const Sourcing = () => {
     <div className="sourcing-page">
       {/* Hero Section */}
       <RecruiterHero
-        backgroundColor="bg-green-20"
+        backgroundClass="bg-green-20"
         title="Find and engage top talent — <b>faster.</b>"
         description="Build stronger teams with access to vetted candidates and smarter sourcing tools designed for a growing workforce."
         image="/sourcing.png"

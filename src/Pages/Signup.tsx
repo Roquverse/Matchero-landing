@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../assets/Styles/signup.css";
+import { supabase } from "../lib/supabaseClient";
 
 const baseCountries = [
   "Afghanistan",
@@ -231,6 +232,9 @@ const Signup = () => {
     hearAbout: hearAboutOptions[0],
     questions: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const handleChange = (
     event: React.ChangeEvent<
@@ -244,9 +248,44 @@ const Signup = () => {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Join the beta submission:", formData);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from("beta_signups").insert({
+      first_name: formData.firstName.trim(),
+      last_name: formData.lastName.trim(),
+      company_name: formData.companyName.trim() || null,
+      email: formData.email.trim().toLowerCase(),
+      phone_number: formData.phone.trim() || null,
+      country: formData.country,
+      organisation_size: formData.organisationSize,
+      hear_about:
+        formData.hearAbout === hearAboutOptions[0] ? null : formData.hearAbout,
+      questions: formData.questions.trim() || null,
+    });
+
+    if (error) {
+      setSubmitError(error.message);
+      setIsSubmitting(false);
+      return;
+    }
+
+    setSubmitSuccess(true);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      companyName: "",
+      email: "",
+      phone: "",
+      country: countryOptions[0],
+      organisationSize: organisationSizeOptions[0],
+      hearAbout: hearAboutOptions[0],
+      questions: "",
+    });
+    setIsSubmitting(false);
   };
 
   return (
@@ -495,8 +534,24 @@ const Signup = () => {
               <a href="/privacy-policy">Privacy Policy</a> for details.
             </p>
 
-            <button type="submit" className="signup-form__submit">
-              Join the beta today
+            {submitError && (
+              <div className="signup-form__feedback signup-form__feedback--error">
+                {submitError}
+              </div>
+            )}
+
+            {submitSuccess && (
+              <div className="signup-form__feedback signup-form__feedback--success">
+                Thanks! Your request has been received — we’ll be in touch soon.
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="signup-form__submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Join the beta today"}
             </button>
           </form>
         </div>

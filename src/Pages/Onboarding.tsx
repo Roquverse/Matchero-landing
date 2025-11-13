@@ -95,7 +95,7 @@ const Onboarding = () => {
     <div className="onboarding-page">
       {/* Hero Section */}
       <RecruiterHero
-        backgroundColor="bg-green-20"
+        backgroundClass="bg-green-20"
         title="Get new hires productive from day one."
         description="Matchero simplifies onboarding – from offer acceptance to first-day readiness – so your new hires feel supported and your team saves time."
         image="/onboarding-hero.png"

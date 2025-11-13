@@ -74,7 +74,7 @@ const Integration = () => {
     <div className="integration-page">
       {/* Hero Section */}
       <RecruiterHero
-        backgroundColor="bg-green-20"
+        backgroundClass="bg-green-20"
         title='Connect Matchero with the tools <em style="font-style: italic; font-weight: 400;">you already</em> love.'
         description="Integrate job boards, communication platforms, and HR systems so your team can source, hire, and onboard without disruption."
         image="/sourcing.png"

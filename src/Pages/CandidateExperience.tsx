@@ -100,7 +100,7 @@ const CandidateExperience = () => {
     <div className="candidate-experience-page">
       {/* Hero Section */}
       <RecruiterHero
-        backgroundColor="bg-green-20"
+        backgroundClass="bg-green-20"
         title="Deliver a hiring experience candidates <em>actually</em> enjoy."
         description="From application to offer, Matchero helps you create faster, fairer, and more personalised journeys – because a great experience builds stronger teams."
         image="/candidate-experience-hero.png"
