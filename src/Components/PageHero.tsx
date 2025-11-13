@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
-// import "../assets/Styles/hero.css";
 import "../assets/Styles/page-hero.css";
 
 interface PageHeroProps {
@@ -20,104 +19,107 @@ const PageHero = ({ breadcrumb }: PageHeroProps) => {
   };
 
   return (
-    <div className="candidate-hero-container">
-      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
-          <div className="candidate-hero-content">
-            {/* Breadcrumb */}
-            {breadcrumb && (
-              <div className="candidate-hero-breadcrumb">
-                {breadcrumb.items.map((item, index) => (
-                  <div key={index} className="flex items-center">
-                    {index === 0 && (
-                      <svg
-                        className="w-4 h-4 mr-1"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                      </svg>
-                    )}
-                    {item.link ? (
-                      <Link
-                        to={item.link}
-                        className={`breadcrumb-link ${
-                          location.pathname === item.link ? "active" : ""
-                        } ${
-                          index === breadcrumb.items.length - 1
-                            ? "breadcrumb-current"
-                            : "breadcrumb-home"
-                        }`}
-                      >
-                        {item.text}
-                      </Link>
-                    ) : (
-                      <span
-                        className={
-                          index === breadcrumb.items.length - 1
-                            ? "breadcrumb-current"
-                            : "breadcrumb-home"
-                        }
-                      >
-                        {item.text}
-                      </span>
-                    )}
-                    {index < breadcrumb.items.length - 1 && (
-                      <span className="breadcrumb-separator">/</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-            <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-              Your next role, <em>intelligently matched</em>
-            </h1>
-            <p className="candidate-hero-content-description">
-              No endless job listings. No generic suggestions. We bring you
-              roles that align with your skills, values, and ambition
-            </p>
+    <div className="candidate-hero-page">
+      <section className="candidate-hero-section">
+        <div className="candidate-hero-container">
+          {breadcrumb && (
+            <div className="candidate-hero-breadcrumb">
+              {breadcrumb.items.map((item, index) => (
+                <div key={index} className="candidate-hero-breadcrumb-item">
+                  {index === 0 && (
+                    <svg
+                      className="candidate-hero-breadcrumb-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                    </svg>
+                  )}
+                  {item.link ? (
+                    <Link
+                      to={item.link}
+                      className={`candidate-hero-breadcrumb-link ${
+                        location.pathname === item.link ? "active" : ""
+                      } ${
+                        index === breadcrumb.items.length - 1
+                          ? "candidate-hero-breadcrumb-current"
+                          : ""
+                      }`}
+                    >
+                      {item.text}
+                    </Link>
+                  ) : (
+                    <span className="candidate-hero-breadcrumb-current">
+                      {item.text}
+                    </span>
+                  )}
+                  {index < breadcrumb.items.length - 1 && (
+                    <span className="candidate-hero-breadcrumb-separator">
+                      /
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
 
-            <div className="candidate-hero-input-group flex flex-col sm:flex-row gap-4 mt-7">
-              <Button
-                variant="filled"
-                color="green"
-                size="md"
-                onClick={handleButtonClick}
-                className="candidate-hero-button"
-                icon={
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                }
-              >
-                Join free. Start matching
-              </Button>
+          <div className="candidate-hero-content">
+            <div className="candidate-hero-left">
+              <h1
+                className="candidate-hero-title"
+                dangerouslySetInnerHTML={{
+                  __html: "Your next role, <em>intelligently matched</em>",
+                }}
+              />
+              <p className="candidate-hero-description">
+                No endless job listings. No generic suggestions. We bring you
+                roles that align with your skills, values, and ambition
+              </p>
+
+              <div className="candidate-hero-cta">
+                <Button
+                  variant="filled"
+                  color="green"
+                  size="md"
+                  onClick={handleButtonClick}
+                  className="candidate-hero-button"
+                  icon={
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  }
+                >
+                  Join free. Start matching
+                </Button>
+              </div>
+            </div>
+
+            <div className="candidate-hero-right">
+              <div className="candidate-hero-image-wrapper">
+                <img
+                  className="candidate-hero-image"
+                  src="NewCandidateHero.png"
+                  alt="Candidates collaborating"
+                />
+              </div>
             </div>
           </div>
-
-          <div className="relative ms-4 candidate-hero-image-container">
-            <img
-              className="candidate-hero-image"
-              src="jobseeker.png"
-              alt="Hero Image"
-            />
-          </div>
         </div>
-      </div>
+      </section>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="candidate-vector-home"
+        className="candidate-hero-wave"
       >
         <path
           fill="#ffffff"

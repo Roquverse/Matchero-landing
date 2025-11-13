@@ -1,10 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 import Input from "./Input";
 import "../assets/Styles/recruiter-hero.css";
+import "../assets/Styles/decision-hero.css";
 
 interface RecruiterHeroProps {
-  backgroundColor?: string;
+  backgroundClass?: string;
   title: string;
   description?: string;
   image?: string;
@@ -30,7 +31,7 @@ interface RecruiterHeroProps {
 }
 
 const RecruiterHero = ({
-  backgroundColor = "bg-green-20",
+  backgroundClass = "bg-green-20",
   title,
   description,
   image = "/decision-making-hero.png",
@@ -49,83 +50,49 @@ const RecruiterHero = ({
   className = "",
   breadcrumb,
 }: RecruiterHeroProps) => {
-  const location = useLocation();
-
   return (
     <section
-      className={`recruiter-hero-section ${backgroundColor} ${className}`}
+      className={`decision-hero-section ${backgroundClass} ${className}`.trim()}
     >
-      <div className="recruiter-hero-container">
-        {/* Breadcrumb */}
+      <div className="decision-hero-overlay" />
+      <div className="decision-hero-container">
         {breadcrumb && (
-          <div className="recruiter-hero-breadcrumb">
+          <nav className="decision-hero-breadcrumb" aria-label="Breadcrumb">
             {breadcrumb.items.map((item, index) => (
-              <div key={index} className="flex items-center">
-                {index === 0 && (
-                  <svg
-                    className="w-4 h-4 mr-1"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                  </svg>
-                )}
+              <div key={index} className="decision-hero-breadcrumb-item">
                 {item.link ? (
-                  <Link
-                    to={item.link}
-                    className={`breadcrumb-link ${
-                      location.pathname === item.link ? "active" : ""
-                    } ${
-                      index === breadcrumb.items.length - 1
-                        ? "breadcrumb-current"
-                        : "breadcrumb-home"
-                    }`}
-                  >
-                    {item.text}
-                  </Link>
+                  <Link to={item.link}>{item.text}</Link>
                 ) : (
-                  <span
-                    className={
-                      index === breadcrumb.items.length - 1
-                        ? "breadcrumb-current"
-                        : "breadcrumb-home"
-                    }
-                  >
-                    {item.text}
-                  </span>
+                  <span>{item.text}</span>
                 )}
                 {index < breadcrumb.items.length - 1 && (
-                  <span className="breadcrumb-separator">/</span>
+                  <span className="decision-hero-breadcrumb-separator">/</span>
                 )}
               </div>
             ))}
-          </div>
+          </nav>
         )}
 
-        {/* Content Grid */}
-        <div className="recruiter-hero-content">
-          {/* Left Content */}
-          <div className="recruiter-hero-left">
+        <div className="decision-hero-grid">
+          <div className="decision-hero-left">
             <h1
-              className="recruiter-hero-title"
+              className="decision-hero-title"
               dangerouslySetInnerHTML={{ __html: title }}
             />
-
             {description && (
               <p
-                className="recruiter-hero-description"
+                className="decision-hero-description"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             )}
 
-            {/* Email Input Group */}
-            <div className="recruiter-hero-cta">
+            <div className="decision-hero-cta">
               {!hideInput && (
                 <Input
                   type="email"
-                  placeholder={emailPlaceholder}
                   size="lg"
-                  className="recruiter-hero-input"
+                  placeholder={emailPlaceholder}
+                  className="decision-hero-input"
                 />
               )}
               <Button
@@ -133,6 +100,7 @@ const RecruiterHero = ({
                 color="green"
                 size="lg"
                 onClick={onButtonClick}
+                className="decision-hero-button"
                 icon={
                   <svg
                     className="w-4 h-4"
@@ -148,7 +116,6 @@ const RecruiterHero = ({
                     />
                   </svg>
                 }
-                className="recruiter-hero-button"
               >
                 {buttonText}
               </Button>
@@ -158,22 +125,21 @@ const RecruiterHero = ({
                   color="white"
                   size="lg"
                   onClick={onSecondaryButtonClick}
-                  className="recruiter-hero-secondary-button"
+                  className="decision-hero-secondary-button"
                 >
                   {secondaryButtonText}
                 </Button>
               )}
             </div>
 
-            {/* Privacy Notice */}
             {privacyText && (
-              <p className="recruiter-hero-privacy">
+              <p className="decision-hero-privacy">
                 {!hideInput ? (
                   <>
                     {privacyText}{" "}
                     <a
                       href={privacyLink}
-                      className="recruiter-hero-privacy-link"
+                      className="decision-hero-privacy-link"
                     >
                       Privacy Notice
                     </a>
@@ -185,9 +151,12 @@ const RecruiterHero = ({
               </p>
             )}
 
-            {/* Video Link */}
             {!hideVideoLink && (
-              <div className="recruiter-hero-video" onClick={onVideoClick}>
+              <button
+                className="decision-hero-video"
+                type="button"
+                onClick={onVideoClick}
+              >
                 <span>{videoText}</span>
                 <svg
                   className="w-5 h-5"
@@ -196,26 +165,23 @@ const RecruiterHero = ({
                 >
                   <path d="M8 5v14l11-7z" />
                 </svg>
-              </div>
+              </button>
             )}
           </div>
 
-          {/* Right Image */}
-          <div className="recruiter-hero-right">
-            <div className="recruiter-hero-image-wrapper">
-              <img
-                src={image}
-                alt={imageAlt}
-                className="recruiter-hero-image"
-              />
+          <div className="decision-hero-right">
+            <div className="decision-hero-visual">
+              <img src={image} alt={imageAlt} className="decision-hero-image" />
             </div>
           </div>
         </div>
       </div>
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="bottom-sourcing-hero"
+        className="recruiter-hero-wave"
+        aria-hidden="true"
       >
         <path
           fill="#ffffff"

@@ -23,6 +23,7 @@
   gap: 48px;
   position: relative;
   z-index: 1;
+  padding-top: 64px;
 }
 
 /* Breadcrumb */
@@ -333,7 +334,7 @@
   }
   .recruiter-page-hero-container {
     gap: 24px;
-    margin-top: -5vh;
+    /* margin-top: -5vh; */
     width: 100%;
   }
   .recruiter-page-hero-text {
@@ -364,7 +365,7 @@
   }
   .recruiter-page-hero-container {
     gap: 24px;
-    margin-top: -5vh;
+    /* margin-top: -5vh; */
     width: 100%;
   }
   .recruiter-page-hero-text {

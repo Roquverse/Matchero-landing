@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
 import Button from "./Button";
 import Input from "./Input";
 import "../assets/Styles/hero.css";
 
 interface HeroProps {
-  backgroundColor?: string;
   title?: string;
   description?: string;
   image?: string;
@@ -19,31 +19,28 @@ interface HeroProps {
   onButtonClick?: () => void;
   onSecondaryButtonClick?: () => void;
   onVideoClick?: () => void;
-  className?: string;
 }
 
 const Hero = ({
-  backgroundColor = "bg-green-20",
   title = `<span class="semibold"><em>Smarter</em></span> Hiring, <span class="semibold">human touch</span>, real results`,
   description = "Matchero helps businesses hire faster and fairer with an all-in-one ATS, AI video interviews, and seamless onboarding.",
-  image = "/hero-home.png",
+  image = "/HomeHero.png",
   imageAlt = "Home hero image",
   emailPlaceholder = "Enter your email address",
   buttonText = "Request demo",
   secondaryButtonText,
   privacyText = `By clicking "request demo", you agree to the use of your data in accordance with Matchero's`,
-  privacyLink = "#",
+  privacyLink = "/privacy-policy",
   videoText = "Watch 1 min video",
   hideInput = false,
   hideVideoLink = false,
   onButtonClick,
   onSecondaryButtonClick,
   onVideoClick,
-  className = "",
 }: HeroProps) => {
   return (
     <div className="hero-page">
-      <section className={`hero-section ${backgroundColor} ${className}`}>
+      <section className="hero-section">
         <div className="hero-container">
           {/* Content Grid */}
           <div className="hero-content">
@@ -114,12 +111,12 @@ const Hero = ({
                   {!hideInput ? (
                     <>
                       {privacyText}{" "}
-                      <a
-                        href={privacyLink}
+                      <Link
+                        to={privacyLink}
                         className="recruiter-hero-privacy-link"
                       >
                         Privacy Notice
-                      </a>
+                      </Link>
                       , including for marketing purposes.
                     </>
                   ) : (

@@ -6,7 +6,11 @@ const Footer = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isRecruiterPage = location.pathname.startsWith("/recruiters/");
-  const shouldUseGreenFooter = isHomePage || isRecruiterPage;
+  const isSignupPage = location.pathname === "/signup";
+  const legalPaths = ["/privacy-policy", "/terms-of-use"];
+  const isLegalPage = legalPaths.includes(location.pathname);
+  const shouldUseGreenFooter =
+    isHomePage || isRecruiterPage || isLegalPage || isSignupPage;
   const logoSrc = shouldUseGreenFooter ? "/logo.svg" : "/blue-logo.svg";
   const footerBackground = shouldUseGreenFooter ? "bg-green-20" : "bg-white";
 

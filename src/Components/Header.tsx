@@ -45,7 +45,11 @@ const Header = () => {
   const isRecruiterPage =
     location.pathname === "/recruiters" ||
     location.pathname.startsWith("/recruiters/");
-  const shouldUseGreenLogo = isHomePage || isRecruiterPage;
+  const legalPaths = ["/privacy-policy", "/terms-of-use"];
+  const isLegalPage = legalPaths.includes(location.pathname);
+  const isSignupPage = location.pathname === "/signup";
+  const shouldUseGreenLogo =
+    isHomePage || isRecruiterPage || isLegalPage || isSignupPage;
   const logoSrc = shouldUseGreenLogo ? "/logo.svg" : "/blue-logo.svg";
 
   const navigationItems = [
@@ -220,28 +224,30 @@ const Header = () => {
                 </svg>
               </button>
 
-              <Button
-                variant="filled"
-                color="green"
-                size="sm"
-                icon={
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>
-                }
-              >
-                Sign up
-              </Button>
+              <Link to="/signup" className="inline-flex">
+                <Button
+                  variant="filled"
+                  color="green"
+                  size="sm"
+                  icon={
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                  }
+                >
+                  Sign up
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -420,29 +426,31 @@ const Header = () => {
                     </svg>
                   </button>
 
-                  <Button
-                    variant="filled"
-                    color="green"
-                    size="sm"
-                    icon={
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
-                      </svg>
-                    }
-                    className="flex-1"
-                  >
-                    Sign up
-                  </Button>
+                  <Link to="/signup" className="flex-1">
+                    <Button
+                      variant="filled"
+                      color="green"
+                      size="sm"
+                      icon={
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                          />
+                        </svg>
+                      }
+                      className="w-full"
+                    >
+                      Sign up
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

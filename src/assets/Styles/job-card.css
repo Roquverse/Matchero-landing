@@ -1,0 +1,149 @@
+.job-card-container {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 24px 64px rgba(2, 6, 23, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 72px rgba(2, 6, 23, 0.12);
+}
+
+.job-card-image {
+  position: relative;
+  height: 232px;
+  overflow: hidden;
+}
+
+.job-card-logo-overlay {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+}
+
+.job-card-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.job-card-content {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job-card-content h3 {
+  overflow: hidden;
+  color: var(--Type-Primary, #020617);
+  text-overflow: ellipsis;
+
+  /* Text XL/SemiBold */
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+
+.job-card-content h4 {
+  color: var(--Type-Secondary, #475569);
+
+  /* Text Lg/SemiBold */
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.36px;
+}
+
+.job-card-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  color: var(--Type-Secondary, #475569);
+  text-overflow: ellipsis;
+
+  /* Text base/SemiBold */
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.32px;
+}
+
+.job-card-location svg {
+  color: #1f2937;
+}
+
+.job-card-match-button {
+  display: none;
+}
+
+.job-card-button {
+  color: #256c46;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.job-card-button svg {
+  stroke: #256c46;
+}
+
+.job-card-button:hover {
+  color: #194f32;
+}
+
+@media screen and (max-width: 1024px) {
+  .job-card-content {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .job-card-content {
+    padding: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .job-card-content {
+    padding: 20px;
+  }
+
+  .job-card-content h3 {
+    font-size: 20px;
+  }
+
+  .job-card-content h4 {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}

@@ -1,47 +1,80 @@
 /* Interview Dashboard Styles */
 .interview-dashboard-container {
   position: relative;
-  height: 100vh;
+  height: 130vh;
+  top: -30vh;
+  bottom: 0;
 }
 .interview-dashboard-section {
   background-color: transparent;
-  padding: 80px 0;
+  /* padding: 80px 0; */
+}
+.page-bottom-section {
+  width: 100%;
+  z-index: 1;
+  background-color: transparent;
+}
+.page-bottom-section p {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  width: 758px;
+}
+/* Floating Button */
+.floating-button-container {
+  text-align: center;
+  margin-top: 32px;
 }
 
-.dashboard-container {
+.floating-button {
+  background: white;
+  color: #1e293b;
+  border: 2px solid #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.floating-button:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+/* .dashboard-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
-}
+} */
 
 .dashboard-image-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   position: relative;
-  margin-top: -32px;
   z-index: 1;
 }
 
 .dashboard-image {
   width: 100%;
   max-width: 1200px;
-  height: auto;
+  /* height: auto; */
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   z-index: 1;
   position: relative;
 }
 
-.vector-interview-dashboard {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  /* z-index: 1; */
-  /* top: 100vh; */
-}
 /* Responsive Design */
 @media (max-width: 768px) {
   .dashboard-container {
@@ -59,44 +92,23 @@
 }
 
 @media screen and (max-width: 480px) {
-  .dashboard-image-container {
-    /* height: 15vh; */
-    margin-top: -100px;
-    background-color: white;
-  }
   .interview-dashboard-container {
-    height: 25vh;
     position: relative;
-  }
-  .vector-interview-dashboard {
-    position: absolute;
+    height: 65vh;
+    top: -5vh;
     bottom: 0;
-    left: 0;
-    /* z-index: -1; */
+  }
+  .dashboard-image-container img {
+    margin-top: -30vh;
   }
 }
 @media screen and (max-width: 420px) {
-  .interview-dashboard-section {
-    height: 30vh;
-  }
-  .dashboard-image-container {
-    margin-top: -20px;
-  }
-  .dashboard-image-container img {
-    margin-top: -80px;
+  .interview-dashboard-container {
+    height: 70vh;
   }
 }
 @media screen and (max-width: 375px) {
   .interview-dashboard-container {
-    height: 35vh;
-  }
-  .interview-dashboard-section {
-    height: 30vh;
-  }
-  .dashboard-image-container {
-    margin-top: -20px;
-  }
-  .dashboard-image-container img {
-    margin-top: 0;
+    height: 100vh;
   }
 }

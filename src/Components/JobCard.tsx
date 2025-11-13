@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../assets/Styles/job-card.css";
 
 export interface JobCardProps {
   company: string;
@@ -51,7 +52,7 @@ const JobCard = ({
             />
           </svg>
           <span className="semibold">{location}</span>
-          {isRemote && <span className="ml-1">• Remote</span>}
+          {isRemote && <span className="">• Remote</span>}
         </div>
 
         {/* Action Buttons */}

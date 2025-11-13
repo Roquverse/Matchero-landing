@@ -12,10 +12,10 @@
   position: relative;
 }
 
-.candidate-map-container {
+/* .map-container {
   background-color: var(--cyan-20);
-  height: 100vh;
-}
+  height: 100%;
+} */
 
 .world-map {
   width: 100%;

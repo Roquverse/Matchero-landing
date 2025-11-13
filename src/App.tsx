@@ -5,6 +5,7 @@ import Candidate from "./Pages/Candidate";
 import CandidateSignup from "./Pages/CandidateSignup";
 import Pricing from "./Pages/Pricing";
 import Application from "./Pages/Application";
+import Signup from "./Pages/Signup";
 import JobDetail from "./Pages/JobDetail";
 import Blog from "./Pages/Blog";
 import BlogDetail from "./Pages/BlogDetail";
@@ -14,6 +15,8 @@ import Sourcing from "./Pages/Sourcing";
 import CandidateExperience from "./Pages/CandidateExperience";
 import Onboarding from "./Pages/Onboarding";
 import Integration from "./Pages/Integration";
+import TermsOfUse from "./Pages/TermsOfUse";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -24,6 +27,7 @@ function App() {
         <Route path="/candidate/signup" element={<CandidateSignup />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/application" element={<Application />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/job/:jobId" element={<JobDetail />} />
         <Route path="/job-details/:jobId" element={<JobDetail />} />
         <Route path="/blog" element={<Blog />} />
@@ -40,6 +44,8 @@ function App() {
         />
         <Route path="/recruiters/onboarding" element={<Onboarding />} />
         <Route path="/recruiters/integrations" element={<Integration />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </Layout>
   );

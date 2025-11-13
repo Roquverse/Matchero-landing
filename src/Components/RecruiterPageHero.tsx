@@ -42,7 +42,7 @@ const RecruiterPageHero = ({
   buttonText = "Request demo",
   secondaryButtonText,
   privacyText = `By clicking "request demo", you agree to the use of your data in accordance with Matchero's`,
-  privacyLink = "#",
+  privacyLink = "/privacy-policy",
   videoText = "Watch 1 min video",
   hideInput = false,
   hideVideoLink = false,
@@ -204,12 +204,12 @@ const RecruiterPageHero = ({
                   {!hideInput ? (
                     <>
                       {privacyText}{" "}
-                      <a
-                        href={privacyLink}
+                      <Link
+                        to={privacyLink}
                         className="recruiter-page-hero-privacy-link"
                       >
                         Privacy Notice
-                      </a>
+                      </Link>
                       , including for marketing purposes.
                     </>
                   ) : (
