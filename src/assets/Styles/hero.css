@@ -314,9 +314,9 @@
     height: 110vh;
   }
 }
-/* @media screen and (max-width: 380px) {
+@media screen and (max-width: 390px) {
   .hero-page {
-    height: 130vh;
+    height: 120vh;
   }
   .hero-image-wrapper {
     max-width: 800px;
@@ -328,7 +328,7 @@
     object-fit: cover;
     margin-top: 0vh;
   }
-} */
+}
 @media screen and (max-width: 375px) {
   .hero-page {
     height: 140vh;
