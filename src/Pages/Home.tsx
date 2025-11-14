@@ -102,16 +102,6 @@ const Home = () => {
     <div>
       <Hero />
 
-      {/* Bottom Section */}
-      <section className="py-16 bg-white bottom-section">
-        <div className="w-full px-4 md:px-16 text-center">
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto">
-            A smart 360° hiring ecosystem designed to source, evaluate, and
-            onboard talent smarter, faster, and more effectively.
-          </p>
-        </div>
-      </section>
-
       {/* Feature Cards Section */}
       <FeatureSection cards={featureCardsData} />
 

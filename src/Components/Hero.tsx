@@ -160,6 +160,15 @@ const Hero = ({
           d="M1440,288L1360,256C1280,224,1120,160,960,122.7C800,85,640,75,480,58.7C320,43,160,21,80,10.7L0,0L0,320L80,320C160,320,320,320,480,320C640,320,800,320,960,320C1120,320,1280,320,1360,320L1440,320Z"
         ></path>
       </svg>
+      {/* Bottom Section */}
+      <section className="py-16 bg-white bottom-section">
+        <div className="w-full px-4 md:px-16 text-center">
+          <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+            A smart 360° hiring ecosystem designed to source, evaluate, and
+            onboard talent smarter, faster, and more effectively.
+          </p>
+        </div>
+      </section>
     </div>
   );
 };

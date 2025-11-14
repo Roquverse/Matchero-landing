@@ -146,6 +146,25 @@
 .hero-image {
   width: 100%;
 }
+.bottom-section {
+  /* margin-top: -70vh; */
+  z-index: 1;
+  position: relative;
+  background-color: transparent;
+}
+.bottom-section p {
+  color: var(--Type-Primary, #020617);
+  text-align: center;
+
+  /* Text XL 2/Regular */
+  font-family: "Source Serif 4";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  width: 712px;
+}
 
 /* Responsive */
 @media screen and (max-width: 1024px) {
@@ -327,6 +346,17 @@
     max-height: 100%;
     object-fit: cover;
     margin-top: 0vh;
+  }
+  .bottom-section {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media screen and (max-width: 375px) {
