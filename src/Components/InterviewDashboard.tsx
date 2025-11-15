@@ -37,7 +37,7 @@ const InterviewDashboard = () => {
           {/* Interview Dashboard Image */}
           <div className="dashboard-image-container">
             <img
-              src="/button-image.png"
+              src="/Candidate Dashboard@2x.png"
               alt="Interview Dashboard Interface"
               className="dashboard-image"
             />

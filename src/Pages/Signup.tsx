@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../assets/Styles/signup.css";
 import { supabase } from "../lib/supabaseClient";
+import SignupConfirmationModal from "../Components/SignupConfirmationModal";
 
 const baseCountries = [
   "Afghanistan",
@@ -290,6 +291,10 @@ const Signup = () => {
 
   return (
     <main className="signup-page">
+      <SignupConfirmationModal
+        isOpen={submitSuccess}
+        onClose={() => setSubmitSuccess(false)}
+      />
       <section className="signup-hero">
         <div className="signup-hero__content">
           <div className="signup-hero__intro">
@@ -537,12 +542,6 @@ const Signup = () => {
             {submitError && (
               <div className="signup-form__feedback signup-form__feedback--error">
                 {submitError}
-              </div>
-            )}
-
-            {submitSuccess && (
-              <div className="signup-form__feedback signup-form__feedback--success">
-                Thanks! Your request has been received — we’ll be in touch soon.
               </div>
             )}
 

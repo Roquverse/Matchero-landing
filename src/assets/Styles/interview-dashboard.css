@@ -1,9 +1,8 @@
 /* Interview Dashboard Styles */
 .interview-dashboard-container {
   position: relative;
-  height: 130vh;
+  height: 105vh;
   top: -30vh;
-  bottom: 0;
 }
 .interview-dashboard-section {
   background-color: transparent;
@@ -76,7 +75,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .dashboard-container {
     padding: 0 16px;
   }
@@ -84,23 +83,54 @@
   .interview-dashboard-section {
     padding: 40px 0;
   }
-}
+} */
 @media screen and (max-width: 1024px) {
-  .dashboard-image-container {
-    margin-top: -10vh;
+  .interview-dashboard-container {
+    padding: 0 16px;
+    height: 70vh;
+  }
+  .page-bottom-section p {
+    width: 100%;
+    /* font-size: 24px; */
+    margin-top: 20vh;
   }
 }
-
+@media screen and (max-width: 912px) {
+  .interview-dashboard-container {
+    height: 70vh;
+    padding: 0 16px;
+  }
+  .page-bottom-section p {
+    width: 100%;
+    /* font-size: 24px; */
+    margin-top: 20vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .interview-dashboard-container {
+    position: relative;
+    height: 75vh;
+    padding: 0 16px;
+  }
+  .page-bottom-section p {
+    width: 100%;
+    font-size: 24px;
+    margin-top: 20vh;
+  }
+  /* .dashboard-image-container {
+    margin-top: -30vh;
+  } */
+}
 @media screen and (max-width: 480px) {
   .interview-dashboard-container {
     position: relative;
     height: 65vh;
-    top: -5vh;
+    top: -35vh;
     bottom: 0;
   }
-  .dashboard-image-container img {
+  /* .dashboard-image-container img {
     margin-top: -30vh;
-  }
+  } */
 }
 @media screen and (max-width: 420px) {
   .interview-dashboard-container {
@@ -110,5 +140,10 @@
 @media screen and (max-width: 375px) {
   .interview-dashboard-container {
     height: 100vh;
+  }
+}
+@media screen and (max-width: 360px) {
+  .interview-dashboard-container {
+    height: 90vh;
   }
 }

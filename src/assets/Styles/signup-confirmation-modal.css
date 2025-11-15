@@ -1,0 +1,178 @@
+.signup-confirmation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.signup-confirmation-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.signup-confirmation-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #020617;
+  transition: opacity 0.2s ease;
+  border-radius: 4px;
+}
+
+.signup-confirmation-modal__close:hover {
+  opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.signup-confirmation-modal__close:active {
+  opacity: 0.5;
+}
+
+.signup-confirmation-modal__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.signup-confirmation-modal__title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #020617;
+  margin: 0;
+  align-self: flex-start;
+  letter-spacing: -0.48px;
+}
+
+.signup-confirmation-modal__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #020617;
+  margin: 8px 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.signup-confirmation-modal__icon::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 0;
+}
+
+.signup-confirmation-modal__icon svg {
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.signup-confirmation-modal__message {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #020617;
+  margin: 0;
+  letter-spacing: -0.36px;
+}
+
+.signup-confirmation-modal__instructions {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.signup-confirmation-modal__details {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .signup-confirmation-modal {
+    padding: 24px;
+    max-width: 100%;
+    margin: 0 16px;
+  }
+
+  .signup-confirmation-modal__title {
+    font-size: 20px;
+  }
+
+  .signup-confirmation-modal__message {
+    font-size: 16px;
+  }
+
+  .signup-confirmation-modal__instructions,
+  .signup-confirmation-modal__details {
+    font-size: 14px;
+  }
+
+  .signup-confirmation-modal__icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .signup-confirmation-modal__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+

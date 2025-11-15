@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Components/Layout";
+import ScrollToTop from "./Components/ScrollToTop";
 import Home from "./Pages/Home";
 import Candidate from "./Pages/Candidate";
 import CandidateSignup from "./Pages/CandidateSignup";
@@ -21,6 +22,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 function App() {
   return (
     <Layout>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/candidate" element={<Candidate />} />

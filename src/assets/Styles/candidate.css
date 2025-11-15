@@ -142,11 +142,18 @@
     top: 100vh;
     z-index: 1;
   }
+  .candidate-job-listing-section {
+    height: 100%;
+  }
 }
 @media screen and (max-width: 768px) {
-  .interview-dashboard-section {
-    margin-top: 35vh;
-    height: 30vh;
+  .candidate-job-listing-section {
+    height: 100%;
+  }
+  .candidate-job-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -191,7 +198,7 @@
 
   .candidate-job-card-grid {
     display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 32px;
   }
 }
@@ -235,12 +242,5 @@
   } */
   .candidate-job-listing-title {
     font-size: 32px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .candidate-job-listing-cta {
-    width: 100%;
-    justify-content: center;
   }
 }

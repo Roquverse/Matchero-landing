@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   min-height: 80vh;
-  background-color: var(--green-20, #d9f99d);
+  background-color: var(--green-20);
   padding: 0 64px;
   overflow: hidden;
   box-sizing: border-box;
