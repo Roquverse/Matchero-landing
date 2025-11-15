@@ -266,135 +266,51 @@ const Signup = () => {
       formData.hearAbout === hearAboutOptions[0] ? null : formData.hearAbout;
     const questions = formData.questions.trim() || null;
 
-    // Prepare user metadata object
-    const userMetadata = {
-      first_name: firstName,
-      last_name: lastName,
-      company_name: companyName,
-      phone_number: phone,
-      country: country,
-      organisation_size: organisationSize,
-      hear_about: hearAbout,
-      questions: questions,
-      full_name: `${firstName} ${lastName}`,
-    };
-
-    // Prepare beta_signups data object
-    const betaSignupData = {
-      first_name: firstName,
-      last_name: lastName,
-      company_name: companyName,
-      email: email,
-      phone_number: phone,
-      country: country,
-      organisation_size: organisationSize,
-      hear_about: hearAbout,
-      questions: questions,
-    };
-
     try {
-      // Step 1: Check if user already exists
+      // Check if email already exists
       const { data: existingUser } = await supabase
         .from("beta_signups")
-        .select("email, user_id")
+        .select("email")
         .eq("email", email)
         .single();
 
       if (existingUser) {
-        if (existingUser.user_id) {
-          setSubmitError(
-            "This email is already registered. Please check your email for the confirmation link or try signing in."
-          );
-          setIsSubmitting(false);
-          return;
-        }
-        // If email exists in beta_signups but no user_id, we can still proceed
-      }
-
-      // Step 2: Generate a secure random password
-      const randomPassword =
-        Math.random().toString(36).slice(-12) +
-        Math.random().toString(36).slice(-12) +
-        "A1!";
-
-      // Step 3: Create user in Supabase Auth - this automatically sends confirmation email
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: email,
-        password: randomPassword,
-        options: {
-          data: userMetadata,
-          emailRedirectTo: `${window.location.origin}/signup?verified=true`,
-        },
-      });
-
-      if (authError) {
-        // Handle specific error cases
-        if (
-          authError.message.includes("already registered") ||
-          authError.message.includes("User already registered")
-        ) {
-          setSubmitError(
-            "This email is already registered. Please check your email for the confirmation link or try signing in."
-          );
-        } else if (authError.message.includes("Invalid email")) {
-          setSubmitError("Please enter a valid email address.");
-        } else {
-          setSubmitError(
-            `Unable to create account: ${authError.message}. Please try again.`
-          );
-        }
-        setIsSubmitting(false);
-        return;
-      }
-
-      // Step 4: Verify user was created
-      if (!authData.user) {
         setSubmitError(
-          "Account creation failed. Please try again or contact support."
+          "This email is already registered. Please check your email or try a different address."
         );
         setIsSubmitting(false);
         return;
       }
 
-      // Step 5: Store data in beta_signups table with user_id
-      const { error: dbError } = await supabase
-        .from("beta_signups")
-        .insert({
-          ...betaSignupData,
-          user_id: authData.user.id,
-        });
+      // Save to beta_signups table only
+      const { error: dbError } = await supabase.from("beta_signups").insert({
+        first_name: firstName,
+        last_name: lastName,
+        company_name: companyName,
+        email: email,
+        phone_number: phone,
+        country: country,
+        organisation_size: organisationSize,
+        hear_about: hearAbout,
+        questions: questions,
+      });
 
       if (dbError) {
-        // If user exists in beta_signups but not in auth, update it
+        // Handle duplicate email error
         if (dbError.code === "23505") {
-          // Unique constraint violation - update existing record
-          const { error: updateError } = await supabase
-            .from("beta_signups")
-            .update({
-              ...betaSignupData,
-              user_id: authData.user.id,
-            })
-            .eq("email", email);
-
-          if (updateError) {
-            console.error("Failed to update beta_signups:", updateError);
-            setSubmitError(
-              "Account created but failed to save additional information. Please contact support."
-            );
-            setIsSubmitting(false);
-            return;
-          }
-        } else {
-          console.error("Failed to insert into beta_signups:", dbError);
           setSubmitError(
-            "Account created but failed to save additional information. Please contact support."
+            "This email is already registered. Please check your email or try a different address."
           );
-          setIsSubmitting(false);
-          return;
+        } else {
+          setSubmitError(
+            `Failed to save your information: ${dbError.message}. Please try again.`
+          );
         }
+        setIsSubmitting(false);
+        return;
       }
 
-      // Step 6: Success - both operations completed
+      // Success
       setSubmitSuccess(true);
       setFormData({
         firstName: "",
