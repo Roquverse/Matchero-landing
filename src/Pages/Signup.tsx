@@ -255,38 +255,86 @@ const Signup = () => {
     setSubmitSuccess(false);
     setIsSubmitting(true);
 
-    const { error } = await supabase.from("beta_signups").insert({
-      first_name: formData.firstName.trim(),
-      last_name: formData.lastName.trim(),
-      company_name: formData.companyName.trim() || null,
-      email: formData.email.trim().toLowerCase(),
-      phone_number: formData.phone.trim() || null,
-      country: formData.country,
-      organisation_size: formData.organisationSize,
-      hear_about:
-        formData.hearAbout === hearAboutOptions[0] ? null : formData.hearAbout,
-      questions: formData.questions.trim() || null,
-    });
+    const email = formData.email.trim().toLowerCase();
+    const firstName = formData.firstName.trim();
+    const lastName = formData.lastName.trim();
 
-    if (error) {
-      setSubmitError(error.message);
+    try {
+      // Generate a random password for the user (they'll set their own password later)
+      const randomPassword = Math.random().toString(36).slice(-12) + Math.random().toString(36).slice(-12) + "A1!";
+
+      // Create user in Supabase Auth - this will automatically send confirmation email
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: email,
+        password: randomPassword,
+        options: {
+          data: {
+            first_name: firstName,
+            last_name: lastName,
+            company_name: formData.companyName.trim() || null,
+            phone_number: formData.phone.trim() || null,
+            country: formData.country,
+            organisation_size: formData.organisationSize,
+            hear_about: formData.hearAbout === hearAboutOptions[0] ? null : formData.hearAbout,
+            questions: formData.questions.trim() || null,
+            full_name: `${firstName} ${lastName}`,
+          },
+          emailRedirectTo: `${window.location.origin}/signup?verified=true`,
+        },
+      });
+
+      if (authError) {
+        // If user already exists, try to sign in or handle gracefully
+        if (authError.message.includes("already registered")) {
+          setSubmitError("This email is already registered. Please check your email for the confirmation link or try signing in.");
+        } else {
+          setSubmitError(authError.message);
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Store additional data in beta_signups table with user_id
+      if (authData.user) {
+        const { error: dbError } = await supabase.from("beta_signups").insert({
+          user_id: authData.user.id,
+          first_name: firstName,
+          last_name: lastName,
+          company_name: formData.companyName.trim() || null,
+          email: email,
+          phone_number: formData.phone.trim() || null,
+          country: formData.country,
+          organisation_size: formData.organisationSize,
+          hear_about:
+            formData.hearAbout === hearAboutOptions[0] ? null : formData.hearAbout,
+          questions: formData.questions.trim() || null,
+        });
+
+        // If database insert fails but auth succeeded, still show success
+        // (user is created and email is sent)
+        if (dbError) {
+          console.warn("Failed to insert into beta_signups:", dbError);
+          // Don't fail the whole process - auth was successful
+        }
+      }
+
+      setSubmitSuccess(true);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        country: countryOptions[0],
+        organisationSize: organisationSizeOptions[0],
+        hearAbout: hearAboutOptions[0],
+        questions: "",
+      });
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "An unexpected error occurred");
+    } finally {
       setIsSubmitting(false);
-      return;
     }
-
-    setSubmitSuccess(true);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      companyName: "",
-      email: "",
-      phone: "",
-      country: countryOptions[0],
-      organisationSize: organisationSizeOptions[0],
-      hearAbout: hearAboutOptions[0],
-      questions: "",
-    });
-    setIsSubmitting(false);
   };
 
   return (

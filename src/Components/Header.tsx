@@ -426,7 +426,11 @@ const Header = () => {
                     </svg>
                   </button>
 
-                  <Link to="/signup" className="flex-1">
+                  <Link 
+                    to="/signup" 
+                    className="flex-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     <Button
                       variant="filled"
                       color="green"
