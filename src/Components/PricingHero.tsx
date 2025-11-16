@@ -1,5 +1,4 @@
 import "../assets/Styles/pricing-hero.css";
-import PricingForm from "../Components/PricingForm";
 
 interface PricingHeroProps {
   backgroundColor?: string;
