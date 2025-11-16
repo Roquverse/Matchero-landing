@@ -27,57 +27,45 @@ const PricingHero = ({
   description,
   description2,
   className = "",
-  formButtonText,
-  formTitle,
-  initialEmail,
 }: PricingHeroProps) => {
   return (
-    <section className={`pricing-hero-section ${className}`}>
-      <div className="pricing-hero-container">
-        {/* Left Content Block */}
-        <div className="pricing-hero-content">
-          <div className="pricing-hero-frame">
-            <h1 dangerouslySetInnerHTML={{ __html: title }} />
+    <div className="pricing-hero-wrapper">
+      <section className={`pricing-hero-section ${className}`}>
+        <div className="pricing-hero-container">
+          {/* Left Content Block */}
+          <div className="pricing-hero-content">
+            <div className="pricing-hero-frame">
+              <h1 dangerouslySetInnerHTML={{ __html: title }} />
 
-            {description && (
-              <p
-                className="pricing-hero-description"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            )}
-            {description2 && (
-              <p
-                className="pricing-hero-description-2 font-18"
-                dangerouslySetInnerHTML={{ __html: description2 }}
-              />
-            )}
-          </div>
-          {/* Curved bottom transition */}
-          <svg
-            className="pricing-hero-curve"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1000 200"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,0 L0,120 C200,180 400,180 600,120 C700,100 800,100 1000,120 L1000,0 Z"
-              fill="var(--green-20, #d9f99d)"
-            />
-          </svg>
-        </div>
-
-        {/* Right Form Section */}
-        <div className="pricing-hero-form-wrapper">
-          <div className="pricing-form-container">
-            <PricingForm
-              buttonText={formButtonText}
-              formTitle={formTitle}
-              initialEmail={initialEmail}
-            />
+              {description && (
+                <p
+                  className="pricing-hero-description"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              )}
+              {description2 && (
+                <p
+                  className="pricing-hero-description-2 font-18"
+                  dangerouslySetInnerHTML={{ __html: description2 }}
+                />
+              )}
+            </div>
+            {/* Curved bottom transition */}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="bottom-vector-pricing"
+      >
+        <path
+          fill="#ffffff"
+          fill-opacity="1"
+          d="M1440,288L1360,256C1280,224,1120,160,960,122.7C800,85,640,75,480,58.7C320,43,160,21,80,10.7L0,0L0,320L80,320C160,320,320,320,480,320C640,320,800,320,960,320C1120,320,1280,320,1360,320L1440,320Z"
+        ></path>
+      </svg>
+    </div>
   );
 };
 

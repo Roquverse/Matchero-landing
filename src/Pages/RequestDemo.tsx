@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import PricingHero from "../Components/PricingHero";
 import "../assets/Styles/pricing.css";
+import PricingForm from "../Components/PricingForm";
 
 const RequestDemo = () => {
   const [searchParams] = useSearchParams();
@@ -26,6 +27,7 @@ const RequestDemo = () => {
   return (
     <div className="pricing-page-container">
       <PricingHero
+        backgroundColor="bg-green-20"
         title="Request a demo"
         description="See how Matchero can transform your hiring process. Get a personalized walkthrough tailored to your team's needs."
         description2="Our team will show you how Matchero can help you find better candidates, reduce time-to-hire, and make smarter hiring decisions. No commitment required - just a clear view of how our platform works."
@@ -39,6 +41,17 @@ const RequestDemo = () => {
         formTitle="Request a demo"
         initialEmail={initialEmail}
       />
+
+      {/* Right Form Section */}
+      <div className="pricing-hero-form-wrapper">
+        <div className="pricing-form-container">
+          <PricingForm
+            buttonText="Request a demo"
+            formTitle="Request a demo"
+            initialEmail=""
+          />
+        </div>
+      </div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ This guide explains how to set up the automatic email sending using Supabase Edg
 ## Overview
 
 When a user submits the request demo form:
+
 1. Data is saved to `request_demos` table
 2. Database webhook triggers automatically
 3. Edge Function is called with the new record data
@@ -37,6 +38,7 @@ supabase functions deploy send-demo-email
 Set environment variables in Supabase dashboard or via CLI:
 
 **Via Dashboard:**
+
 1. Go to **Project Settings** → **Edge Functions** → **send-demo-email**
 2. Add secrets:
    - `RESEND_API_KEY`
@@ -46,6 +48,7 @@ Set environment variables in Supabase dashboard or via CLI:
    - `SUPABASE_SERVICE_ROLE_KEY` (automatically available)
 
 **Via CLI:**
+
 ```bash
 supabase secrets set RESEND_API_KEY=re_xxxxxxxxxxxxx
 supabase secrets set RESEND_FROM_EMAIL=noreply@yourdomain.com
@@ -105,18 +108,20 @@ See `request-demo-trigger.sql` for SQL-based approach (requires pg_net extension
    - Check Resend dashboard for delivery status
    - Query `request_demos` table:
      ```sql
-     SELECT email_sent, email_sent_at, email_error 
-     FROM request_demos 
-     ORDER BY created_at DESC 
+     SELECT email_sent, email_sent_at, email_error
+     FROM request_demos
+     ORDER BY created_at DESC
      LIMIT 1;
      ```
 
 ## Function Details
 
 ### Location
+
 - `supabase/functions/send-demo-email/index.ts`
 
 ### What It Does
+
 1. Receives new record data from webhook
 2. Validates the data
 3. Sends email via Resend API
@@ -125,6 +130,7 @@ See `request-demo-trigger.sql` for SQL-based approach (requires pg_net extension
    - Error: Sets `email_error = error_message`
 
 ### Error Handling
+
 - If email fails to send, the error is logged in `email_error` field
 - The form submission still succeeds (non-blocking)
 - Errors are visible in Supabase function logs
@@ -134,9 +140,11 @@ See `request-demo-trigger.sql` for SQL-based approach (requires pg_net extension
 ### View Function Logs
 
 **Via Dashboard:**
+
 - **Edge Functions** → **send-demo-email** → **Logs**
 
 **Via CLI:**
+
 ```bash
 supabase functions logs send-demo-email --follow
 ```
@@ -144,9 +152,10 @@ supabase functions logs send-demo-email --follow
 ### Monitor Email Status
 
 Query database for email status:
+
 ```sql
 -- Check recent submissions
-SELECT 
+SELECT
   email,
   email_sent,
   email_sent_at,
@@ -157,7 +166,7 @@ ORDER BY created_at DESC
 LIMIT 10;
 
 -- Check failed emails
-SELECT 
+SELECT
   email,
   email_error,
   created_at
@@ -171,16 +180,19 @@ ORDER BY created_at DESC;
 ### Email Not Sending
 
 1. **Check Function Logs**
+
    ```bash
    supabase functions logs send-demo-email
    ```
 
 2. **Verify Secrets Are Set**
+
    ```bash
    supabase secrets list
    ```
 
 3. **Test Function Manually**
+
    ```bash
    curl -X POST https://[project-ref].supabase.co/functions/v1/send-demo-email \
      -H "Authorization: Bearer [anon-key]" \
@@ -196,6 +208,7 @@ ORDER BY created_at DESC;
    ```
 
 4. **Check Resend API Key**
+
    - Verify key is valid in Resend dashboard
    - Check key permissions include "Sending access"
 
@@ -227,4 +240,3 @@ ORDER BY created_at DESC;
 - [ ] Logging monitored
 - [ ] Resend domain verified
 - [ ] Rate limits considered (Resend has daily limits)
-
