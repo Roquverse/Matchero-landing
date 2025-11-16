@@ -26,7 +26,6 @@ const Footer = () => {
     isBlogPage ||
     isPricingPage ||
     isRequestDemoPage;
-  const logoSrc = shouldUseGreenFooter ? "/logo.svg" : "/blue-logo.svg";
   const footerBackground = shouldUseGreenFooter ? "bg-green-20" : "bg-white";
 
   const handleRequestDemo = () => {
@@ -47,11 +46,6 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Section - Logo and Email Form */}
           <div className="space-y-6">
-            {/* Logo */}
-            <div className="flex items-center">
-              <img src={logoSrc} alt="Matchero Logo" className="footer-logo" />
-            </div>
-
             {/* Email Form */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
@@ -112,17 +106,24 @@ const Footer = () => {
               <p className="text-sm text-gray-700 max-w-full">
                 By clicking "request demo", you agree to the use of your data in
                 accordance with Matchero's{" "}
-                <a
-                  href="#"
+                <Link
+                  to="/privacy-policy"
                   className="text-green-800 underline hover:text-deep-tek-100"
                 >
                   Privacy Notice
-                </a>
+                </Link>
                 , including for marketing purposes.
               </p>
+              <div className="flex items-center gap-4">
+                <img src="/Twitter.svg" alt="Matchero footer icon" />
+                <img src="/instagram.svg" alt="Matchero footer icon" />
+                <img src="/Linkedin.svg" alt="Matchero footer icon" />
+                <img src="/tiktok.svg" alt="Matchero footer icon" />
+              </div>
 
               {/* Video Link */}
               <div className="flex items-center text-gray-700 hover:text-deep-tek-100 cursor-pointer group">
+                <span className="font-medium text-base">Watch 1 min video</span>
                 <svg
                   className="w-5 h-5 mr-3 group-hover:text-deep-tek-100"
                   fill="currentColor"
@@ -130,7 +131,6 @@ const Footer = () => {
                 >
                   <path d="M8 5v14l11-7z" />
                 </svg>
-                <span className="font-medium text-base">Watch 1 min video</span>
               </div>
             </div>
           </div>
@@ -176,17 +176,18 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/recruiters/integrations"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Integrations
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
+                    aria-label="AI features coming soon"
                   >
                     AI
                   </a>
@@ -201,17 +202,18 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/candidate"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     How it works
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
                     href="#"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
+                    aria-label="Live jobs coming soon"
                   >
                     Live jobs
                   </a>
@@ -220,6 +222,7 @@ const Footer = () => {
                   <a
                     href="#"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
+                    aria-label="Interview guides coming soon"
                   >
                     Interview Guides
                   </a>
@@ -228,17 +231,18 @@ const Footer = () => {
                   <a
                     href="#"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
+                    aria-label="Upskill coming soon"
                   >
                     Upskill
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/signup"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Sign up
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -250,12 +254,12 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/recruiters"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Overview
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link
@@ -266,20 +270,20 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/request-demo"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Get in touch
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/blog"
                     className="text-gray-700 hover:text-deep-tek-100 transition-colors text-sm"
                   >
                     Blog
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

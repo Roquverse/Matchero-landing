@@ -17,16 +17,19 @@ const DecisionMaking = () => {
       title: "Centralised feedback",
       description:
         "Collect structured evaluations from every interviewer in one place.",
+      image: "/DecisonMaking_AIScoring@2x.png",
     },
     {
       title: "AI-Powered Scoring",
       description:
         "Automatically rank candidates by skills, experience, and culture fit.",
+      image: "/DecisonMaking_CentralisedFeedback@2x.png",
     },
     {
       title: "Collaborative Reviews",
       description:
         "Compare notes, discuss trade-offs, and agree on next steps—transparency.",
+      image: "/DecisonMaking_CollaborativeReviews@2x.png",
     },
   ];
 
@@ -179,10 +182,7 @@ const DecisionMaking = () => {
             {featureCards.map((card, index) => (
               <div key={index} className="decision-making-feature-card">
                 <div className="decision-making-feature-card-icon">
-                  <img
-                    src="/decision-making-feature-icon.png"
-                    alt={`${card.title} icon`}
-                  />
+                  <img src={card.image} alt={`${card.title}`} />
                 </div>
                 <div className="decision-making-feature-card-content">
                   <h3 className="decision-making-feature-title">
