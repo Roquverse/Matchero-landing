@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import "../assets/Styles/decision-hero.css";
+import { validateBusinessEmail } from "../lib/emailValidation";
 
 interface DecisionHeroProps {
   backgroundClass?: string;
@@ -51,6 +53,31 @@ const DecisionHero = ({
     items: [{ text: "Home", link: "/" }, { text: "Decision making" }],
   },
 }: DecisionHeroProps) => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string | null>(null);
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setEmailError(null);
+  };
+
+  const handleRequestDemo = () => {
+    // If a custom onClick handler is provided, use it
+    if (onButtonClick) {
+      onButtonClick();
+      return;
+    }
+
+    const validation = validateBusinessEmail(email);
+    if (!validation.isValid) {
+      setEmailError(validation.error || "Invalid email");
+      return;
+    }
+
+    navigate(`/request-demo?email=${encodeURIComponent(email.trim())}`);
+  };
+
   return (
     <section
       className={`decision-hero-section ${backgroundClass} ${className}`.trim()}
@@ -89,18 +116,31 @@ const DecisionHero = ({
 
             <div className="decision-hero-cta">
               {!hideInput && (
-                <Input
-                  type="email"
-                  size="lg"
-                  placeholder={emailPlaceholder}
-                  className="decision-hero-input"
-                />
+                <div className="decision-hero-input-wrapper">
+                  <Input
+                    type="email"
+                    size="lg"
+                    placeholder={emailPlaceholder}
+                    className="decision-hero-input"
+                    value={email}
+                    onChange={handleEmailChange}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        handleRequestDemo();
+                      }
+                    }}
+                  />
+                  {emailError && (
+                    <p className="decision-hero-email-error">{emailError}</p>
+                  )}
+                </div>
               )}
               <Button
                 variant="filled"
                 color="green"
                 size="lg"
-                onClick={onButtonClick}
+                onClick={handleRequestDemo}
                 className="decision-hero-button"
                 icon={
                   <svg

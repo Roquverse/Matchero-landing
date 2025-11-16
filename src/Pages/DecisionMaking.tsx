@@ -2,10 +2,13 @@ import DecisionHero from "../Components/DecisionHero";
 import Button from "../Components/Button";
 import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/decision-making.css";
+import { useNavigate } from "react-router-dom";
 
 const DecisionMaking = () => {
+  const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    console.log("Request demo clicked");
+    navigate("/request-demo");
   };
 
   const handleVideoClick = () => {

@@ -5,7 +5,7 @@ import OnboardingSection from "../Components/OnboardingSection";
 import CandidateMap from "../Components/CandidateMap";
 import JobCard from "../Components/JobCard";
 import "../assets/Styles/candidate.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CandidateJobHighlights = () => {
   const featuredJobs = [
@@ -99,12 +99,19 @@ const CandidateJobHighlights = () => {
 };
 
 const Candidate = () => {
+  const navigate = useNavigate();
+
+  const handleHeroButtonClick = () => {
+    navigate("/candidate/signup");
+  };
+
   return (
     <div>
       <PageHero
         breadcrumb={{
           items: [{ text: "Home", link: "/" }, { text: "For jobseekers" }],
         }}
+        onButtonClick={handleHeroButtonClick}
       />
 
       <InterviewDashboard />

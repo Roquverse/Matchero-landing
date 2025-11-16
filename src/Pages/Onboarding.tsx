@@ -3,10 +3,17 @@ import Button from "../Components/Button";
 import SourcingAccordion from "../Components/SourcingAccordion";
 import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/onboarding.css";
+import { useNavigate } from "react-router-dom";
 
 const Onboarding = () => {
+  const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    console.log("Request demo clicked");
+    navigate("/request-demo");
+  };
+
+  const handleBetaAccessRequestClick = () => {
+    navigate("/signup");
   };
 
   const handleSecondaryButtonClick = () => {
@@ -211,7 +218,7 @@ const Onboarding = () => {
                 variant="filled"
                 color="green"
                 size="lg"
-                onClick={handleButtonClick}
+                onClick={handleBetaAccessRequestClick}
                 className="onboarding-connected-button"
                 icon={
                   <svg

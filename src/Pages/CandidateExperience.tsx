@@ -3,14 +3,20 @@ import Button from "../Components/Button";
 import SourcingAccordion from "../Components/SourcingAccordion";
 import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/candidate-experience.css";
+import { useNavigate } from "react-router-dom";
 
 const CandidateExperience = () => {
+  const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    console.log("Request demo clicked");
+    navigate("/request-demo");
   };
 
   const handleSecondaryButtonClick = () => {
     console.log("How it works clicked");
+  };
+  const handleBetaAccessRequestClick = () => {
+    navigate("/signup");
   };
 
   const accordionItems = [
@@ -210,7 +216,7 @@ const CandidateExperience = () => {
             variant="filled"
             color="green"
             size="lg"
-            onClick={handleButtonClick}
+            onClick={handleBetaAccessRequestClick}
             className="candidate-experience-insights-button"
             icon={
               <svg

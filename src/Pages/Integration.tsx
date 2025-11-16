@@ -2,18 +2,21 @@ import RecruiterHero from "../Components/RecruiterHero";
 import Button from "../Components/Button";
 import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/integration.css";
+import { useNavigate } from "react-router-dom";
 
 const Integration = () => {
+  const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    console.log("Request demo clicked");
+    navigate("/request-demo");
   };
 
   const handleViewIntegrationsClick = () => {
-    console.log("View all integrations clicked");
+    navigate("/recruiters/integrations");
   };
 
   const handleBetaClick = () => {
-    console.log("Join beta clicked");
+    navigate("/signup");
   };
 
   const integrationCards = [
@@ -281,5 +284,3 @@ const Integration = () => {
 };
 
 export default Integration;
-
-

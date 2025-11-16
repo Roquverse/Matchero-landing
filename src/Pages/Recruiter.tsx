@@ -7,7 +7,7 @@ const Recruiter = () => {
   const navigate = useNavigate();
 
   const handleRequestDemo = () => {
-    console.log("Request demo clicked");
+    navigate("/request-demo");
   };
 
   const handleExplorePlatform = () => {

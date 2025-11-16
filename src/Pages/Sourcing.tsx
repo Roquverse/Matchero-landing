@@ -3,10 +3,16 @@ import Button from "../Components/Button";
 import SourcingAccordion from "../Components/SourcingAccordion";
 import IntegrationLogos from "../Components/IntegrationLogos";
 import "../assets/Styles/sourcing.css";
+import { useNavigate } from "react-router-dom";
 
 const Sourcing = () => {
+  const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    console.log("Request demo clicked");
+    navigate("/request-demo");
+  };
+  const handleBetaAccessRequestClick = () => {
+    navigate("/signup");
   };
 
   const handleVideoClick = () => {
@@ -245,7 +251,7 @@ const Sourcing = () => {
               variant="filled"
               color="green"
               size="md"
-              onClick={handleButtonClick}
+              onClick={handleBetaAccessRequestClick}
             >
               Join the beta for early access
             </Button>
