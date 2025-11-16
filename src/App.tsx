@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Candidate from "./Pages/Candidate";
 import CandidateSignup from "./Pages/CandidateSignup";
 import Pricing from "./Pages/Pricing";
+import RequestDemo from "./Pages/RequestDemo";
 import Application from "./Pages/Application";
 import Signup from "./Pages/Signup";
 import JobDetail from "./Pages/JobDetail";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/candidate" element={<Candidate />} />
         <Route path="/candidate/signup" element={<CandidateSignup />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/request-demo" element={<RequestDemo />} />
         <Route path="/application" element={<Application />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/job/:jobId" element={<JobDetail />} />

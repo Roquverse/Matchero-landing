@@ -48,8 +48,18 @@ const Header = () => {
   const legalPaths = ["/privacy-policy", "/terms-of-use"];
   const isLegalPage = legalPaths.includes(location.pathname);
   const isSignupPage = location.pathname === "/signup";
+  const isBlogPage =
+    location.pathname === "/blog" || location.pathname.startsWith("/blog/");
+  const isPricingPage = location.pathname === "/pricing";
+  const isRequestDemoPage = location.pathname === "/request-demo";
   const shouldUseGreenLogo =
-    isHomePage || isRecruiterPage || isLegalPage || isSignupPage;
+    isHomePage ||
+    isRecruiterPage ||
+    isLegalPage ||
+    isSignupPage ||
+    isBlogPage ||
+    isPricingPage ||
+    isRequestDemoPage;
   const logoSrc = shouldUseGreenLogo ? "/logo.svg" : "/blue-logo.svg";
 
   const navigationItems = [

@@ -1,29 +1,59 @@
+.pricing-hero-wrapper {
+  position: relative;
+  background-color: var(--green-20);
+  height: 90vh;
+}
 .pricing-hero-section {
-  display: flex;
-  padding: 0 64px;
-  align-items: center;
-  gap: 32px;
-  justify-content: center;
-  padding-top: 100px;
-  padding-bottom: 100px;
   width: 100%;
   box-sizing: border-box;
-  height: 95vh;
+  /* min-height: 20vh; */
 }
+.pricing-curve {
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+}
+.pricing-hero-container {
+  display: flex;
+  width: 100%;
+  /* min-height: 100vh; */
+  align-items: stretch;
+  position: relative;
+}
+
 .pricing-hero-content {
   display: flex;
-  width: 45%;
-  align-items: center;
-  gap: 32px;
+  flex: 0 0 50%;
+  align-items: flex-start;
+  padding: 100px 64px 140px;
+  position: relative;
+  /* background-color: var(--green-20, #d9f99d); */
 }
+
+.pricing-hero-curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* height: 140px; */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pricing-hero-curve path {
+  fill: var(--green-20, #d9f99d);
+}
+
 .pricing-hero-frame {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  flex: 1 0 0;
-  width: 461px;
-  margin-top: -30vh;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 40px;
 }
 .pricing-hero-frame h1 {
   color: var(--Type-Primary, #020617);
@@ -47,6 +77,20 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.48px;
+}
+.font-18 {
+  font-size: 18px;
+}
+.pricing-hero-description-2 {
+  color: var(--Type-Secondary, #475569);
+
+  /* Text Lg/Regular */
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.36px;
 }
 .pricing-hero-heading {
   font-size: 48px;
@@ -80,8 +124,12 @@
   width: 100%;
   max-width: 100%;
 }
+
 .bottom-vector-pricing {
-  margin-top: -35vh;
+  /* margin-top: -35vh; */
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
 }
 
 /* Mobile padding for main pricing hero section */
@@ -92,210 +140,100 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .pricing-hero-section {
-    padding: 0 16px;
-    height: 40vh;
+  .pricing-hero-container {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
-  .pricing-hero-frame {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-    margin-top: -10vh;
-  }
-  .pricing-hero-frame h1 {
-    color: var(--Type-Primary, #020617);
-    font-family: "Source Serif 4";
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 52.8px; /* 110% */
-    letter-spacing: -0.96px;
-  }
-  .pricing-hero-description {
-    color: var(--Type-Secondary, #475569);
-    font-family: "DM Sans";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.48px;
-  }
-  .privacy-notice {
-    color: var(--Type-Primary, #020617);
-    font-family: "DM Sans";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px; /* 142.857% */
-    letter-spacing: -0.28px;
-    width: 100%;
-  }
-  .pricing-hero-frame input {
-    width: 45vh;
-  }
-  .pricing-hero-image-container {
-    width: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .pricing-hero-image {
-    object-fit: cover;
-    object-position: center;
-    margin-top: 0px;
-  }
+
   .pricing-hero-content {
-    display: flex;
+    flex: 1 1 auto;
     width: 100%;
-    align-items: center;
-    gap: 32px;
+    padding: 64px 32px 100px;
   }
-  .bottom-vector-pricing {
-    margin-top: -15vh;
+
+  .pricing-hero-curve {
+    height: 100px;
+  }
+
+  .pricing-hero-frame {
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
+  .pricing-hero-form-wrapper {
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 48px 32px;
+  }
+  .pricing-hero-wrapper {
+    height: 45vh;
   }
 }
 @media screen and (max-width: 768px) {
+  /* .pricing-hero-section {
+    padding: 0 16px;
+  } */
+
   .pricing-hero-content {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 32px;
+    padding: 48px 16px;
   }
+
   .pricing-hero-frame h1 {
-    color: var(--Type-Primary, #020617);
-    font-family: "Source Serif 4";
     font-size: 36px;
-    font-weight: 600;
-    line-height: 36px; /* 110% */
-    letter-spacing: -0.96px;
+    line-height: 40px;
   }
+
   .pricing-hero-description {
-    color: var(--Type-Secondary, #475569);
-    font-family: "DM Sans";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.48px;
+    font-size: 18px;
   }
-  .pricing-hero-frame input {
-    width: 90vw;
+
+  .pricing-hero-description-2 {
+    font-size: 16px;
   }
-  .pricing-hero-frame {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-    margin-top: 5vh;
-  }
-  .pricing-hero-section {
-    height: 150vh;
+
+  .pricing-hero-wrapper {
+    height: 50vh;
   }
 }
 @media screen and (max-width: 480px) {
-  .pricing-hero-section {
-    height: 50vh;
-  }
-  .pricing-hero-frame {
-    width: 100%;
-  }
   .pricing-hero-content {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 32px;
-    margin-top: -5vh;
+    padding: 32px 16px;
   }
+
   .pricing-hero-frame h1 {
-    color: var(--Type-Primary, #020617);
-    font-family: "Source Serif 4";
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 36px; /* 110% */
-    letter-spacing: -0.96px;
+    font-size: 32px;
+    line-height: 36px;
   }
+
   .pricing-hero-description {
-    color: var(--Type-Secondary, #475569);
-    font-family: "DM Sans";
+    font-size: 16px;
+  }
+
+  .pricing-hero-description-2 {
     font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.48px;
-    width: 90%;
   }
-  .pricing-hero-frame input {
-    width: 90vw;
+
+  .pricing-hero-form-wrapper {
+    padding: 24px 16px;
   }
-  .pricing-hero-frame {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-    margin-top: -100px;
-  }
-  .bottom-vector-pricing {
-    margin-top: -10vh;
+  .pricing-hero-wrapper {
+    height: 50vh;
   }
 }
 @media screen and (max-width: 375px) {
-  .pricing-hero-section {
-    height: 140vh;
-  }
   .pricing-hero-content {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 32px;
-    padding: 0 16px;
+    padding: 24px 16px;
   }
+
   .pricing-hero-frame h1 {
-    color: var(--Type-Primary, #020617);
-    font-family: "Source Serif 4";
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 26px; /* 110% */
-    letter-spacing: -0.96px;
+    font-size: 28px;
+    line-height: 32px;
   }
+
   .pricing-hero-description {
-    font-size: 16px;
-    line-height: 24px; /* 110% */
-    letter-spacing: -0.32px;
+    font-size: 15px;
   }
-  .pricing-hero-frame {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-    width: 90vw;
-    margin-top: 50px;
-  }
-  .pricing-hero-frame input {
-    width: 80vw;
-  }
-  .privacy-notice {
-    font-size: 10px;
-    line-height: 14px; /* 110% */
-    letter-spacing: -0.2px;
-  }
-  .pricing-hero-image-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .pricing-hero-image {
-    object-fit: cover;
-    object-position: center;
-    margin-top: 0px;
+
+  .pricing-hero-form-wrapper {
+    padding: 24px 16px;
   }
 }

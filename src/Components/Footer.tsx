@@ -1,18 +1,45 @@
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import "../assets/Styles/footer.css";
+import { validateBusinessEmail } from "../lib/emailValidation";
 
 const Footer = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string | null>(null);
   const isHomePage = location.pathname === "/";
   const isRecruiterPage = location.pathname.startsWith("/recruiters/");
   const isSignupPage = location.pathname === "/signup";
   const legalPaths = ["/privacy-policy", "/terms-of-use"];
   const isLegalPage = legalPaths.includes(location.pathname);
+  const isBlogPage =
+    location.pathname === "/blog" || location.pathname.startsWith("/blog/");
+  const isPricingPage = location.pathname === "/pricing";
+  const isRequestDemoPage = location.pathname === "/request-demo";
   const shouldUseGreenFooter =
-    isHomePage || isRecruiterPage || isLegalPage || isSignupPage;
+    isHomePage ||
+    isRecruiterPage ||
+    isLegalPage ||
+    isSignupPage ||
+    isBlogPage ||
+    isPricingPage ||
+    isRequestDemoPage;
   const logoSrc = shouldUseGreenFooter ? "/logo.svg" : "/blue-logo.svg";
   const footerBackground = shouldUseGreenFooter ? "bg-green-20" : "bg-white";
+
+  const handleRequestDemo = () => {
+    // Validate email
+    const validation = validateBusinessEmail(email);
+    if (!validation.isValid) {
+      setEmailError(validation.error || "Invalid email");
+      return;
+    }
+
+    // Navigate to request demo page with email as query parameter
+    navigate(`/request-demo?email=${encodeURIComponent(email.trim())}`);
+  };
 
   return (
     <footer className={`py-16 footer ${footerBackground}`}>
@@ -28,36 +55,57 @@ const Footer = () => {
             {/* Email Form */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 px-4 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base bg-white h-11 w-full"
-                />
-                <Link to="/pricing" className="inline-block">
-                  <Button
-                    variant="filled"
-                    color="green"
-                    size="md"
-                    icon={
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    }
-                    className="whitespace-nowrap"
-                  >
-                    Request demo
-                  </Button>
-                </Link>
+                <div className="flex-1 flex flex-col">
+                  <input
+                    type="email"
+                    placeholder="Enter your business email address"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError(null);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        handleRequestDemo();
+                      }
+                    }}
+                    className={`flex-1 px-4 py-2.5 rounded-lg border ${
+                      emailError
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-300 focus:ring-green-500"
+                    } focus:outline-none focus:ring-2 focus:border-transparent text-base bg-white h-11 w-full`}
+                  />
+                  {emailError && (
+                    <p className="footer-email-error text-red-500 text-sm mt-1">
+                      {emailError}
+                    </p>
+                  )}
+                </div>
+                <Button
+                  variant="filled"
+                  color="green"
+                  size="md"
+                  onClick={() => handleRequestDemo()}
+                  icon={
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  }
+                  className="whitespace-nowrap"
+                >
+                  Request demo
+                </Button>
               </div>
 
               {/* Privacy Notice */}

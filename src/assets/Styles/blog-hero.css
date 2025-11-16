@@ -1,21 +1,28 @@
 /* Blog Hero Base Styles */
 .blog-hero-container {
   position: relative;
-  height: 30vh;
+  height: 100%;
   background-color: var(--green-20);
+  padding: 0 64px;
 }
 
 .blog-hero-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  gap: 40px;
   margin-top: -15vh;
-  gap: 12px;
-  flex: 1 0 0;
 }
 
-.blog-hero-content h1 {
+.blog-hero-content-title-container {
+  display: flex;
+  width: 592px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+}
+.blog-hero-content-title {
   color: var(--Type-Primary, #020617);
 
   /* Text Display Serif 2 */
@@ -301,14 +308,19 @@
 @media screen and (max-width: 480px) {
   .blog-hero-container {
     height: 20vh;
-    padding-top: 30px;
+    padding-top: 5vh;
     position: relative;
+    width: 100%;
+    padding: 32px 16px;
   }
   .blog-hero-content {
     margin-top: 0;
   }
   .blog-hero-breadcrumb {
     margin-top: 0;
+  }
+  .blog-hero-content-title-container {
+    width: 100%;
   }
 }
 

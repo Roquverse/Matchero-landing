@@ -1,7 +1,10 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import Input from "./Input";
 import "../assets/Styles/hero.css";
+import { validateBusinessEmail } from "../lib/emailValidation";
 
 interface HeroProps {
   title?: string;
@@ -26,7 +29,7 @@ const Hero = ({
   description = "Matchero helps businesses hire faster and fairer with an all-in-one ATS, AI video interviews, and seamless onboarding.",
   image = "/HomeHero.png",
   imageAlt = "Home hero image",
-  emailPlaceholder = "Enter your email address",
+  emailPlaceholder = "Enter your business email address",
   buttonText = "Request demo",
   secondaryButtonText,
   privacyText = `By clicking "request demo", you agree to the use of your data in accordance with Matchero's`,
@@ -38,6 +41,34 @@ const Hero = ({
   onSecondaryButtonClick,
   onVideoClick,
 }: HeroProps) => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string | null>(null);
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    setEmailError(null); // Clear error on change
+  };
+
+  const handleRequestDemo = () => {
+    // If custom onClick handler is provided, use it
+    if (onButtonClick) {
+      onButtonClick();
+      return;
+    }
+
+    // Validate email
+    const validation = validateBusinessEmail(email);
+    if (!validation.isValid) {
+      setEmailError(validation.error || "Invalid email");
+      return;
+    }
+
+    // Navigate to request demo page with email as query parameter
+    navigate(`/request-demo?email=${encodeURIComponent(email.trim())}`);
+  };
+
   return (
     <div className="hero-page">
       <section className="hero-section">
@@ -61,18 +92,31 @@ const Hero = ({
               {/* Email Input Group */}
               <div className="hero-cta">
                 {!hideInput && (
-                  <Input
-                    type="email"
-                    placeholder={emailPlaceholder}
-                    size="lg"
-                    className="hero-input"
-                  />
+                  <div className="hero-input-wrapper">
+                    <Input
+                      type="email"
+                      placeholder={emailPlaceholder}
+                      size="lg"
+                      className="hero-input"
+                      value={email}
+                      onChange={handleEmailChange}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          handleRequestDemo();
+                        }
+                      }}
+                    />
+                    {emailError && (
+                      <p className="hero-email-error">{emailError}</p>
+                    )}
+                  </div>
                 )}
                 <Button
                   variant="filled"
                   color="green"
                   size="lg"
-                  onClick={onButtonClick}
+                  onClick={handleRequestDemo}
                   icon={
                     <svg
                       className="w-4 h-4"

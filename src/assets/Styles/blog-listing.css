@@ -6,7 +6,7 @@
 }
 
 .blog-listing-container {
-  max-width: 1400px;
+  /* max-width: 1400px; */
   margin: 0 auto;
   padding: 0 64px;
   box-sizing: border-box;
@@ -23,53 +23,63 @@
 .blog-category-btn {
   background: transparent;
   border: none;
-  color: var(--Type-Secondary, #475569);
-  font-family: "DM Sans";
+  border-bottom: none;
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
   padding: 8px 16px;
-  border-radius: 8px;
+  padding-bottom: 8px;
+  border-radius: 0;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
+  position: relative;
 }
 
 .blog-category-btn:hover {
-  color: var(--deep-tek-100);
+  color: var(--Type-Primary, #020617);
 }
 
 .blog-category-btn.active {
-  background-color: var(--green-20, #d9f99d);
-  color: var(--green-100, #3a6202);
-  font-weight: 600;
+  color: var(--Type-Primary, #020617);
+  font-weight: 400;
+  background: transparent;
+}
+
+.blog-category-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background-color: var(--Type-Primary, #020617);
+  border-radius: 0;
 }
 
 .blog-category-count {
-  color: var(--Deep-tek-80, #4b61a1);
-
-  /* Text base/Semi Bold */
-  font-family: "DM Sans";
-  font-size: 16px;
+  color: var(--Type-Primary, #020617);
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 150% */
-  letter-spacing: -0.32px;
-  background-color: white;
-  padding: 10px;
-  width: 30px;
-  height: 30px;
-  display: flex;
+  line-height: 1;
+  letter-spacing: -0.28px;
+  background-color: #ffffff;
+  padding: 4px 8px;
+  min-width: 32px;
+  height: 24px;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-}
-
-.blog-category-btn.active {
-  border-bottom: 2px solid var(--green-100, #3a6202);
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
 }
 
 /* Blog Cards Grid */

@@ -380,14 +380,20 @@ const Signup = () => {
         } else {
           console.error("Failed to insert into beta_signups:", dbError);
           // Check if user_id column exists - if not, insert without it
-          if (dbError.message.includes("column") && dbError.message.includes("user_id")) {
+          if (
+            dbError.message.includes("column") &&
+            dbError.message.includes("user_id")
+          ) {
             // Try inserting without user_id if column doesn't exist
             const { error: retryError } = await supabase
               .from("beta_signups")
               .insert(betaSignupData);
 
             if (retryError) {
-              console.error("Failed to insert into beta_signups (without user_id):", retryError);
+              console.error(
+                "Failed to insert into beta_signups (without user_id):",
+                retryError
+              );
               // Still show success - user was created and email sent
             }
           } else {
@@ -694,4 +700,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
